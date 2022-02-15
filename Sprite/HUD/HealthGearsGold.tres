@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=2]
+
+[ext_resource path="res://Sprite/HUD/HealthGearsGold1.png" type="Texture" id=1]
+[ext_resource path="res://Sprite/HUD/HealthGearsGold2.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/HUD/HealthGearsGold3.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/HUD/HealthGearsGold4.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/HUD/HealthGearsRust2.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/HUD/HealthGearsRust3.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/HUD/HealthGearsRust1.png" type="Texture" id=7]
+[ext_resource path="res://Sprite/HUD/HealthGearsRust4.png" type="Texture" id=8]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "rust",
+"speed": 5.0
+} ]

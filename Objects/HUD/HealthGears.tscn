@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Objects/HUD/HealthUI.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/HUD/HealthGearsGold.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Sprite/HUD/GearShine.png" type="Texture" id=3]
+[ext_resource path="res://Objects/HUD/UnderGears.gd" type="Script" id=4]
+[ext_resource path="res://Sprite/HUD/clock.png" type="Texture" id=5]
+[ext_resource path="res://Objects/HUD/HealthGears.gd" type="Script" id=6]
+[ext_resource path="res://Sprite/HUD/outline.shader" type="Shader" id=7]
+[ext_resource path="res://Sprite/HUD/clockglass1.png" type="Texture" id=8]
+[ext_resource path="res://Objects/HUD/HUD.gd" type="Script" id=9]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 7 )
+shader_param/draw_outline = true
+shader_param/outline_color = Color( 1, 1, 1, 1 )
+
+[node name="HUD" type="ViewportContainer"]
+material = SubResource( 1 )
+margin_right = 100.0
+margin_bottom = 28.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 100, 28 )
+transparent_bg = true
+handle_input_locally = false
+hdr = false
+usage = 1
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="HealthBar" type="Node2D" parent="Viewport"]
+position = Vector2( 0, 2 )
+z_index = 1000
+script = ExtResource( 6 )
+
+[node name="OverGears" type="Node2D" parent="Viewport/HealthBar"]
+light_mask = 524288
+position = Vector2( 16, 0 )
+script = ExtResource( 1 )
+current_health = 12
+shine_interval = 2.5
+shine_speed = 150.0
+
+[node name="UnderGears" type="Node2D" parent="Viewport/HealthBar/OverGears"]
+show_behind_parent = true
+light_mask = 262144
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport/HealthBar/OverGears/UnderGears"]
+visible = false
+light_mask = 524288
+position = Vector2( 8, 20 )
+frames = ExtResource( 2 )
+frame = 3
+playing = true
+
+[node name="Light2D" type="Light2D" parent="Viewport/HealthBar/OverGears"]
+texture = ExtResource( 3 )
+offset = Vector2( -20.5, 12 )
+range_item_cull_mask = 524288
+
+[node name="Line2D" type="Line2D" parent="Viewport/HealthBar/OverGears"]
+visible = false
+points = PoolVector2Array( -36, 36, 4, -4 )
+width = 4.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="Viewport/HealthBar"]
+light_mask = 524288
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Line2D" type="Line2D" parent="Viewport/HealthBar"]
+light_mask = 524288
+position = Vector2( 1, 0 )
+points = PoolVector2Array( 11, 14, 11, 7 )
+width = 1.5
+default_color = Color( 0.105882, 0.105882, 0.105882, 1 )
+
+[node name="Sprite2" type="Sprite" parent="Viewport/HealthBar"]
+light_mask = 524288
+position = Vector2( 1, 0 )
+texture = ExtResource( 8 )
+centered = false
+offset = Vector2( -1, 0 )
+[connection signal="frame_changed" from="Viewport/HealthBar/OverGears/UnderGears/AnimatedSprite" to="Viewport/HealthBar" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="frame_changed" from="Viewport/HealthBar/OverGears/UnderGears/AnimatedSprite" to="Viewport/HealthBar/OverGears/UnderGears" method="_on_AnimatedSprite_frame_changed"]
+[connection signal="frame_changed" from="Viewport/HealthBar/OverGears/UnderGears/AnimatedSprite" to="Viewport/HealthBar/OverGears" method="_on_AnimatedSprite_frame_changed"]

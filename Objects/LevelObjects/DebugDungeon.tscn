@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Watson.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/LevelObjects/UpDoor.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Watson" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72.2023, 123.316 )
+
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 141.953, 73.3153 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 102.022, 34.8874 )

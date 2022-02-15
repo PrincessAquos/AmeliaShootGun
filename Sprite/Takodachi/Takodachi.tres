@@ -1,0 +1,101 @@
+[gd_resource type="SpriteFrames" load_steps=37 format=2]
+
+[ext_resource path="res://Sprite/Takodachi/TakodachiDown3.png" type="Texture" id=1]
+[ext_resource path="res://Sprite/Takodachi/TakodachiDown1.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/Takodachi/TakodachiDown2.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/Takodachi/TakodachiRight3.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/Takodachi/TakodachiRight2.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/Takodachi/TakodachiRight1.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/Takodachi/TakodachiUp1.png" type="Texture" id=7]
+[ext_resource path="res://Sprite/Takodachi/TakodachiUp2.png" type="Texture" id=8]
+[ext_resource path="res://Sprite/Takodachi/TakodachiLeft1.png" type="Texture" id=9]
+[ext_resource path="res://Sprite/Takodachi/TakodachiLeft2.png" type="Texture" id=10]
+[ext_resource path="res://Sprite/Takodachi/TakodachiLeft3.png" type="Texture" id=11]
+[ext_resource path="res://Sprite/Takodachi/TakodachiUp3.png" type="Texture" id=12]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossLeft3.png" type="Texture" id=13]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossDown1.png" type="Texture" id=14]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossDown4.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossLeft1.png" type="Texture" id=16]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossRight3.png" type="Texture" id=17]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossLeft2.png" type="Texture" id=18]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossUp6.png" type="Texture" id=19]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossRight1.png" type="Texture" id=20]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossLeft6.png" type="Texture" id=21]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossDown6.png" type="Texture" id=22]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossDown3.png" type="Texture" id=23]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossDown2.png" type="Texture" id=24]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossRight2.png" type="Texture" id=25]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossRight4.png" type="Texture" id=26]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossRight5.png" type="Texture" id=27]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossUp2.png" type="Texture" id=28]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossRight6.png" type="Texture" id=29]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossUp5.png" type="Texture" id=30]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossUp3.png" type="Texture" id=31]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossDown5.png" type="Texture" id=32]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossUp1.png" type="Texture" id=33]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossUp4.png" type="Texture" id=34]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossLeft5.png" type="Texture" id=35]
+[ext_resource path="res://Sprite/Takodachi/TakodachiTossLeft4.png" type="Texture" id=36]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "TossLeft",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 28 ), ExtResource( 31 ), ExtResource( 31 ), ExtResource( 31 ), ExtResource( 34 ), ExtResource( 30 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "TossUp",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 15 ), ExtResource( 32 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "TossDown",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "LookLeft",
+"speed": 6.67
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "RunRight",
+"speed": 6.67
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "RunUp",
+"speed": 6.67
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "RunDown",
+"speed": 6.67
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "RunLeft",
+"speed": 6.67
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "LookUp",
+"speed": 6.67
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "LookRight",
+"speed": 6.67
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 25 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 17 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 29 ) ],
+"loop": false,
+"name": "TossRight",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "LookDown",
+"speed": 6.67
+} ]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ConcavePolygonShape2D" id=1]
+segments = PoolVector2Array( 0, 0, 0, 208, 0, 208, 256, 208, 256, 208, 256, 0, 256, 0, 0, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D"]
+shape = SubResource( 1 )
