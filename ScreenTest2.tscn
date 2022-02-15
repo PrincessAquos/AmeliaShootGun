@@ -57,4 +57,3 @@ margin_left = -120.0
 margin_top = 8.0
 margin_right = 136.0
 margin_bottom = 224.0
-[connection signal="resized" from="." to="." method="_on_Screen_resized"]

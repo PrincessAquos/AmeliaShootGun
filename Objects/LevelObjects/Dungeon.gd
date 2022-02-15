@@ -2,11 +2,9 @@ extends Node2D
 
 export var start_room_path:NodePath
 export var start_room_coord:Vector2
-export var room_layout_path:NodePath
 
 var current_room_lock:Vector2
 var current_room:Room
-var room_layout:TileMap
 
 var current_camera_min:Vector2
 var current_camera_max:Vector2
@@ -18,7 +16,6 @@ var moving = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	room_layout = get_node(room_layout_path)
 	current_room_lock = start_room_coord
 	current_room = get_node(start_room_path)
 	current_room.active = true
@@ -31,19 +28,10 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("debug_room_down"):
-		move_rooms(Vector2.DOWN)
 		pass
 	
 	if event.is_action_pressed("debug_room_up"):
-		move_rooms(Vector2.UP)
 		pass
-	pass
-
-
-func move_rooms(move_to):
-	current_room_lock += move_to
-	position = -current_room_lock * room_layout.cell_size
-	print(room_layout.get_cellv(current_room_lock))
 	pass
 
 

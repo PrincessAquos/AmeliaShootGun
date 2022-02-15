@@ -15,7 +15,7 @@ var viewport:Viewport
 func _ready():
 	level_view = get_node("LevelView")
 	viewport = get_node("LevelView/Viewport")
-	world = get_node("LevelView/Viewport/World")
+	world = get_node("LevelView/Viewport/nudge/Dungeon")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

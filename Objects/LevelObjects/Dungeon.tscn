@@ -29,9 +29,11 @@ active = true
 
 [node name="Room" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, -224 )
+active = false
 
 [node name="Room2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 224 )
+active = false
 
 [node name="Room3" type="StaticBody2D" parent="." groups=[
 "room",
@@ -40,6 +42,7 @@ position = Vector2( 272, -224 )
 collision_layer = 524288
 collision_mask = 524288
 script = ExtResource( 2 )
+active = false
 size = Vector2( 512, 432 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room3"]
