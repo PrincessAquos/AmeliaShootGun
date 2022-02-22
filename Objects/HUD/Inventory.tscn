@@ -1,8 +1,210 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://Sprite/HUD/BriefcaseMenu.png" type="Texture" id=1]
+[ext_resource path="res://Objects/HUD/Inventory.gd" type="Script" id=2]
+[ext_resource path="res://Data/Items/ItemList.tres" type="Resource" id=3]
+[ext_resource path="res://Sprite/HUD/YagooCoin.png" type="Texture" id=4]
+[ext_resource path="res://Objects/HUD/InventorySlot.tscn" type="PackedScene" id=8]
+
+[node name="Inventory" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+item_index = ExtResource( 3 )
+key_item_path = NodePath("MarginContainer2/HBoxContainer/Key Items")
+equip_item_path = NodePath("MarginContainer2/HBoxContainer/Equippable")
+slot_paths = [ NodePath("MarginContainer2/HBoxContainer/Key Items/Slot0"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot1"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot2"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot3"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot4"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot5"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot6"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot7"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot8"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot9"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot10"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot11"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot12"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot13"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot14"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot15"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot16"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot17"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot18"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot19"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot20"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot21"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot22"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot23") ]
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/margin_top = 82
+custom_constants/margin_left = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+margin_left = 2.0
+margin_top = 82.0
+margin_right = 248.0
+margin_bottom = 180.0
+custom_constants/separation = 6
+
+[node name="Key Items" type="GridContainer" parent="MarginContainer2/HBoxContainer"]
+margin_right = 60.0
+margin_bottom = 98.0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot0" parent="MarginContainer2/HBoxContainer/Key Items" instance=ExtResource( 8 )]
+
+[node name="Slot1" parent="MarginContainer2/HBoxContainer/Key Items" instance=ExtResource( 8 )]
+margin_left = 30.0
+margin_right = 60.0
+
+[node name="Slot2" parent="MarginContainer2/HBoxContainer/Key Items" instance=ExtResource( 8 )]
+margin_top = 34.0
+margin_bottom = 64.0
+
+[node name="Slot3" parent="MarginContainer2/HBoxContainer/Key Items" instance=ExtResource( 8 )]
+margin_left = 30.0
+margin_top = 34.0
+margin_right = 60.0
+margin_bottom = 64.0
+
+[node name="Slot4" parent="MarginContainer2/HBoxContainer/Key Items" instance=ExtResource( 8 )]
+margin_top = 68.0
+margin_bottom = 98.0
+
+[node name="Slot5" parent="MarginContainer2/HBoxContainer/Key Items" instance=ExtResource( 8 )]
+margin_left = 30.0
+margin_top = 68.0
+margin_right = 60.0
+margin_bottom = 98.0
+
+[node name="Equippable" type="GridContainer" parent="MarginContainer2/HBoxContainer"]
+margin_left = 66.0
+margin_right = 246.0
+margin_bottom = 98.0
+custom_constants/vseparation = 4
+custom_constants/hseparation = 0
+columns = 6
+
+[node name="Slot6" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot7/Item")
+
+[node name="Slot7" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 30.0
+margin_right = 60.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot8/Item")
+
+[node name="Slot8" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 60.0
+margin_right = 90.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot9/Item")
+
+[node name="Slot9" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 90.0
+margin_right = 120.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot10/Item")
+
+[node name="Slot10" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 120.0
+margin_right = 150.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot11/Item")
+
+[node name="Slot11" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 150.0
+margin_right = 180.0
+
+[node name="Slot12" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_top = 34.0
+margin_bottom = 64.0
+
+[node name="Slot13" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 30.0
+margin_top = 34.0
+margin_right = 60.0
+margin_bottom = 64.0
+
+[node name="Slot14" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 60.0
+margin_top = 34.0
+margin_right = 90.0
+margin_bottom = 64.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot15/Item")
+
+[node name="Slot15" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 90.0
+margin_top = 34.0
+margin_right = 120.0
+margin_bottom = 64.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot16/Item")
+
+[node name="Slot16" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 120.0
+margin_top = 34.0
+margin_right = 150.0
+margin_bottom = 64.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot17/Item")
+
+[node name="Slot17" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 150.0
+margin_top = 34.0
+margin_right = 180.0
+margin_bottom = 64.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot18/Item")
+
+[node name="Slot18" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_top = 68.0
+margin_bottom = 98.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot19/Item")
+
+[node name="Slot19" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 30.0
+margin_top = 68.0
+margin_right = 60.0
+margin_bottom = 98.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot20/Item")
+
+[node name="Slot20" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 60.0
+margin_top = 68.0
+margin_right = 90.0
+margin_bottom = 98.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot21/Item")
+
+[node name="Slot21" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 90.0
+margin_top = 68.0
+margin_right = 120.0
+margin_bottom = 98.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot22/Item")
+
+[node name="Slot22" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 120.0
+margin_top = 68.0
+margin_right = 150.0
+margin_bottom = 98.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot23/Item")
+
+[node name="Slot23" parent="MarginContainer2/HBoxContainer/Equippable" instance=ExtResource( 8 )]
+margin_left = 150.0
+margin_top = 68.0
+margin_right = 180.0
+margin_bottom = 98.0
+item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot7/Item")
+
+[node name="Coin" type="TextureRect" parent="."]
+margin_left = 192.0
+margin_right = 224.0
+margin_bottom = 32.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+max_columns = 8
 __meta__ = {
 "_edit_use_anchors_": false
 }
