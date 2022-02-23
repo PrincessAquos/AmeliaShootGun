@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprite/Tilesets/ChestSprite.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Objects/LevelObjects/Chest.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" groups=[
+"layered",
+]]
+collision_layer = 2147483665
+collision_mask = 17
+script = ExtResource( 2 )
+model_path = NodePath("Model")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Model" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "Closed"
+offset = Vector2( 0, -8 )

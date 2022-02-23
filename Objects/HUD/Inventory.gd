@@ -1,10 +1,7 @@
 extends Control
 
 class_name Inventory
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-export var item_index:Resource
+
 export var key_item_path:NodePath
 export var equip_item_path:NodePath
 
@@ -22,23 +19,17 @@ func _ready():
 	for slot_path in slot_paths:
 		slots.append(get_node(slot_path))
 	
-	#for i in range(5):
-	#	print(item_index.items[i])
-	#	add_item(item_index.items[i])
+	for i in range(4):
+		var new_item = Item.new(i)
+		print(new_item)
+		add_item(new_item)
 	return
 
 
 func add_item(new_item:Item):
 	var slot:InvSlot
-	if new_item != null && slots[new_item.prefer_slot] == null:
+	if new_item != null:
 		slot = slots[new_item.prefer_slot]
-		slot.item = new_item
-	else:
-		# Put in first free slot
-		for check_slot in slots:
-			if check_slot.item == null:
-				slot = check_slot
-				break
 		slot.item = new_item
 	return
 

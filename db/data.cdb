@@ -1,0 +1,93 @@
+{
+	"sheets": [
+		{
+			"name": "item_index",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "id"
+				},
+				{
+					"typeStr": "1",
+					"name": "iname",
+					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "img_path",
+					"display": null
+				},
+				{
+					"typeStr": "3",
+					"name": "slot"
+				},
+				{
+					"typeStr": "2",
+					"name": "equippable",
+					"opt": true
+				},
+				{
+					"typeStr": "2",
+					"name": "menu_use",
+					"opt": true
+				},
+				{
+					"typeStr": "2",
+					"name": "have_multiple",
+					"display": null
+				}
+			],
+			"lines": [
+				{
+					"id": "notepad",
+					"iname": "Notepad",
+					"img_path": "res://Sprite/Items/Notepad.png",
+					"equippable": false,
+					"menu_use": true,
+					"slot": 0,
+					"have_multiple": false
+				},
+				{
+					"id": "badge",
+					"iname": "Badge",
+					"img_path": "res://Sprite/Items/Badge.png",
+					"equippable": false,
+					"menu_use": true,
+					"slot": 1,
+					"have_multiple": false
+				},
+				{
+					"id": "gear_case",
+					"iname": "Gear Part Case",
+					"img_path": "res://Sprite/Items/GearPartCase.png",
+					"equippable": false,
+					"menu_use": false,
+					"slot": 2,
+					"have_multiple": false
+				},
+				{
+					"id": "gun",
+					"iname": "Gun",
+					"img_path": "res://Sprite/Items/Gun.png",
+					"equippable": false,
+					"menu_use": false,
+					"slot": 3,
+					"have_multiple": false
+				},
+				{
+					"id": "scroll",
+					"iname": "Counter Spell",
+					"img_path": "res://Sprite/Items/Scroll.png",
+					"equippable": false,
+					"menu_use": false,
+					"slot": 4,
+					"have_multiple": true
+				}
+			],
+			"separators": [],
+			"props": {}
+		}
+	],
+	"customTypes": [],
+	"compress": false
+}

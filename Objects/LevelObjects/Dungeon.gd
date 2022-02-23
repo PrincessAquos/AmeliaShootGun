@@ -5,6 +5,7 @@ export var start_room_coord:Vector2
 
 var current_room_lock:Vector2
 var current_room:Room
+var previous_room:Room
 
 var current_camera_min:Vector2
 var current_camera_max:Vector2
@@ -40,9 +41,9 @@ func change_rooms(new_room):
 	var screen_size = Vector2(256, 208)
 	#position = -new_room.position
 	new_room.disable()
-	var old_room = current_room
+	previous_room = current_room
 	current_room = new_room
-	old_room.enable()
+	
 	current_camera_max = -current_room.position
 	current_camera_min = -current_room.position - (current_room.size - screen_size)
 	print("Current bounds are: " + String(current_camera_min) + " " + String(current_camera_max))
@@ -63,6 +64,7 @@ func _process(delta):
 		if position == new_camera:
 			Game.unlock_game_speed(self)
 			Game.reset_game_speed()
+			previous_room.enable()
 			moving = false
 	else:
 		var screen_size = Vector2(256, 208)

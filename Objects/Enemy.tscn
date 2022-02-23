@@ -35,6 +35,7 @@ offset = Vector2( 0, -8 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 3 )
 animation = "LookDown"
+frame = 1
 playing = true
 offset = Vector2( 0, -1 )
 

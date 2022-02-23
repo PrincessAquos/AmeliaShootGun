@@ -12,6 +12,7 @@ var collider:CollisionShape2D
 #var shape:ConcavePolygonShape2D
 var shape:RectangleShape2D
 
+
 func enable():
 	collider = shape_owner_get_owner(0)
 	collider.disabled = false

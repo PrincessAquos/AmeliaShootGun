@@ -9,15 +9,30 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "CastleDB",
+"language": "GDScript",
+"path": "res://addons/thejustinwalsh.castledb/castledb_types.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Objects/Character.gd"
 }, {
+"base": "Node",
+"class": "CreateFont",
+"language": "GDScript",
+"path": "res://Sprite/Fonts/NewFont.gd"
+}, {
 "base": "Reference",
 "class": "Directions",
 "language": "GDScript",
 "path": "res://Constants/Directions.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://Objects/LevelObjects/Door.gd"
 }, {
 "base": "Area2D",
 "class": "Hitbox",
@@ -44,7 +59,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Data/Items/ItemList.gd"
 }, {
-"base": "Resource",
+"base": "Object",
 "class": "Item",
 "language": "GDScript",
 "path": "res://Data/Items/Item.gd"
@@ -55,8 +70,11 @@ _global_script_classes=[ {
 "path": "res://Objects/LevelObjects/Room.gd"
 } ]
 _global_script_class_icons={
+"CastleDB": "",
 "Character": "",
+"CreateFont": "",
 "Directions": "",
+"Door": "",
 "Hitbox": "",
 "Hurtbox": "",
 "InvSlot": "",
@@ -74,7 +92,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Game="*res://Game.gd"
-StaticData="*res://Data/Items/StaticData.gd"
+Data="*res://db/data.cdb"
 
 [display]
 
@@ -82,6 +100,10 @@ window/size/width=256
 window/size/height=216
 window/stretch/mode="2d"
 window/stretch/aspect="keep_height"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "thejustinwalsh.castledb" )
 
 [input]
 
@@ -138,6 +160,11 @@ debug_room_up={
 pause={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
 

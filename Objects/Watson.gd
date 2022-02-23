@@ -3,6 +3,7 @@ extends Character
 export var node_run_model:NodePath
 export var node_sound_gunfire:NodePath
 export var node_sound_jump:NodePath
+export var node_interact_area:NodePath
 
 var num_gears = 3
 # Movement Stats
@@ -52,6 +53,15 @@ func _on_ready():
 	pass
 
 func _unhandled_input(event):
+	if event.is_action_pressed("interact"):
+		print("Interact!")
+		var things = get_node("Interact").get_overlapping_bodies()
+		print(things)
+		for thing in things:
+			thing.interact()
+			pass
+		pass
+	
 	if event.is_action_pressed("move_jump"):
 		print("panic")
 		if gun_timer <= 0:
@@ -142,11 +152,19 @@ func _on_physics_process(delta):
 			get_node("Line2D").visible = true
 			gun_timer = gun_endlag
 	._on_physics_process(delta)
-	for i in get_slide_count():
+	var num_slides = get_slide_count()
+	for i in num_slides:
 		var collision = get_slide_collision(i)
-		print(collision.collider.name)
-		if collision.collider in get_tree().get_nodes_in_group("room"):
-			Game.current_dungeon.change_rooms(collision.collider)
+		var collider = collision.collider
+		print(collider.name)
+		if collider in get_tree().get_nodes_in_group("room"):
+			Game.current_dungeon.change_rooms(collider)
+			#.move_and_slide(collision.position - global_position)
+			break
+		elif collider in get_tree().get_nodes_in_group("door"):
+			if collider.is_locked:
+				if Game.inv_screen.slots[Data.itemindex.get("scroll").slot].count > 0:
+					collider.is_locked = false
 	
 	if altitude <= 0 || (shoot_buffer_timer <= 0 && gun_timer <= 0 && !shoot_pressed):
 		Game.reset_game_speed()
@@ -155,6 +173,7 @@ func _on_physics_process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_process(delta):
 	check_invuln_flicker()
+	update_interact_position()
 	# Debug show gunbox
 	if debug_gunbox_frame_done:
 		get_node("Line2D").visible = false
@@ -247,6 +266,20 @@ func _update_sprite():
 		._update_sprite()
 	if shoot_buffer_timer > 0:
 		model.play("ShootBuffer" + dir_strings[facing])
+
+
+func update_interact_position():
+	var interact_pos = Vector2(0, 0)
+	match facing:
+		Direction.DOWN:
+			interact_pos = Vector2(0, 10)
+		Direction.UP:
+			interact_pos = Vector2(0, -4)
+		Direction.LEFT:
+			interact_pos = Vector2(-9, 3)
+		Direction.RIGHT:
+			interact_pos = Vector2(9, 3)
+	get_node(node_interact_area).position = interact_pos
 
 func _on_GPHitbox_body_entered(body):
 	if body in get_tree().get_nodes_in_group("enemies"):

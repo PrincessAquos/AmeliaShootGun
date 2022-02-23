@@ -1,0 +1,7 @@
+Layer 1: Player Physical Wall Collision
+Layer 2: Enemy Physical Wall Collision
+Layer 3: Damage Player. Player Hurtbox/Enemy Hitbox
+Layer 4: Damage Enemies. Player Hitbox/EnemyHurtbox
+Layer 5: Interact Button
+
+Layer 20: Room Boundary Collision

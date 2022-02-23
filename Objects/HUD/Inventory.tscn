@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprite/HUD/BriefcaseMenu.png" type="Texture" id=1]
 [ext_resource path="res://Objects/HUD/Inventory.gd" type="Script" id=2]
-[ext_resource path="res://Data/Items/ItemList.tres" type="Resource" id=3]
-[ext_resource path="res://Sprite/HUD/YagooCoin.png" type="Texture" id=4]
 [ext_resource path="res://Objects/HUD/InventorySlot.tscn" type="PackedScene" id=8]
 
 [node name="Inventory" type="Control"]
@@ -13,7 +11,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-item_index = ExtResource( 3 )
 key_item_path = NodePath("MarginContainer2/HBoxContainer/Key Items")
 equip_item_path = NodePath("MarginContainer2/HBoxContainer/Equippable")
 slot_paths = [ NodePath("MarginContainer2/HBoxContainer/Key Items/Slot0"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot1"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot2"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot3"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot4"), NodePath("MarginContainer2/HBoxContainer/Key Items/Slot5"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot6"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot7"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot8"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot9"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot10"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot11"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot12"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot13"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot14"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot15"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot16"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot17"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot18"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot19"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot20"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot21"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot22"), NodePath("MarginContainer2/HBoxContainer/Equippable/Slot23") ]
@@ -190,15 +187,6 @@ margin_top = 68.0
 margin_right = 180.0
 margin_bottom = 98.0
 item_img_path = NodePath("../../../../../Inventory/MarginContainer2/HBoxContainer/Equippable/Slot7/Item")
-
-[node name="Coin" type="TextureRect" parent="."]
-margin_left = 192.0
-margin_right = 224.0
-margin_bottom = 32.0
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ItemList" type="ItemList" parent="."]
 visible = false

@@ -1,22 +1,27 @@
-extends Resource
+extends Object
 
 class_name Item
 
-export var item_name:String
-export var inventory_img:Texture
-export var prefer_slot:int
-export var is_equippable = false
-export var use_from_menu = false
+var id:String
+var item_name:String
+var inventory_img:Texture
+var prefer_slot:int
+var is_equippable = false
+var use_from_menu = false
+var have_multiple = false
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 
-func _init(iname, iimg, pslot = -1, can_equip = false, use = false):
-	item_name = iname
-	inventory_img = iimg
-	prefer_slot = pslot
-	is_equippable = can_equip
-	use_from_menu = use
+func _init(index):
+	var entry:Data.ItemIndex.ItemIndexRow = Data.itemindex.all[index]
+	id = entry.id
+	item_name = entry.iname
+	inventory_img = load(entry.img_path)
+	prefer_slot = entry.slot
+	is_equippable = entry.equippable
+	use_from_menu = entry.menu_use
+	have_multiple = entry.have_multiple
 	return

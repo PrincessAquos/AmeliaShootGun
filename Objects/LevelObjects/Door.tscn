@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprite/Tilesets/Victorian/Doorv2Down.png" type="Texture" id=1]
+[ext_resource path="res://Sprite/Tilesets/Victorian/Doorv2UpDownUnder.png" type="Texture" id=2]
+[ext_resource path="res://Sprite/Tilesets/Victorian/DoorUpShadow.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/Tilesets/Victorian/Doorv2UpDownOver.png" type="Texture" id=4]
+[ext_resource path="res://Objects/LevelObjects/Door.gd" type="Script" id=5]
+[ext_resource path="res://Sprite/Tilesets/Victorian/DoorLock.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/Tilesets/Victorian/DoorTrap.png" type="Texture" id=7]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( -4, -32, -4, 16, 4, 11, 4, -27 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 4, -32, 4, 16, -4, 11, -4, -27 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 24 )
+
+[node name="Door" type="StaticBody2D" groups=[
+"door",
+]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 5 )
+node_trapped_path = NodePath("Trapped")
+node_locked_path = NodePath("Locked")
+node_shut_collider_path = NodePath("Shut")
+
+[node name="Under" type="Sprite" parent="."]
+z_index = -4095
+texture = ExtResource( 2 )
+offset = Vector2( 0, -8 )
+
+[node name="Trapped" type="Node2D" parent="."]
+visible = false
+
+[node name="Trapped1" type="Sprite" parent="Trapped"]
+texture = ExtResource( 7 )
+offset = Vector2( 0, 10 )
+
+[node name="Trapped2" type="Sprite" parent="Trapped"]
+texture = ExtResource( 7 )
+offset = Vector2( 0, -26 )
+flip_v = true
+
+[node name="Locked" type="Node2D" parent="."]
+visible = false
+
+[node name="Locked1" type="Sprite" parent="Locked"]
+texture = ExtResource( 6 )
+offset = Vector2( 0, 10 )
+
+[node name="Locked2" type="Sprite" parent="Locked"]
+texture = ExtResource( 6 )
+offset = Vector2( 0, -26 )
+flip_v = true
+
+[node name="Over" type="Node2D" parent="." groups=[
+"layered",
+]]
+position = Vector2( 16, 16 )
+
+[node name="Shadow" type="Sprite" parent="Over"]
+visible = false
+position = Vector2( -16, 0 )
+z_index = -4096
+texture = ExtResource( 3 )
+
+[node name="Up" type="Sprite" parent="Over"]
+visible = false
+position = Vector2( -16, 0 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -28 )
+flip_v = true
+
+[node name="Down" type="Sprite" parent="Over"]
+visible = false
+position = Vector2( -16, 0 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -4 )
+
+[node name="Updown" type="Sprite" parent="Over"]
+position = Vector2( -16, 0 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -12, 0 )
+z_index = 4096
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 12, 0 )
+z_index = 4096
+shape = SubResource( 2 )
+
+[node name="Shut" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 3 )
+disabled = true
