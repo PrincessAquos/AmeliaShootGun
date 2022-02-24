@@ -39,6 +39,7 @@ var gp_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _on_ready():
+	is_loaded = true
 	Game.player = self
 	current_health = 12
 	dmg_knockback = 180

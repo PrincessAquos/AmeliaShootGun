@@ -29,19 +29,20 @@ func _on_ready():
 
 
 func _on_physics_process(delta):
-	if attack_timer <= 0:
-		attacking = true
-		attack_timer = rand_range(attack_time_min, attack_time_max)
-		for direction in move_dirs:
-			move_dirs[direction] = false
-	elif !attacking && change_dir_timer <= 0:
-		change_dir_timer += change_dir_time
-		for direction in move_dirs:
-			move_dirs[direction] = false
-		var testlist = [Direction.UP, Direction.DOWN, Direction.LEFT, Direction.RIGHT]
-		move_dirs[testlist[randi() % 4]] = true
-	attack_timer -= delta
-	change_dir_timer -= delta
+	if is_loaded:
+		if attack_timer <= 0:
+			attacking = true
+			attack_timer = rand_range(attack_time_min, attack_time_max)
+			for direction in move_dirs:
+				move_dirs[direction] = false
+		elif !attacking && change_dir_timer <= 0:
+			change_dir_timer += change_dir_time
+			for direction in move_dirs:
+				move_dirs[direction] = false
+			var testlist = [Direction.UP, Direction.DOWN, Direction.LEFT, Direction.RIGHT]
+			move_dirs[testlist[randi() % 4]] = true
+		attack_timer -= delta
+		change_dir_timer -= delta
 	._on_physics_process(delta)
 
 

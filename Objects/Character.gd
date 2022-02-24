@@ -17,6 +17,7 @@ var hurtbox:Area2D
 var model:AnimatedSprite
 
 # State
+var is_loaded = false
 var facing = Direction.DOWN
 var altitude = 0
 var prev_vertical_velocity = 0
@@ -70,6 +71,7 @@ func _physics_process(delta):
 func _process(delta):
 	delta = delta * Game.game_speed
 	model.speed_scale = Game.game_speed
+	model.playing = is_loaded
 	_on_process(delta)
 
 
@@ -79,34 +81,35 @@ func _on_ready():
 	print("Character Ready!")
 
 func _on_physics_process(delta):
-	# Altitude Hit Detection
-	hurtbox.altitude = altitude
-	
-	# Determine Movement Amount
-	if !lock_lateral_velocity:
-		move_vector = Vector2.ZERO
-		if move_dirs[Direction.UP]:
-			move_vector += Vector2(0, -speed)
-		if move_dirs[Direction.DOWN]:
-			move_vector += Vector2(0, speed)
-		if move_dirs[Direction.LEFT]:
-			move_vector += Vector2(-speed, 0)
-		if move_dirs[Direction.RIGHT]:
-			move_vector += Vector2(speed, 0)
-	
-	#print(hurtbox.hitstun_timer)
-	if hurtbox.hitstun_timer > 0:
-		move_vector = Vector2.ZERO
-		var knockback = (global_position - hurtbox.hit_source).normalized() * dmg_knockback
+	if is_loaded:
+		# Altitude Hit Detection
+		hurtbox.altitude = altitude
+		
+		# Determine Movement Amount
+		if !lock_lateral_velocity:
+			move_vector = Vector2.ZERO
+			if move_dirs[Direction.UP]:
+				move_vector += Vector2(0, -speed)
+			if move_dirs[Direction.DOWN]:
+				move_vector += Vector2(0, speed)
+			if move_dirs[Direction.LEFT]:
+				move_vector += Vector2(-speed, 0)
+			if move_dirs[Direction.RIGHT]:
+				move_vector += Vector2(speed, 0)
+		
+		#print(hurtbox.hitstun_timer)
+		if hurtbox.hitstun_timer > 0:
+			move_vector = Vector2.ZERO
+			var knockback = (global_position - hurtbox.hit_source).normalized() * dmg_knockback
+			if Game.do_time_warp:
+				knockback *= Game.game_speed
+			move_and_slide(knockback)
+		var real_move_vector = move_vector
 		if Game.do_time_warp:
-			knockback *= Game.game_speed
-		move_and_slide(knockback)
-	var real_move_vector = move_vector
-	if Game.do_time_warp:
-		real_move_vector *= Game.game_speed
-	move_and_slide(real_move_vector)
-	#if move_vector != Vector2.ZERO:
-		#print(velocity)
+			real_move_vector *= Game.game_speed
+		move_and_slide(real_move_vector)
+		#if move_vector != Vector2.ZERO:
+			#print(velocity)
 
 
 func move_and_slide(linear_velocity: Vector2, up_direction: Vector2 = Vector2( 0, 0 ), stop_on_slope: bool = false, max_slides: int = 4, floor_max_angle: float = 0.785398, infinite_inertia: bool = true):
@@ -115,39 +118,40 @@ func move_and_slide(linear_velocity: Vector2, up_direction: Vector2 = Vector2( 0
 
 
 func _on_process(delta):
-	# Update the facing direction
-	var facing_dirs = []
-	for direction in move_dirs:
-		# If a direction is true and its opposite is not
-		if move_dirs[direction] && !move_dirs[-direction]:
-			# Add it to the list of possible facings
-			facing_dirs.append(direction)
-	if !facing_dirs.empty():
-		if facing in facing_dirs:
-			pass
+	if is_loaded:
+		# Update the facing direction
+		var facing_dirs = []
+		for direction in move_dirs:
+			# If a direction is true and its opposite is not
+			if move_dirs[direction] && !move_dirs[-direction]:
+				# Add it to the list of possible facings
+				facing_dirs.append(direction)
+		if !facing_dirs.empty():
+			if facing in facing_dirs:
+				pass
+			else:
+				facing = facing_dirs[0]
+		if hurtbox.hitstun_timer > 0:
+			modulate = Color(1, 0, 0, 1)
 		else:
-			facing = facing_dirs[0]
-	if hurtbox.hitstun_timer > 0:
-		modulate = Color(1, 0, 0, 1)
-	else:
-		modulate = Color(1, 1, 1, 1)
-	
-	if hurtbox.damage_taken > 0:
-		set_current_health(current_health - hurtbox.damage_taken)
-		hurtbox.damage_taken = 0
-	
-	# Vertical Movement and Gravity
-	if altitude > 0 || (altitude <= 0 && vertical_velocity > 0):
-		set_vertical_velocity(vertical_velocity - gravity*delta)
-	else:
-		altitude = 0
-		vertical_velocity = 0
-		prev_vertical_velocity = 0
-	altitude += (prev_vertical_velocity + vertical_velocity)/2*delta
-	if model:
-		model.position = Vector2(0, -altitude)
-	# Update Sprite
-	_update_sprite()
+			modulate = Color(1, 1, 1, 1)
+		
+		if hurtbox.damage_taken > 0:
+			set_current_health(current_health - hurtbox.damage_taken)
+			hurtbox.damage_taken = 0
+		
+		# Vertical Movement and Gravity
+		if altitude > 0 || (altitude <= 0 && vertical_velocity > 0):
+			set_vertical_velocity(vertical_velocity - gravity*delta)
+		else:
+			altitude = 0
+			vertical_velocity = 0
+			prev_vertical_velocity = 0
+		altitude += (prev_vertical_velocity + vertical_velocity)/2*delta
+		if model:
+			model.position = Vector2(0, -altitude)
+		# Update Sprite
+		_update_sprite()
 	return
 
 func set_vertical_velocity(new_val):
