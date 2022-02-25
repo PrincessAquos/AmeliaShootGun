@@ -118,7 +118,7 @@ func _on_physics_process(delta):
 
 
 func move_and_slide(linear_velocity: Vector2, up_direction: Vector2 = Vector2( 0, 0 ), stop_on_slope: bool = false, max_slides: int = 4, floor_max_angle: float = 0.785398, infinite_inertia: bool = true):
-	.move_and_slide(linear_velocity * Game.game_speed, up_direction, stop_on_slope, max_slides, floor_max_angle, infinite_inertia)
+	.move_and_slide(linear_velocity * Game.game_speed, up_direction, stop_on_slope, max_slides, floor_max_angle, false)
 	pass
 
 

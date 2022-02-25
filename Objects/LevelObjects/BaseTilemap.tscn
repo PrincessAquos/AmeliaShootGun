@@ -5,4 +5,5 @@
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
+collision_friction = 0.0
 format = 1

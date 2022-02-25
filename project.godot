@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "BlockButton",
+"language": "GDScript",
+"path": "res://Objects/LevelObjects/BlockButton.gd"
+}, {
 "base": "Reference",
 "class": "CastleDB",
 "language": "GDScript",
@@ -63,8 +68,14 @@ _global_script_classes=[ {
 "class": "Room",
 "language": "GDScript",
 "path": "res://Objects/LevelObjects/Room.gd"
+}, {
+"base": "Reference",
+"class": "RoomSolutions",
+"language": "GDScript",
+"path": "res://Objects/LevelObjects/RoomSolutions.gd"
 } ]
 _global_script_class_icons={
+"BlockButton": "",
 "CastleDB": "",
 "Character": "",
 "CreateFont": "",
@@ -75,7 +86,8 @@ _global_script_class_icons={
 "InvSlot": "",
 "Inventory": "",
 "Item": "",
-"Room": ""
+"Room": "",
+"RoomSolutions": ""
 }
 
 [application]
@@ -176,6 +188,10 @@ debug_unload_actors={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":85,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[physics]
+
+2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]
 

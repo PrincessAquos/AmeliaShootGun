@@ -22,10 +22,36 @@ var chests:Array = []
 var doorways:Array = []
 var actors:Array = []
 
+var solve_func:FuncRef
+var is_solved = false
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#wall_top = get_node(wall_top_path)
+	#wall_bot = get_node(wall_bot_path)
+	#wall_left = get_node(wall_left_path)
+	#wall_right = get_node(wall_right_path)
+	#walls = [wall_top, wall_bot, wall_left, wall_right]
+	solve_func = funcref(RoomSolutions, "all_enemies_defeated")
+	node_room_bounds = get_node(node_room_bounds_path)
+	node_enemy_bounds = get_node(node_enemy_bounds_path)
+	if Engine.editor_hint:
+		update_collider_rect()
+		update_collider_concave()
+		if active:
+			disable_player_collision()
+		else:
+			enable_player_collision()
+	if not Engine.editor_hint:
+		visible = false
+	pass
+
 
 func update_bounds():
 	update_collider_rect()
 	update_collider_concave()
+
 
 func register_contents():
 	register_objects()
@@ -147,26 +173,6 @@ func _unhandled_input(event):
 		unload_actors()
 	pass
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#wall_top = get_node(wall_top_path)
-	#wall_bot = get_node(wall_bot_path)
-	#wall_left = get_node(wall_left_path)
-	#wall_right = get_node(wall_right_path)
-	#walls = [wall_top, wall_bot, wall_left, wall_right]
-	node_room_bounds = get_node(node_room_bounds_path)
-	node_enemy_bounds = get_node(node_enemy_bounds_path)
-	if Engine.editor_hint:
-		update_collider_rect()
-		update_collider_concave()
-		if active:
-			disable_player_collision()
-		else:
-			enable_player_collision()
-	if not Engine.editor_hint:
-		visible = false
-	pass
-
 
 func change_size(new_size):
 	size = new_size
@@ -188,12 +194,10 @@ func room_solved():
 
 func _process(delta):
 	if not Engine.editor_hint:
-		var room_complete = true
-		for actor in actors:
-			if !actor.is_dead:
-				room_complete = false
-		if room_complete:
-			room_solved()
+		if !is_solved:
+			if solve_func.call_func(self):
+				room_solved()
+				is_solved = true
 	
 	if Engine.editor_hint:
 		#if wall_top == null:

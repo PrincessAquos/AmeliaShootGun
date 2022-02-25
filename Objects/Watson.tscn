@@ -40,6 +40,7 @@ node_run_model = NodePath("Model")
 node_sound_gunfire = NodePath("Sounds/Gunshot")
 node_sound_jump = NodePath("Sounds/Jump")
 node_interact_area = NodePath("Interact")
+push = 10
 
 [node name="Shadow" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.501961 )

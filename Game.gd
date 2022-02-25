@@ -29,7 +29,7 @@ var game_speed = 1 setget set_game_speed
 
 var current_dungeon = null
 var inv_screen = null
-
+var camera = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -48,10 +48,11 @@ func load_new_area():
 func load_level():
 	print(get_tree().get_node_count())
 	player.is_loaded = true
-	current_dungeon.prepare_room_bounds()
-	yield(get_tree(), "physics_frame")
-	current_dungeon.register_room_contents()
-	current_dungeon.load_first_room()
+	if current_dungeon != null:
+		current_dungeon.prepare_room_bounds()
+		yield(get_tree(), "physics_frame")
+		current_dungeon.register_room_contents()
+		current_dungeon.load_first_room()
 	return
 
 

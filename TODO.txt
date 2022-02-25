@@ -1,8 +1,15 @@
 Known Bugs:
 ------------
  - Enemy animations don't pause on defeat, so they can still release an attack halo
+ - When a block hits a wall, it gets stuck and can't be pushed at all for some reason
 
 TODO Reminder:
 ------------
- - Trapped rooms don't push you into the room, so you will get trapped in the entryway and I don't know what the collision will do
+ - Clean up the camera code
+ - Give the block friction
+ - make button
+ - fix the camera
+ - camera
+ - block
+ - fuck this block
  

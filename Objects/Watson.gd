@@ -4,6 +4,7 @@ export var node_run_model:NodePath
 export var node_sound_gunfire:NodePath
 export var node_sound_jump:NodePath
 export var node_interact_area:NodePath
+export (int, 0, 200) var push = 100
 
 var num_gears = 3
 # Movement Stats
@@ -155,22 +156,30 @@ func _on_physics_process(delta):
 				gun_timer = gun_endlag
 	._on_physics_process(delta)
 	if is_loaded:
-		var num_slides = get_slide_count()
-		for i in num_slides:
-			var collision = get_slide_collision(i)
-			var collider = collision.collider
-			#print(collider.name)
-			if collider in get_tree().get_nodes_in_group("room"):
-				Game.current_dungeon.change_rooms(collider)
-				#.move_and_slide(collision.position - global_position)
-				break
-			elif collider in get_tree().get_nodes_in_group("door"):
-				if collider.is_locked:
-					if Game.inv_screen.slots[Data.itemindex.get("scroll").slot].count > 0:
-						collider.is_locked = false
-		
+		handle_special_collisions()
 		if altitude <= 0 || (shoot_buffer_timer <= 0 && gun_timer <= 0 && !shoot_pressed):
 			Game.reset_game_speed()
+
+
+func handle_special_collisions():
+	var num_slides = get_slide_count()
+	for i in num_slides:
+		var collision = get_slide_collision(i)
+		var collider = collision.collider
+		#print(collider.name)
+		if collision.collider.is_in_group("pushblock"):
+			print("It's a pushblock!")
+			collision.collider
+			collision.collider.apply_central_impulse(-collision.normal * push)
+		if collider in get_tree().get_nodes_in_group("room"):
+			Game.current_dungeon.change_rooms(collider)
+			#.move_and_slide(collision.position - global_position)
+			break
+		if collider in get_tree().get_nodes_in_group("door"):
+			if collider.is_locked:
+				if Game.inv_screen.slots[Data.itemindex.get("scroll").slot].count > 0:
+					collider.is_locked = false
+	return
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
