@@ -20,8 +20,8 @@ extents = Vector2( 16, 24 )
 [node name="Door" type="StaticBody2D" groups=[
 "door",
 ]]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 35
+collision_mask = 35
 script = ExtResource( 5 )
 node_trapped_path = NodePath("Trapped")
 node_locked_path = NodePath("Locked")

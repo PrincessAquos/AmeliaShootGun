@@ -24,12 +24,13 @@ func _on_ready():
 	._on_ready()
 	attack_timer = rand_range(attack_time_min, attack_time_max)
 	speed = 8
-	if hurtbox.hitstun_timer > 0:
-		print(hurtbox.hitstun_timer)
+	#if hurtbox.hitstun_timer > 0:
+		#print(hurtbox.hitstun_timer)
 
 
 func _on_physics_process(delta):
 	if is_loaded:
+		get_node("Hitbox")._on_physics_process(delta)
 		if attack_timer <= 0:
 			attacking = true
 			attack_timer = rand_range(attack_time_min, attack_time_max)
@@ -59,6 +60,14 @@ func _update_sprite():
 	else:
 		._update_sprite()
 	pass
+
+
+func die():
+	var hitbox = get_node("Hitbox")
+	hitbox.monitoring = false
+	hitbox.monitorable = false
+	hitbox.shape_owner_get_owner(0).disabled = true
+	.die()
 
 
 func _on_AnimatedSprite_frame_changed():

@@ -15,18 +15,32 @@ var current_camera_max:Vector2
 
 var moving = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func prepare_room_bounds():
 	var rooms = get_node("Rooms").get_children()
 	for room in rooms:
-		room.register_actors()
+		room.update_bounds()
+
+
+func register_room_contents():
+	var rooms = get_node("Rooms").get_children()
+	for room in rooms:
+		room.register_contents()
+
+
+func load_first_room():
+	current_room.load_room()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	
 	current_room_lock = start_room_coord
 	current_room = get_node(start_room_path)
 	current_room.active = true
 	var screen_size = Vector2(256, 208)
 	current_camera_max = -current_room.position
 	current_camera_min = -current_room.position - (current_room.size - screen_size)
-	current_room.load_room()
+	current_room.disable_player_collision()
 	Game.current_dungeon = self
 
 
@@ -49,8 +63,8 @@ func change_rooms(new_room):
 	
 	current_camera_max = -current_room.position
 	current_camera_min = -current_room.position - (current_room.size - screen_size)
-	print("Current bounds are: " + String(current_camera_min) + " " + String(current_camera_max))
-	print("Current room is " + current_room.name)
+	#print("Current bounds are: " + String(current_camera_min) + " " + String(current_camera_max))
+	#print("Current room is " + current_room.name)
 	pass
 
 

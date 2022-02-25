@@ -1,0 +1,8 @@
+Known Bugs:
+------------
+ - Enemy animations don't pause on defeat, so they can still release an attack halo
+
+TODO Reminder:
+------------
+ - Trapped rooms don't push you into the room, so you will get trapped in the entryway and I don't know what the collision will do
+ 

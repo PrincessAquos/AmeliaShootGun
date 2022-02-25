@@ -18,7 +18,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _physics_process(delta):
+func _on_physics_process(delta):
 	var collision_body_list = get_overlapping_bodies()
 	var collision_area_list = get_overlapping_areas()
 	var player_hurtbox_list = get_tree().get_nodes_in_group("player_hurtbox")

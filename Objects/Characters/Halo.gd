@@ -32,6 +32,8 @@ func _physics_process(delta):
 	var move_by = delta * speed * Directions.dir_vectors[current_direction]
 	position += move_by
 	
+	get_node("Hitbox")._on_physics_process(delta)
+	
 	exist_timer -= delta
 	if exist_timer <= 0:
 		queue_free()

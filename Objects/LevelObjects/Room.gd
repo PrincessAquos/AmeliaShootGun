@@ -5,10 +5,9 @@ class_name Room
 
 export var active:bool
 export var trapped:bool
-export (Array, NodePath) var doorways
+#export (Array, NodePath) var doorways
 export var node_room_bounds_path:NodePath
 export var node_enemy_bounds_path:NodePath
-
 
 export var size:Vector2 setget change_size
 
@@ -19,7 +18,17 @@ var collider:CollisionShape2D
 #var shape:ConcavePolygonShape2D
 var shape:RectangleShape2D
 
-var actors:Array
+var chests:Array = []
+var doorways:Array = []
+var actors:Array = []
+
+
+func update_bounds():
+	update_collider_rect()
+	update_collider_concave()
+
+func register_contents():
+	register_objects()
 
 
 func enable_player_collision():
@@ -45,16 +54,27 @@ func unload_room():
 func load_room():
 	disable_player_collision()
 	load_actors()
+	if trapped:
+		for doorway in doorways:
+			doorway.is_trapped = true
+	for chest in chests:
+		if !chest.active:
+			chest.deactivate()
 	pass
 
 
-func register_actors():
+func register_objects():
 	actors.clear()
-	var possible_actors = node_room_bounds.get_overlapping_bodies()
-	for actor in possible_actors:
-		if actor in get_tree().get_nodes_in_group("enemy"):
-			print(actor)
-			actors.append(actor)
+	doorways.clear()
+	var possible_objects = node_room_bounds.get_overlapping_bodies()
+	for object in possible_objects:
+		if object in get_tree().get_nodes_in_group("enemy"):
+			print(object)
+			actors.append(object)
+		elif object in get_tree().get_nodes_in_group("door"):
+			doorways.append(object)
+		elif object in get_tree().get_nodes_in_group("chest"):
+			chests.append(object)
 	return
 
 
@@ -120,7 +140,7 @@ func update_collider_concave():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("debug_register_actors"):
-		register_actors()
+		register_objects()
 	elif event.is_action_pressed("debug_load_actors"):
 		load_actors()
 	elif event.is_action_pressed("debug_unload_actors"):
@@ -156,7 +176,25 @@ func change_size(new_size):
 	pass
 
 
+func room_solved():
+	trapped = false
+	for door in doorways:
+		door.is_trapped = false
+	for chest in chests:
+		chest.active = true
+		chest.activate()
+	pass
+
+
 func _process(delta):
+	if not Engine.editor_hint:
+		var room_complete = true
+		for actor in actors:
+			if !actor.is_dead:
+				room_complete = false
+		if room_complete:
+			room_solved()
+	
 	if Engine.editor_hint:
 		#if wall_top == null:
 		#	wall_top = get_node(wall_top_path)

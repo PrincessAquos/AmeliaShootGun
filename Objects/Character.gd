@@ -17,6 +17,7 @@ var hurtbox:Area2D
 var model:AnimatedSprite
 
 # State
+var is_dead = false
 var is_loaded = false
 var facing = Direction.DOWN
 var altitude = 0
@@ -65,20 +66,22 @@ func _ready():
 	_on_ready()
 
 func _physics_process(delta):
-	delta = delta * Game.game_speed
-	_on_physics_process(delta)
+	if !is_dead:
+		delta = delta * Game.game_speed
+		_on_physics_process(delta)
 
 func _process(delta):
-	delta = delta * Game.game_speed
-	model.speed_scale = Game.game_speed
-	model.playing = is_loaded
-	_on_process(delta)
+	if !is_dead:
+		delta = delta * Game.game_speed
+		model.speed_scale = Game.game_speed
+		model.playing = is_loaded
+		_on_process(delta)
 
 
 func _on_ready():
 	hurtbox = get_node(node_hurtbox)
 	model = get_node(node_model)
-	print("Character Ready!")
+	#print("Character Ready!")
 
 func _on_physics_process(delta):
 	if is_loaded:
@@ -96,6 +99,8 @@ func _on_physics_process(delta):
 				move_vector += Vector2(-speed, 0)
 			if move_dirs[Direction.RIGHT]:
 				move_vector += Vector2(speed, 0)
+		
+		hurtbox._on_physics_process(delta)
 		
 		#print(hurtbox.hitstun_timer)
 		if hurtbox.hitstun_timer > 0:
@@ -184,7 +189,12 @@ func set_current_health(new_val):
 		die()
 
 func die():
-	queue_free()
+	visible = false
+	is_dead = true
+	hurtbox.monitorable = false
+	hurtbox.monitoring = false
+	shape_owner_get_owner(0).disabled = true
+	hurtbox.shape_owner_get_owner(0).disabled = true
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

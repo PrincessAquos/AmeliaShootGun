@@ -22,18 +22,16 @@ tile_data = PoolIntArray( -983043, 1, 8, -983042, 1, 10, -983041, 1, 10, -104857
 
 [node name="Room5" parent="Rooms" instance=ExtResource( 7 )]
 active = true
-doorways = [ NodePath("../../Objects/Door2"), NodePath("../../Objects/Door") ]
+trapped = true
 
 [node name="Room" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 0, -224 )
-doorways = [ NodePath("../../Objects/Door") ]
 
 [node name="Room2" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 0, 224 )
 
 [node name="Room4" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 272, -224 )
-doorways = [ NodePath("../../Objects/Door2") ]
 size = Vector2( 512, 432 )
 
 [node name="RoomObjects" type="Node2D" parent="."]
@@ -90,7 +88,7 @@ node_hurtbox = NodePath("../../../RoomObjects/Actors/Enemy4/Hurtbox")
 node_model = NodePath("../../../RoomObjects/Actors/Enemy4/AnimatedSprite")
 
 [node name="Enemy5" parent="RoomObjects/Actors" instance=ExtResource( 6 )]
-position = Vector2( 424, 64 )
+position = Vector2( 400, 88 )
 node_hurtbox = NodePath("../../../RoomObjects/Actors/Enemy5/Hurtbox")
 node_model = NodePath("../../../RoomObjects/Actors/Enemy5/AnimatedSprite")
 
@@ -118,17 +116,19 @@ node_model = NodePath("../../../RoomObjects/Actors/Enemy9/AnimatedSprite")
 
 [node name="StaticBody2D3" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
 position = Vector2( 78.1152, -159.38 )
-model_path = NodePath("../../../RoomObjects/Objects/StaticBody2D3/Model")
+contains = 4
+
+[node name="StaticBody2D4" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
+position = Vector2( 48, 40 )
+start_active = false
 contains = 4
 
 [node name="StaticBody2D2" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
 position = Vector2( 134.182, -159.38 )
-model_path = NodePath("../../../RoomObjects/Objects/StaticBody2D2/Model")
 contains = 4
 
 [node name="StaticBody2D" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
 position = Vector2( 186.468, -161.27 )
-model_path = NodePath("../../../RoomObjects/Objects/StaticBody2D/Model")
 contains = 4
 
 [node name="Door" parent="RoomObjects" instance=ExtResource( 4 )]
@@ -137,4 +137,3 @@ position = Vector2( 128, 0 )
 [node name="Door2" parent="RoomObjects" instance=ExtResource( 4 )]
 position = Vector2( 256, 96 )
 rotation = 1.5708
-is_locked = true

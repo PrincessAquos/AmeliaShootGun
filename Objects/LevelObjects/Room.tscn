@@ -30,8 +30,8 @@ collision_mask = 2
 shape = SubResource( 2 )
 
 [node name="RoomBounds" type="Area2D" parent="."]
-collision_layer = 2147483650
-collision_mask = 2
+collision_layer = 2147483680
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoomBounds"]
 position = Vector2( 128, 104 )

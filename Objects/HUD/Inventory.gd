@@ -21,7 +21,7 @@ func _ready():
 	
 	for i in range(4):
 		var new_item = Item.new(i)
-		print(new_item)
+		#print(new_item)
 		add_item(new_item)
 	return
 

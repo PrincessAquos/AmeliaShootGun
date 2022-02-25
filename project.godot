@@ -54,11 +54,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/HUD/Inventory.gd"
 }, {
-"base": "Resource",
-"class": "InventoryItemList",
-"language": "GDScript",
-"path": "res://Data/Items/ItemList.gd"
-}, {
 "base": "Object",
 "class": "Item",
 "language": "GDScript",
@@ -79,7 +74,6 @@ _global_script_class_icons={
 "Hurtbox": "",
 "InvSlot": "",
 "Inventory": "",
-"InventoryItemList": "",
 "Item": "",
 "Room": ""
 }

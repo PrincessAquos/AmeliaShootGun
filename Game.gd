@@ -8,6 +8,9 @@ var do_time_warp = false
 var locked_by = null
 #var speed_locked = false
 
+var physics_step_counter = 0
+var do_load_step = true
+
 var hud
 var player
 
@@ -26,9 +29,31 @@ var game_speed = 1 setget set_game_speed
 
 var current_dungeon = null
 var inv_screen = null
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
+
+func load_new_area():
+	# Free current dungeon scene
+	# Add a new dungeon scene
+	physics_step_counter = 0
+	do_load_step = true
+	pass
+
+
+func load_level():
+	print(get_tree().get_node_count())
+	player.is_loaded = true
+	current_dungeon.prepare_room_bounds()
+	yield(get_tree(), "physics_frame")
+	current_dungeon.register_room_contents()
+	current_dungeon.load_first_room()
+	return
+
 
 func activate_bullet_time():
 	set_game_speed(bullet_time)
@@ -74,6 +99,11 @@ func _process(delta):
 	layer_list.sort_custom(DepthSorter, "high_y_low_z")
 	for i in range(layer_list.size()):
 		layer_list[i].z_index = i
+
+func _physics_process(delta):
+	if do_load_step:
+		do_load_step = false
+		load_level()
 
 
 func _unhandled_input(event):
