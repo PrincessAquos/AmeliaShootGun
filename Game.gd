@@ -45,9 +45,10 @@ func load_new_area():
 	pass
 
 
-func load_level():
+func _load():
 	print(get_tree().get_node_count())
-	player.is_loaded = true
+	if player != null:
+		player.is_loaded = true
 	if current_dungeon != null:
 		current_dungeon.prepare_room_bounds()
 		yield(get_tree(), "physics_frame")
@@ -104,7 +105,7 @@ func _process(delta):
 func _physics_process(delta):
 	if do_load_step:
 		do_load_step = false
-		load_level()
+		_load()
 
 
 func _unhandled_input(event):

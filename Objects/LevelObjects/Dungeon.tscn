@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Objects/LevelObjects/BaseTilemap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/LevelObjects/PushBlock.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Objects/LevelObjects/Room.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/LevelObjects/Chest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/LevelObjects/Camera2D.gd" type="Script" id=9]
+[ext_resource path="res://Objects/LevelObjects/BlockButton.tscn" type="PackedScene" id=10]
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource( 3 )
@@ -62,17 +63,17 @@ node_sound_jump = NodePath("../../../RoomObjects/Actors/Watson/Sounds/Jump")
 node_interact_area = NodePath("../../../RoomObjects/Actors/Watson/Interact")
 
 [node name="Enemy" parent="RoomObjects/Actors" instance=ExtResource( 6 )]
-position = Vector2( 64, 128 )
+position = Vector2( 136, 176 )
 node_hurtbox = NodePath("../../../RoomObjects/Actors/Enemy/Hurtbox")
 node_model = NodePath("../../../RoomObjects/Actors/Enemy/AnimatedSprite")
 
 [node name="Enemy11" parent="RoomObjects/Actors" instance=ExtResource( 6 )]
-position = Vector2( 112, 128 )
+position = Vector2( 128, 40 )
 node_hurtbox = NodePath("../../../RoomObjects/Actors/Enemy11/Hurtbox")
 node_model = NodePath("../../../RoomObjects/Actors/Enemy11/AnimatedSprite")
 
 [node name="Enemy12" parent="RoomObjects/Actors" instance=ExtResource( 6 )]
-position = Vector2( 128, 48 )
+position = Vector2( 216, 144 )
 node_hurtbox = NodePath("../../../RoomObjects/Actors/Enemy12/Hurtbox")
 node_model = NodePath("../../../RoomObjects/Actors/Enemy12/AnimatedSprite")
 
@@ -140,12 +141,15 @@ contains = 4
 position = Vector2( 186.468, -161.27 )
 contains = 4
 
+[node name="RigidBody2D" parent="RoomObjects/Objects" instance=ExtResource( 2 )]
+position = Vector2( 176, 120 )
+
+[node name="Area2D" parent="RoomObjects/Objects" instance=ExtResource( 10 )]
+position = Vector2( 80, 120 )
+
 [node name="Door" parent="RoomObjects" instance=ExtResource( 4 )]
 position = Vector2( 128, 0 )
 
 [node name="Door2" parent="RoomObjects" instance=ExtResource( 4 )]
 position = Vector2( 256, 96 )
 rotation = 1.5708
-
-[node name="RigidBody2D" parent="RoomObjects" instance=ExtResource( 2 )]
-position = Vector2( 176, 136 )

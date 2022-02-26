@@ -43,7 +43,7 @@ var max_health = 2
 var current_health = 2 setget set_current_health
 
 # Hitstun Stats
-var dmg_knockback = 180
+var dmg_knockback = 120
 
 # ==== DO NOT TOUCH; IMPORTANT EQUATIONS ====
  # /////////////////////////////////////////////////////////////////////////////
@@ -106,19 +106,15 @@ func _on_physics_process(delta):
 		if hurtbox.hitstun_timer > 0:
 			move_vector = Vector2.ZERO
 			var knockback = (global_position - hurtbox.hit_source).normalized() * dmg_knockback
-			if Game.do_time_warp:
-				knockback *= Game.game_speed
-			move_and_slide(knockback)
-		var real_move_vector = move_vector
-		if Game.do_time_warp:
-			real_move_vector *= Game.game_speed
+			move_vector = knockback
+		var real_move_vector = move_vector * Game.game_speed
 		move_and_slide(real_move_vector)
 		#if move_vector != Vector2.ZERO:
 			#print(velocity)
 
 
 func move_and_slide(linear_velocity: Vector2, up_direction: Vector2 = Vector2( 0, 0 ), stop_on_slope: bool = false, max_slides: int = 4, floor_max_angle: float = 0.785398, infinite_inertia: bool = true):
-	.move_and_slide(linear_velocity * Game.game_speed, up_direction, stop_on_slope, max_slides, floor_max_angle, false)
+	.move_and_slide(linear_velocity * Game.game_speed, up_direction, stop_on_slope, max_slides, floor_max_angle, infinite_inertia)
 	pass
 
 
@@ -196,6 +192,9 @@ func die():
 	shape_owner_get_owner(0).disabled = true
 	hurtbox.shape_owner_get_owner(0).disabled = true
 	pass
+	
+func is_grounded():
+	return altitude <= 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

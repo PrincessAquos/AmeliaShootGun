@@ -21,6 +21,8 @@ var shape:RectangleShape2D
 var chests:Array = []
 var doorways:Array = []
 var actors:Array = []
+var blocks:Array = []
+var buttons:Array = []
 
 var solve_func:FuncRef
 var is_solved = false
@@ -86,6 +88,10 @@ func load_room():
 	for chest in chests:
 		if !chest.active:
 			chest.deactivate()
+	for block in blocks:
+		block.load_object()
+	for button in buttons:
+		button.load_object()
 	pass
 
 
@@ -101,6 +107,10 @@ func register_objects():
 			doorways.append(object)
 		elif object in get_tree().get_nodes_in_group("chest"):
 			chests.append(object)
+		elif object in get_tree().get_nodes_in_group("pushblock"):
+			blocks.append(object)
+		elif object in get_tree().get_nodes_in_group("button"):
+			buttons.append(object)
 	return
 
 

@@ -4,7 +4,7 @@ export var node_run_model:NodePath
 export var node_sound_gunfire:NodePath
 export var node_sound_jump:NodePath
 export var node_interact_area:NodePath
-export (int, 0, 200) var push = 100
+#export (int, 0, 200) var push = 10
 
 var num_gears = 3
 # Movement Stats
@@ -42,7 +42,7 @@ var gp_timer = 0
 func _on_ready():
 	Game.player = self
 	current_health = 12
-	dmg_knockback = 180
+	dmg_knockback = 120
 	speed = 96
 	
 	var raycast:RayCast2D = get_node("RayCast2D")
@@ -168,9 +168,11 @@ func handle_special_collisions():
 		var collider = collision.collider
 		#print(collider.name)
 		if collision.collider.is_in_group("pushblock"):
-			print("It's a pushblock!")
-			collision.collider
-			collision.collider.apply_central_impulse(-collision.normal * push)
+			if is_grounded():
+				print("It's a pushblock!")
+				#print(collision.normal)
+				#print(collision.collider.push_speed)
+				collision.collider.push(-collision.normal)
 		if collider in get_tree().get_nodes_in_group("room"):
 			Game.current_dungeon.change_rooms(collider)
 			#.move_and_slide(collision.position - global_position)
