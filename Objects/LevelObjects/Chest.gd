@@ -7,6 +7,7 @@ extends StaticBody2D
 export var start_active = true
 export var model_path:NodePath
 export var contains:int = -1
+export var item_model_path:NodePath
 var closed = true
 
 var active = true
@@ -38,8 +39,12 @@ func interact():
 
 func open():
 	if closed:
+		var item_model = get_node(item_model_path)
 		model_node.animation = "Open"
 		if contains != -1:
+			var item_obj = Item.new(contains)
+			item_model.texture = item_obj.inventory_img
+			item_model.visible = true
 			Game.inv_screen.add_item(Item.new(contains))
 		closed = false
 	return
