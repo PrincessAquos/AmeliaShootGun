@@ -1,15 +1,12 @@
 Known Bugs:
 ------------
  - Enemy animations don't pause on defeat, so they can still release an attack halo
- - When a block hits a wall, it gets stuck and can't be pushed at all for some reason
 
 TODO Reminder:
 ------------
  - Clean up the camera code
- - Give the block friction
- - make button
- - fix the camera
- - camera
- - block
- - fuck this block
+ - Finish save file display layout
+ - Save file format
+ - Saving and Loading
+ - Title Screen, to Debug Menu, to File Select
  

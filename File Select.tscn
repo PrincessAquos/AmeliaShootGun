@@ -1,0 +1,184 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprite/Fonts/Georgia15px.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://Objects/HUD/HealthBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprite/Fonts/GeorgiaBold20px.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://MainMenu/SaveFile.tscn" type="PackedScene" id=4]
+
+[node name="File Select" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_right = 128.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -108.0
+margin_right = 128.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 256, 216 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_top = -0.471935
+margin_right = 217.0
+margin_bottom = 196.528
+custom_constants/margin_right = 24
+custom_constants/margin_top = 14
+custom_constants/margin_left = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 24.0
+margin_top = 14.0
+margin_right = 193.0
+margin_bottom = 197.0
+custom_constants/separation = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 169.0
+margin_bottom = 20.0
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
+margin_right = 169.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 3 )
+text = "Choose your file"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_top = 23.0
+margin_right = 169.0
+margin_bottom = 27.0
+
+[node name="File 1" parent="MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 30.0
+margin_right = 169.0
+margin_bottom = 79.0
+
+[node name="File 2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 82.0
+margin_right = 169.0
+margin_bottom = 131.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/File 2"]
+margin_right = 169.0
+margin_bottom = 49.0
+custom_constants/separation = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/File 2/HBoxContainer"]
+margin_right = 33.0
+margin_bottom = 49.0
+custom_constants/margin_bottom = 34
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File" type="Label" parent="MarginContainer/VBoxContainer/File 2/HBoxContainer/MarginContainer"]
+margin_right = 33.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "File 2:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/File 2/HBoxContainer"]
+margin_left = 41.0
+margin_right = 169.0
+margin_bottom = 49.0
+
+[node name="Filename" type="Label" parent="MarginContainer/VBoxContainer/File 2/HBoxContainer/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+text = "NO DATA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="MarginContainer" parent="MarginContainer/VBoxContainer/File 2/HBoxContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 128.0
+margin_bottom = 49.0
+
+[node name="HealthBar" parent="MarginContainer/VBoxContainer/File 2/HBoxContainer/VBoxContainer/Health" instance=ExtResource( 2 )]
+margin_right = 128.0
+margin_bottom = 30.0
+
+[node name="File 3" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 134.0
+margin_right = 169.0
+margin_bottom = 183.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/File 3"]
+margin_right = 169.0
+margin_bottom = 49.0
+custom_constants/separation = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/File 3/HBoxContainer"]
+margin_right = 33.0
+margin_bottom = 49.0
+custom_constants/margin_bottom = 34
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File" type="Label" parent="MarginContainer/VBoxContainer/File 3/HBoxContainer/MarginContainer"]
+margin_right = 33.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "File 3:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/File 3/HBoxContainer"]
+margin_left = 41.0
+margin_right = 169.0
+margin_bottom = 49.0
+
+[node name="Filename" type="Label" parent="MarginContainer/VBoxContainer/File 3/HBoxContainer/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+text = "NO DATA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="MarginContainer" parent="MarginContainer/VBoxContainer/File 3/HBoxContainer/VBoxContainer"]
+margin_top = 19.0
+margin_right = 128.0
+margin_bottom = 49.0
+
+[node name="HealthBar" parent="MarginContainer/VBoxContainer/File 3/HBoxContainer/VBoxContainer/Health" instance=ExtResource( 2 )]
+margin_right = 128.0
+margin_bottom = 30.0
