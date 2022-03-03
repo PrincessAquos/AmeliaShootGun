@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/Characters/InvestiGator.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/Enemy/InvestiGator/InvestiGator.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Objects/Hurtbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprite/Shadow.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Character" type="KinematicBody2D" groups=[
+"enemy",
+]]
+position = Vector2( 128, 100 )
+script = ExtResource( 1 )
+node_hurtbox = NodePath("Hurtbox")
+node_model = NodePath("AnimatedSprite")
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+offset = Vector2( 0, -6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = ExtResource( 2 )
+animation = "LookDown"
+playing = true
+
+[node name="Hurtbox" parent="." groups=[
+"enemy_hurtbox",
+] instance=ExtResource( 3 )]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
