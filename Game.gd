@@ -1,5 +1,7 @@
 extends Node
 
+const debug_mode = false
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -37,6 +39,12 @@ func _ready():
 	pass # Replace with function body.
 
 
+func load_file_select():
+	var file_select = load("res://File Select.tscn").instance()
+	get_tree().current_scene.add_child(file_select)
+	pass
+
+
 func load_new_area():
 	# Free current dungeon scene
 	# Add a new dungeon scene
@@ -47,13 +55,13 @@ func load_new_area():
 
 func _load():
 	print(get_tree().get_node_count())
-	if player != null:
-		player.is_loaded = true
 	if current_dungeon != null:
 		current_dungeon.prepare_room_bounds()
 		yield(get_tree(), "physics_frame")
 		current_dungeon.register_room_contents()
 		current_dungeon.load_first_room()
+	if player != null:
+		player.is_loaded = true
 	return
 
 

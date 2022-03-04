@@ -11,6 +11,7 @@ export var node_enemy_bounds_path:NodePath
 
 export var size:Vector2 setget change_size
 
+var finished_registering = false
 var node_room_bounds:Area2D = null
 var node_enemy_bounds:StaticBody2D = null
 # Colliders
@@ -111,6 +112,7 @@ func register_objects():
 			blocks.append(object)
 		elif object in get_tree().get_nodes_in_group("button"):
 			buttons.append(object)
+	finished_registering = true
 	return
 
 
@@ -204,10 +206,11 @@ func room_solved():
 
 func _process(delta):
 	if not Engine.editor_hint:
-		if !is_solved:
-			if solve_func.call_func(self):
-				room_solved()
-				is_solved = true
+		if finished_registering:
+			if !is_solved:
+				if solve_func.call_func(self):
+					room_solved()
+					is_solved = true
 	
 	if Engine.editor_hint:
 		#if wall_top == null:

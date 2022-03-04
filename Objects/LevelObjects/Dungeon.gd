@@ -25,7 +25,7 @@ func register_room_contents():
 	var rooms = get_node("Rooms").get_children()
 	for room in rooms:
 		room.register_contents()
-
+	print("Yo I have registered stuff")
 
 func load_first_room():
 	current_room.load_room()
