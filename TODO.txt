@@ -1,6 +1,7 @@
 Known Bugs:
 ------------
  - Enemy animations don't pause on defeat, so they can still release an attack halo
+ - For some reason when time slows down, you no longer jump as far? This didn't used to happen.
 
 TODO Reminder:
 ------------
@@ -9,4 +10,8 @@ TODO Reminder:
  - Save file format
  - Saving and Loading
  - Title Screen, to Debug Menu, to File Select
+ - InvestiGator walking sprites
+ - Final Boss (Bubba)
+ - Health pickups from enemies (a gear shaped glow?)
+ - Game over
  

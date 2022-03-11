@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Dungeon
+
 export var start_room_path:NodePath
 export var start_room_coord:Vector2
 

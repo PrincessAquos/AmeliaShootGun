@@ -8,18 +8,14 @@
 [ext_resource path="res://Objects/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/LevelObjects/Room.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/LevelObjects/Chest.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Objects/LevelObjects/Camera2D.gd" type="Script" id=9]
+[ext_resource path="res://Camera.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/LevelObjects/BlockButton.tscn" type="PackedScene" id=10]
 
 [node name="Dungeon" type="Node2D"]
 script = ExtResource( 3 )
 start_room_path = NodePath("Rooms/Room5")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -4 )
-anchor_mode = 0
-current = true
-script = ExtResource( 9 )
+[node name="Camera2D" parent="." instance=ExtResource( 9 )]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
 z_index = -4096

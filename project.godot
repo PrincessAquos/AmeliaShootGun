@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/LevelObjects/Door.gd"
 }, {
+"base": "Node2D",
+"class": "Dungeon",
+"language": "GDScript",
+"path": "res://Objects/LevelObjects/Dungeon.gd"
+}, {
 "base": "Area2D",
 "class": "Hitbox",
 "language": "GDScript",
@@ -81,6 +86,7 @@ _global_script_class_icons={
 "CreateFont": "",
 "Directions": "",
 "Door": "",
+"Dungeon": "",
 "Hitbox": "",
 "Hurtbox": "",
 "InvSlot": "",

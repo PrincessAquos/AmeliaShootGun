@@ -33,6 +33,9 @@ var current_dungeon = null
 var inv_screen = null
 var camera = null
 
+var loaded_save = -1
+var savepath = "/filepath/goes/here/"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -130,6 +133,59 @@ func _unhandled_input(event):
 func update_hud_health(num_gears, current_health):
 	hud.num_gears = num_gears
 	hud.current_health = current_health
+	return
+
+
+func get_savefile_name():
+	if loaded_save != -1:
+		var savefilepath = savepath + "savefile" + String(loaded_save) + ".sav"
+		# Open the save file
+		# Read the filename field
+		# return the filename field
+	return null
+
+
+func save():
+	var savefilepath = savepath + "savefile" + String(loaded_save) + ".sav"
+	var save_dict = {
+		# What to name the file on the file select screen
+		"filename": get_savefile_name(),
+		
+		# First cutscene
+		"intro_complete": false,
+		
+		# What area to load upon selecting the file
+		"current_area": "MisteavousManor",
+		
+		# Where to spawn the character. 
+		# If the current area is a dungeon, this will be ignored
+		"spawn_position": Vector2(0, 0),
+		
+		# Equipped item
+		"equipped_id" : -1,
+		
+		# The number of gears in the player health bar
+		"num_gears": 3,
+		
+		# The contents of the player's inventory
+		"inventory": [
+			# Each item will have this format
+			{
+				"item_id": -1,
+				"quantity": -1
+			}
+		],
+		
+		# Progress through dungeons
+		# Opened chests, unlocked doors, boss state
+		"dungeon_flags": {
+			"MisteavousManor": {
+				"chests": [],
+				"locked_doors": [],
+				"boss_defeated": false
+			}
+		}
+	}
 	return
 
 
