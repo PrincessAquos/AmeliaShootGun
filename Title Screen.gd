@@ -18,10 +18,11 @@ func _unhandled_input(event):
 	
 
 func start():
-	if Game.debug_mode:
-		Debug.load_debug_dungeon()
-	else:
-		Game.load_file_select()
+	#if Game.debug_mode:
+	#	Debug.load_debug_dungeon()
+	#else:
+	#	Game.load_file_select()
+	Debug.load_debug_dungeon()
 	queue_free()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

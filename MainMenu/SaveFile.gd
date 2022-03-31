@@ -1,5 +1,6 @@
 extends MarginContainer
 
+var savedata
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -9,6 +10,10 @@ export var file_name:String = "NO DATA" setget set_file_name
 export var num_gears:int = 3 setget set_num_gears
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	savedata = SaveData.new(file_num-1)
+	var data = savedata.data
+	set_file_name(data["file_name"])
+	set_num_gears(data["num_gears"])
 	pass # Replace with function body.
 
 

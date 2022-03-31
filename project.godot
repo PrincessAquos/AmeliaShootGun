@@ -78,6 +78,11 @@ _global_script_classes=[ {
 "class": "RoomSolutions",
 "language": "GDScript",
 "path": "res://Objects/LevelObjects/RoomSolutions.gd"
+}, {
+"base": "Reference",
+"class": "SaveData",
+"language": "GDScript",
+"path": "res://Core/SaveData.gd"
 } ]
 _global_script_class_icons={
 "BlockButton": "",
@@ -93,7 +98,8 @@ _global_script_class_icons={
 "Inventory": "",
 "Item": "",
 "Room": "",
-"RoomSolutions": ""
+"RoomSolutions": "",
+"SaveData": ""
 }
 
 [application]
@@ -104,7 +110,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Game="*res://Game.gd"
+Game="*res://Core/Game.gd"
 Data="*res://db/data.cdb"
 Debug="*res://Debug.gd"
 
