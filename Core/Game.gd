@@ -48,7 +48,14 @@ func load_file_select():
 	pass
 
 
+func load_save_file(num):
+	load_new_area()
+	pass
+
+
 func load_new_area():
+	var instanced_dungeon = Areas.MisteavousManor.instance()
+	get_tree().current_scene.get_node("LevelView/Viewport/nudge").add_child(instanced_dungeon)
 	# Free current dungeon scene
 	# Add a new dungeon scene
 	physics_step_counter = 0
@@ -121,12 +128,13 @@ func _physics_process(delta):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
-		if inv_screen != null && !menu_animation && (locked_by == self || locked_by == null):
-			paused = !paused
-			menu_animation = true
-			if paused:
-				set_game_speed(0)
-				lock_game_speed(self)
+		if current_dungeon != null:
+			if inv_screen != null && !menu_animation && (locked_by == self || locked_by == null):
+				paused = !paused
+				menu_animation = true
+				if paused:
+					set_game_speed(0)
+					lock_game_speed(self)
 	return
 
 

@@ -22,7 +22,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if moving:
 		Game.game_speed = Game.screen_transition_time
 		Game.lock_game_speed(self)

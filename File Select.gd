@@ -5,6 +5,8 @@ extends Control
 # var a = 2
 # var b = "text"
 var currently_selected:int = 0
+var do_load_file = false
+
 
 var file_rows = [
 	"Margins/File List/File 1 Row",
@@ -29,7 +31,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed("move_down"):
 		set_currently_selected(currently_selected + 1)
 	if event.is_action_pressed("move_jump") || event.is_action_pressed("shoot"):
-		choose_current_file()
+		do_load_file = true
 		pass
 	pass
 
@@ -37,7 +39,13 @@ func _unhandled_input(event):
 func choose_current_file():
 	var chosen_file = get_node(file_rows[currently_selected] + "/File " + String(currently_selected + 1))
 	chosen_file.choose()
+	queue_free()
 	return
+
+
+func _process(delta):
+	if do_load_file:
+		choose_current_file()
 
 
 # Called when the node enters the scene tree for the first time.

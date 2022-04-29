@@ -35,7 +35,7 @@ func set_num_gears(new_num_gears):
 
 
 func choose():
-	print("Wow, I, " + name + ", have been selected!")
+	Game.load_save_file(file_num)
 	pass
 	
 
