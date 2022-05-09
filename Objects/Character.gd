@@ -107,8 +107,7 @@ func _on_physics_process(delta):
 			move_vector = Vector2.ZERO
 			var knockback = (global_position - hurtbox.hit_source).normalized() * dmg_knockback
 			move_vector = knockback
-		var real_move_vector = move_vector * Game.game_speed
-		move_and_slide(real_move_vector)
+		move_and_slide(move_vector)
 		#if move_vector != Vector2.ZERO:
 			#print(velocity)
 
@@ -195,6 +194,3 @@ func die():
 	
 func is_grounded():
 	return altitude <= 0
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
