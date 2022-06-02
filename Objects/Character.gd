@@ -66,12 +66,12 @@ func _ready():
 	_on_ready()
 
 func _physics_process(delta):
-	if !is_dead:
+	if !Game.paused && !is_dead:
 		delta = delta * Game.game_speed
 		_on_physics_process(delta)
 
 func _process(delta):
-	if !is_dead:
+	if !Game.paused && !is_dead:
 		delta = delta * Game.game_speed
 		model.speed_scale = Game.game_speed
 		model.playing = is_loaded

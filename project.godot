@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/Character.gd"
 }, {
+"base": "Event",
+"class": "ChestEvent",
+"language": "GDScript",
+"path": "res://Events/ChestEvent.gd"
+}, {
 "base": "Node",
 "class": "CreateFont",
 "language": "GDScript",
@@ -48,6 +53,11 @@ _global_script_classes=[ {
 "class": "Dungeon",
 "language": "GDScript",
 "path": "res://Objects/LevelObjects/Dungeon.gd"
+}, {
+"base": "Node",
+"class": "Event",
+"language": "GDScript",
+"path": "res://Events/Event.gd"
 }, {
 "base": "Area2D",
 "class": "Hitbox",
@@ -74,6 +84,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Data/Items/Item.gd"
 }, {
+"base": "Event",
+"class": "ItemEvent",
+"language": "GDScript",
+"path": "res://Events/ItemEvent.gd"
+}, {
+"base": "Event",
+"class": "ItemTextEvent",
+"language": "GDScript",
+"path": "res://Events/ItemTextEvent.gd"
+}, {
 "base": "StaticBody2D",
 "class": "Room",
 "language": "GDScript",
@@ -88,24 +108,34 @@ _global_script_classes=[ {
 "class": "SaveData",
 "language": "GDScript",
 "path": "res://Core/SaveData.gd"
+}, {
+"base": "Event",
+"class": "TextEvent",
+"language": "GDScript",
+"path": "res://Events/TextEvent.gd"
 } ]
 _global_script_class_icons={
 "Areas": "",
 "BlockButton": "",
 "CastleDB": "",
 "Character": "",
+"ChestEvent": "",
 "CreateFont": "",
 "Directions": "",
 "Door": "",
 "Dungeon": "",
+"Event": "",
 "Hitbox": "",
 "Hurtbox": "",
 "InvSlot": "",
 "Inventory": "",
 "Item": "",
+"ItemEvent": "",
+"ItemTextEvent": "",
 "Room": "",
 "RoomSolutions": "",
-"SaveData": ""
+"SaveData": "",
+"TextEvent": ""
 }
 
 [application]

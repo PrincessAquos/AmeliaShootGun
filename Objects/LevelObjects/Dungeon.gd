@@ -35,7 +35,6 @@ func load_first_room():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	#current_room_lock = start_room_coord
 	current_room = get_node(start_room_path)
 	current_room.active = true
@@ -48,6 +47,9 @@ func _ready():
 	#current_camera_min = -current_room.position - (current_room.size - screen_size)
 	current_room.disable_player_collision()
 	Game.current_dungeon = self
+	var t = TextEvent.new(self, "This is a test of text events")
+	add_child(t)
+	Game.play_event(t)
 
 
 func _unhandled_input(event):

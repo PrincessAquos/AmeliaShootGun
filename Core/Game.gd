@@ -36,6 +36,8 @@ var camera = null
 var loaded_save = -1
 var savepath = "/filepath/goes/here/"
 
+var current_event = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -75,6 +77,13 @@ func _load():
 	return
 
 
+func play_event(event):
+	current_event = event
+	paused = true
+	current_event.trigger()
+	pass
+
+
 func activate_bullet_time():
 	set_game_speed(bullet_time)
 
@@ -97,6 +106,12 @@ func reset_game_speed():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if current_event != null:
+		if current_event.complete:
+			current_event.ack()
+			current_event = null
+			paused = false
+	
 	if menu_animation:
 		if paused:
 			menu_anim_timer += delta
@@ -108,8 +123,6 @@ func _process(delta):
 			if menu_anim_timer < 0:
 				menu_anim_timer = 0
 				menu_animation = false
-				unlock_game_speed(self)
-				set_game_speed(1)
 		world_brightness = (menu_anim_time - menu_anim_timer)/menu_anim_time
 		menu_alpha = menu_anim_timer/menu_anim_time
 		current_dungeon.modulate = Color(world_brightness, world_brightness, world_brightness, 1)
@@ -127,14 +140,14 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event):
+	
 	if event.is_action_pressed("pause"):
-		if current_dungeon != null:
-			if inv_screen != null && !menu_animation && (locked_by == self || locked_by == null):
-				paused = !paused
-				menu_animation = true
-				if paused:
-					set_game_speed(0)
-					lock_game_speed(self)
+		if current_event == null:
+			if current_dungeon != null:
+				if inv_screen != null && !menu_animation && (locked_by == self || locked_by == null):
+					paused = !paused
+					menu_animation = true
+				
 	return
 
 
