@@ -20,6 +20,7 @@ visible = false
 
 [node name="Room" parent="Rooms" instance=ExtResource( 4 )]
 active = true
+size = Vector2( 256, 208 )
 
 [node name="RoomObjects" type="Node2D" parent="."]
 

@@ -14,7 +14,7 @@ var test_save_file_path = "user://test_save.save"
 var formats = {
 	"0.0.1": SaveFormat.new("0.0.1", ["test_num"]),
 	"0.0.2": SaveFormat.new("0.0.2", ["test_num", "spawn_position"]),
-	"0.0.3": SaveFormat.new("0.0.3", ["file_number", "file_name", "num_gears"])
+	"0.0.3": SaveFormat.new("0.0.3", ["file_number", "file_name", "num_gears", "area_id"])
 }
 
 
@@ -108,7 +108,8 @@ class SaveFormat:
 				value = 3
 			"spawn_position":
 				value = {"x": spawn_vector.x, "y": spawn_vector.y}
-			
+			"area_id":
+				value = "dungeon_manor"
 		return value
 
 

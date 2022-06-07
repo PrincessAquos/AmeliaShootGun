@@ -2,7 +2,7 @@ extends Event
 
 class_name ItemEvent
 
-var item = null
+var item:Item = null
 
 
 func _init(source, in_item).(source):
@@ -10,5 +10,6 @@ func _init(source, in_item).(source):
 
 
 func _start():
-	# Add item of the given ID to the inventory
+	Game.inv_screen.add_item(item)
+	print("Added " + item.item_name + " to the inventory.")
 	pass

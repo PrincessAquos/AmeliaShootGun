@@ -7,7 +7,7 @@ var actors
 var id
 var is_active = false
 var complete = false
-var acknowledged = true
+var acknowledged = false
 
 func _init(source):
 	source_obj = source

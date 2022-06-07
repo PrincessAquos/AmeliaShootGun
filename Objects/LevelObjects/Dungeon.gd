@@ -47,9 +47,6 @@ func _ready():
 	#current_camera_min = -current_room.position - (current_room.size - screen_size)
 	current_room.disable_player_collision()
 	Game.current_dungeon = self
-	var t = TextEvent.new(self, "This is a test of text events")
-	add_child(t)
-	Game.play_event(t)
 
 
 func _unhandled_input(event):

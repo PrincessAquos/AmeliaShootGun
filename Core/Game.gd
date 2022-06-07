@@ -50,13 +50,14 @@ func load_file_select():
 	pass
 
 
-func load_save_file(num):
-	load_new_area()
+func load_save_file(save_data:SaveData):
+	var data = save_data.data
+	load_new_area(data["area_id"])
 	pass
 
 
-func load_new_area():
-	var instanced_dungeon = Areas.MisteavousManor.instance()
+func load_new_area(area_id):
+	var instanced_dungeon = Areas.load_area(area_id)
 	get_tree().current_scene.get_node("LevelView/Viewport/nudge").add_child(instanced_dungeon)
 	# Free current dungeon scene
 	# Add a new dungeon scene

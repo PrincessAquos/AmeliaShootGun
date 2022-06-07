@@ -35,7 +35,7 @@ func set_num_gears(new_num_gears):
 
 
 func choose():
-	Game.load_save_file(file_num)
+	Game.load_save_file(savedata)
 	pass
 	
 
