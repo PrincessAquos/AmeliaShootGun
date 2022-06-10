@@ -49,10 +49,5 @@ physics_object_picking = true
 position = Vector2( 0, 4 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -128.0
-margin_right = 128.0
-margin_bottom = 216.0
 
 [node name="Title" parent="." instance=ExtResource( 1 )]

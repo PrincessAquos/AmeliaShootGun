@@ -10,7 +10,6 @@ var current_health setget set_current_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Game.hud = self
 	return
 
 func set_num_gears(new_val):

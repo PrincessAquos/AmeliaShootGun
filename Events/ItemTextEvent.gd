@@ -9,7 +9,7 @@ var step = 0
 
 func _init(source, in_item, in_text).(source):
 	item_event = ItemEvent.new(self, in_item)
-	text_event = TextEvent.new(self, in_text)
+	text_event = TextEvent.new(self, null, in_text)
 	add_child(item_event)
 	add_child(text_event)
 

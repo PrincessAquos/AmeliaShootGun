@@ -9,7 +9,8 @@ var t
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#t = TextEvent.new(self, "This is a test of text events")
-	t = ItemTextEvent.new(self, Item.new(4), "You done got an item whoa.")
+	var item:Item = Item.new(4)
+	t = ItemTextEvent.new(self, item, "You done got an item whoa. This item is a " + item.item_name + "! That's so cool! Holy shit! There's too much text here!")
 	add_child(t)
 	Game.play_event(t)
 	pass # Replace with function body.
