@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 class_name Dungeon
@@ -10,6 +11,10 @@ var current_room:Room
 var previous_room:Room
 
 export var camera:NodePath
+export var room_list:Dictionary
+export var chest_list:Dictionary
+export var actor_list:Dictionary
+export var door_list:Dictionary
 
 var moving = false
 
@@ -29,13 +34,61 @@ func load_first_room():
 	current_room.load_room()
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if Engine.editor_hint:
 		var new_camera = get_path_to(find_node("Camera2D"))
 		if camera != new_camera:
 			camera = new_camera
-		pass
+		
+		# Clear out all expired room paths
+		for room_key in room_list:
+			if get_node(room_list[room_key]) == null || room_list[room_key].is_empty():
+				room_list.erase(room_key)
+		
+		# Update inaccurate room ids
+		for room_key in room_list:
+			# If the room's ID doesn't match its key, we need to change its key
+			if get_node(room_list[room_key]).room_id != room_key:
+				var room_to_update = get_node(room_list[room_key])
+				var requested_id = room_to_update.room_id
+				# Make sure that the requested room key number isn't taken
+				if !(requested_id in room_list):
+					# Store the path, erase the old key, add the new one
+					var this_room_path = room_list[room_key]
+					room_list.erase(room_key)
+					room_list[requested_id] = this_room_path
+				# The current room key is already occupied
+				else:
+					print("ERROR: Can't update room " + get_path_to(room_to_update) + " because ID is occupied by " + room_list[requested_id])
+				pass
+		
+		# Add new rooms 
+		var all_rooms = get_tree().get_nodes_in_group("room")
+		var i = 0
+		for room in all_rooms:
+			var room_path = get_path_to(room)
+			
+			# Room's current path is not in the list
+			if !(room_path in room_list.values()):
+				
+				# Room has no ID
+				if room.room_id == -1:
+					while i in room_list:
+						i += 1
+					room_list[i] = room_path
+					room.room_id = i
+				
+				# Room has an unoccupied ID
+				elif !(room.room_id in room_list):
+					room_list[room.room_id] = room_path
+					pass
+				
+				# Room has an occupied ID
+				else:
+					print("ERROR: New room: " + get_path_to(room) + " has its requested ID occupied by " + room_list[room.room_id])
+					pass
+			
+			
 	else:
 		#current_room_lock = start_room_coord
 		current_room = get_node(start_room_path)
@@ -103,23 +156,26 @@ func change_rooms(new_room):
 
 
 func _process(delta):
-	if moving:
-		#Game.game_speed = Game.screen_transition_time
-		#Game.lock_game_speed(self)
-		#var screen_size = Vector2(256, 208)
-		#var speed = 300
-		#var new_camera = Vector2.ZERO
-		#new_camera.x = clamp(-Game.player.position.x + (screen_size.x/2), current_camera_min.x, current_camera_max.x)
-		#new_camera.y = clamp(-Game.player.position.y + (screen_size.y/2), current_camera_min.y, current_camera_max.y)
-		#position = position.move_toward(new_camera, speed*delta)
-		#if position == new_camera:
-		#	Game.unlock_game_speed(self)
-		#	Game.reset_game_speed()
-		#	previous_room.unload_room()
-		#	moving = false
+	if Engine.editor_hint:
 		pass
 	else:
-		#var screen_size = Vector2(256, 208)
-		#position.x = clamp(-Game.player.position.x + (screen_size.x/2), current_camera_min.x, current_camera_max.x)
-		#position.y = clamp(-Game.player.position.y + (screen_size.y/2), current_camera_min.y, current_camera_max.y)
-		pass
+		if moving:
+			#Game.game_speed = Game.screen_transition_time
+			#Game.lock_game_speed(self)
+			#var screen_size = Vector2(256, 208)
+			#var speed = 300
+			#var new_camera = Vector2.ZERO
+			#new_camera.x = clamp(-Game.player.position.x + (screen_size.x/2), current_camera_min.x, current_camera_max.x)
+			#new_camera.y = clamp(-Game.player.position.y + (screen_size.y/2), current_camera_min.y, current_camera_max.y)
+			#position = position.move_toward(new_camera, speed*delta)
+			#if position == new_camera:
+			#	Game.unlock_game_speed(self)
+			#	Game.reset_game_speed()
+			#	previous_room.unload_room()
+			#	moving = false
+			pass
+		else:
+			#var screen_size = Vector2(256, 208)
+			#position.x = clamp(-Game.player.position.x + (screen_size.x/2), current_camera_min.x, current_camera_max.x)
+			#position.y = clamp(-Game.player.position.y + (screen_size.y/2), current_camera_min.y, current_camera_max.y)
+			pass

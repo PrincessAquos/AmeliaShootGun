@@ -12,13 +12,6 @@ var num_gears = 3
 
 var buffer_time = 0.3
 
-# Ground Pound Stats
-var gp_hang_time = 0.2
-var gp_accel = gravity * 4
-var gp_hitframes = 0.1
-var gp_endlag = 0.3
-var gp_hitbox:Area2D = null
-
 # Gun Stats
 var gun_range = 650
 var gun_damage = 1
@@ -35,8 +28,6 @@ var gun_timer = 0
 var debug_gunbox_frame_done = false
 
 var jump_buffer = 0
-var ground_pound_state = 0
-var gp_timer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _on_ready():
@@ -47,9 +38,7 @@ func _on_ready():
 	
 	var raycast:RayCast2D = get_node("RayCast2D")
 	raycast.add_exception(self)
-	raycast.add_exception(get_node("GPHitbox"))
 	raycast.add_exception(get_node("Hurtbox"))
-	gp_hitbox = get_node("GPHitbox")
 	._on_ready()
 	pass
 

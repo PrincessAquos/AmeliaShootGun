@@ -14,6 +14,23 @@
 [node name="Dungeon" type="Node2D"]
 script = ExtResource( 3 )
 start_room_path = NodePath("Rooms/Room5")
+camera = NodePath("Camera2D")
+room_list = {
+0: NodePath("Rooms/Room5"),
+1: NodePath("Rooms/Room"),
+2: NodePath("Rooms/Room2"),
+3: NodePath("Rooms/Room4"),
+4: NodePath("Rooms/Room3")
+}
+chest_list = {
+
+}
+actor_list = {
+
+}
+door_list = {
+
+}
 
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
 
@@ -27,19 +44,27 @@ tile_data = PoolIntArray( -983043, 1, 8, -983042, 1, 10, -983041, 1, 10, -104857
 
 [node name="Room5" parent="Rooms" instance=ExtResource( 7 )]
 active = true
+room_id = 0
 
 [node name="Room" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 0, -224 )
 trapped = true
+room_id = 1
 
 [node name="Room2" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 0, 224 )
 size = Vector2( 384, 208 )
+room_id = 2
 
 [node name="Room4" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 272, -224 )
 trapped = true
 size = Vector2( 512, 432 )
+room_id = 3
+
+[node name="Room3" parent="Rooms" instance=ExtResource( 7 )]
+position = Vector2( 400, 224 )
+room_id = 4
 
 [node name="RoomObjects" type="Node2D" parent="."]
 

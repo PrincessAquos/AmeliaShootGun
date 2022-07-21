@@ -10,6 +10,7 @@ export var node_room_bounds_path:NodePath
 export var node_enemy_bounds_path:NodePath
 
 export var size:Vector2 setget change_size
+export var room_id:int = -1
 
 var finished_registering = false
 var node_room_bounds:Area2D = null
