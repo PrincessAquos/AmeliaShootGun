@@ -20,13 +20,13 @@ func _ready():
 		slots.append(get_node(slot_path))
 	
 	for i in range(4):
-		var new_item = Item.new(i)
+		var new_item = Item.new_item(i)
 		#print(new_item)
 		add_item(new_item)
 	return
 
 
-func add_item(new_item:Item):
+func add_item(new_item):
 	var slot:InvSlot
 	if new_item != null:
 		slot = slots[new_item.prefer_slot]

@@ -1,29 +1,22 @@
-extends Object
+extends Reference
 
 class_name Item
-
-var id:String
-var item_name:String
-var item_description:String
-var inventory_img:Texture
-var prefer_slot:int
-var is_equippable = false
-var use_from_menu = false
-var have_multiple = false
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 
-func _init(index):
+static func new_item(index):
 	var entry:Data.ItemIndex.ItemIndexRow = Data.itemindex.all[index]
-	id = entry.id
-	item_name = entry.iname
-	item_description = "This item exists, and this is a placeholder description."
-	inventory_img = load(entry.img_path)
-	prefer_slot = entry.slot
-	is_equippable = entry.equippable
-	use_from_menu = entry.menu_use
-	have_multiple = entry.have_multiple
-	return
+	var item_dat = {}
+	item_dat["id"] = entry.id
+	item_dat["item_name"] = entry.iname
+	item_dat["description"] = entry.description
+	item_dat["instruction"] = entry.instruction
+	item_dat["inventory_img"] = load(entry.img_path)
+	item_dat["prefer_slot"] = entry.slot
+	item_dat["is_equippable"] = entry.equippable
+	item_dat["use_from_menu"] = entry.menu_use
+	item_dat["have_multiple"] = entry.have_multiple
+	return item_dat

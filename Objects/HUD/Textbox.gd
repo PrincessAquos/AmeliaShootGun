@@ -8,6 +8,7 @@ const textbox_scene = preload("res://Objects/HUD/Textbox.tscn")
 const nodepath_title = "Textbox/Control3/MarginContainer2/MarginContainer/Name"
 const nodepath_dialogue = "Textbox/Control/MarginContainer/Control/Dialogue"
 
+
 var title setget set_title
 var dialogue
 var lines
@@ -41,7 +42,7 @@ func split_dialogue():
 
 func progress_text():
 	var dialogue_label:Label = get_node(nodepath_dialogue)
-	if (dialogue_label.get_line_count() - dialogue_label.lines_skipped) > 2:
-		dialogue_label.lines_skipped += 2
+	if (dialogue_label.get_line_count() - dialogue_label.lines_skipped) > dialogue_label.max_lines_visible:
+		dialogue_label.lines_skipped += dialogue_label.max_lines_visible
 	else:
 		dismiss_text = true

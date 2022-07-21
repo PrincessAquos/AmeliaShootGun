@@ -35,6 +35,15 @@
 					"typeStr": "2",
 					"name": "have_multiple",
 					"display": null
+				},
+				{
+					"typeStr": "1",
+					"name": "description"
+				},
+				{
+					"typeStr": "1",
+					"name": "instruction",
+					"display": null
 				}
 			],
 			"lines": [
@@ -45,7 +54,9 @@
 					"equippable": false,
 					"menu_use": true,
 					"slot": 0,
-					"have_multiple": false
+					"have_multiple": false,
+					"description": "A detective's best friend.",
+					"instruction": "Select it to save the game."
 				},
 				{
 					"id": "badge",
@@ -54,7 +65,9 @@
 					"equippable": false,
 					"menu_use": true,
 					"slot": 1,
-					"have_multiple": false
+					"have_multiple": false,
+					"description": "Definitive proof that you are Detective Amelia Watson. Your accomplishments are listed inside.",
+					"instruction": ""
 				},
 				{
 					"id": "gear_case",
@@ -63,7 +76,9 @@
 					"equippable": false,
 					"menu_use": false,
 					"slot": 2,
-					"have_multiple": false
+					"have_multiple": false,
+					"description": "A container to store gear fragments.",
+					"instruction": "Collect 4 fragments to restore a gear in the pocket watch."
 				},
 				{
 					"id": "gun",
@@ -72,7 +87,9 @@
 					"equippable": false,
 					"menu_use": false,
 					"slot": 3,
-					"have_multiple": false
+					"have_multiple": false,
+					"description": "Your trusty revolver.",
+					"instruction": ""
 				},
 				{
 					"id": "scroll",
@@ -81,7 +98,9 @@
 					"equippable": false,
 					"menu_use": false,
 					"slot": 4,
-					"have_multiple": true
+					"have_multiple": true,
+					"description": "Magic incantations left behind by The Ancient Ones. ",
+					"instruction": "They can dispell purple barriers. Each scroll disintegrates after a single use."
 				}
 			],
 			"separators": [],

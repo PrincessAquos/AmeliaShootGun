@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/HUD/Inventory.gd"
 }, {
-"base": "Object",
+"base": "Reference",
 "class": "Item",
 "language": "GDScript",
 "path": "res://Data/Items/Item.gd"

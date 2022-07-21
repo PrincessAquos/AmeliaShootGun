@@ -2,7 +2,7 @@ extends Event
 
 class_name ItemEvent
 
-var item:Item = null
+var item = null
 
 
 func _init(source, in_item).(source):

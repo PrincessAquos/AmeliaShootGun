@@ -42,10 +42,13 @@ func open():
 		var item_model = get_node(item_model_path)
 		model_node.animation = "Open"
 		if contains != -1:
-			var item_obj = Item.new(contains)
+			var item_obj = Item.new_item(contains)
 			item_model.texture = item_obj.inventory_img
 			item_model.visible = true
-			Game.inv_screen.add_item(Item.new(contains))
+			var event = ChestEvent.new(self, contains)
+			add_child(event)
+			Game.play_event(event)
+			#Game.inv_screen.add_item(Item.new_item(contains))
 		closed = false
 	return
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -11,7 +11,7 @@ export var item_count_path:NodePath
 var item_icon_node:TextureRect
 var item_count_label:Label
 
-var item:Item = null setget set_item
+var item = null setget set_item
 var count:int = 0 setget set_count
 var equipped
 
@@ -27,7 +27,7 @@ func set_count(new_count):
 	item_count_label.text = String(count)
 
 
-func set_item(new_item:Item):
+func set_item(new_item):
 	if item != null && item.id == new_item.id:
 		set_count(count + 1)
 	else:
