@@ -16,6 +16,9 @@ export var node_model:NodePath
 var hurtbox:Area2D
 var model:AnimatedSprite
 
+# Identification
+export var uid:int = -1
+
 # State
 var is_dead = false
 var is_loaded = false
@@ -63,19 +66,38 @@ var terminal_velocity = jump_speed * 1.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_on_ready()
+	if not Engine.editor_hint:
+		_on_ready()
+	else:
+		_editor_on_ready()
 
 func _physics_process(delta):
-	if !Game.paused && !is_dead:
-		delta = delta * Game.game_speed
-		_on_physics_process(delta)
+	if not Engine.editor_hint:
+		if !Game.paused && !is_dead:
+			delta = delta * Game.game_speed
+			_on_physics_process(delta)
+	else:
+		_editor_on_physics_process(delta)
 
 func _process(delta):
-	if !Game.paused && !is_dead:
-		delta = delta * Game.game_speed
-		model.speed_scale = Game.game_speed
-		model.playing = is_loaded
-		_on_process(delta)
+	if not Engine.editor_hint:
+		if !Game.paused && !is_dead:
+			delta = delta * Game.game_speed
+			model.speed_scale = Game.game_speed
+			model.playing = is_loaded
+			_on_process(delta)
+	else:
+		_editor_on_process(delta)
+
+
+func _editor_on_ready():
+	pass
+
+func _editor_on_physics_process(delta):
+	pass
+
+func _editor_on_process(delta):
+	pass
 
 
 func _on_ready():

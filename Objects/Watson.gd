@@ -262,14 +262,3 @@ func update_interact_position():
 		Direction.RIGHT:
 			interact_pos = Vector2(9, 3)
 	get_node(node_interact_area).position = interact_pos
-
-func _on_GPHitbox_body_entered(body):
-	if body in get_tree().get_nodes_in_group("enemies"):
-		body.queue_free()
-	pass
-
-
-func _on_GPHitbox_area_entered(area):
-	if area in get_tree().get_nodes_in_group("enemies"):
-		area.queue_free()
-	pass

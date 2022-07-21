@@ -71,22 +71,24 @@ func die():
 
 
 func _on_AnimatedSprite_frame_changed():
-	if model.animation.begins_with("Toss"):
-		if model.frame == attack_frame:
-			model.modulate = Color(1, 1, 0, 1)
-			# Throw Halo
-			var inst_halo = halo_scene.instance()
-			inst_halo.instance_init(position, facing)
-			Game.current_dungeon.add_child(inst_halo)
+	if not Engine.editor_hint:
+		if model.animation.begins_with("Toss"):
+			if model.frame == attack_frame:
+				model.modulate = Color(1, 1, 0, 1)
+				# Throw Halo
+				var inst_halo = halo_scene.instance()
+				inst_halo.instance_init(position, facing)
+				Game.current_dungeon.add_child(inst_halo)
+			else:
+				model.modulate = Color(1, 1, 1, 1)
 		else:
 			model.modulate = Color(1, 1, 1, 1)
-	else:
-		model.modulate = Color(1, 1, 1, 1)
 	pass # Replace with function body.
 
 
 func _on_AnimatedSprite_animation_finished():
-	if model.animation.begins_with("Toss"):
-		attacking = false
-		_update_sprite()
+	if not Engine.editor_hint:
+		if model.animation.begins_with("Toss"):
+			attacking = false
+			_update_sprite()
 	pass # Replace with function body.

@@ -9,11 +9,7 @@ var current_room_lock:Vector2
 var current_room:Room
 var previous_room:Room
 
-#var current_camera_min:Vector2
-#var current_camera_max:Vector2
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var camera:NodePath
 
 var moving = false
 
@@ -35,18 +31,24 @@ func load_first_room():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#current_room_lock = start_room_coord
-	current_room = get_node(start_room_path)
-	current_room.active = true
-	
-	var screen_size = Vector2(256, 208)
-	Game.camera.current_camera_min = current_room.position
-	Game.camera.current_camera_max = current_room.position - (current_room.size - screen_size)
-	#var screen_size = Vector2(256, 208)
-	#current_camera_max = -current_room.position
-	#current_camera_min = -current_room.position - (current_room.size - screen_size)
-	current_room.disable_player_collision()
-	Game.current_dungeon = self
+	if Engine.editor_hint:
+		var new_camera = get_path_to(find_node("Camera2D"))
+		if camera != new_camera:
+			camera = new_camera
+		pass
+	else:
+		#current_room_lock = start_room_coord
+		current_room = get_node(start_room_path)
+		current_room.active = true
+		
+		var screen_size = Vector2(256, 208)
+		Game.camera.current_camera_min = current_room.position
+		Game.camera.current_camera_max = current_room.position - (current_room.size - screen_size)
+		#var screen_size = Vector2(256, 208)
+		#current_camera_max = -current_room.position
+		#current_camera_min = -current_room.position - (current_room.size - screen_size)
+		current_room.disable_player_collision()
+		Game.current_dungeon = self
 
 
 func _unhandled_input(event):
