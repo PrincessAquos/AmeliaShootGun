@@ -10,7 +10,7 @@ export var node_room_bounds_path:NodePath
 export var node_enemy_bounds_path:NodePath
 
 export var size:Vector2 setget change_size
-export var room_id:int = -1
+export var unique_id:int = -1
 
 var finished_registering = false
 var node_room_bounds:Area2D = null
@@ -28,6 +28,18 @@ var buttons:Array = []
 
 var solve_func:FuncRef
 var is_solved = false
+
+
+func collect_save_info():
+	var room_info = {}
+	room_info["is_solved"] = is_solved
+	return room_info
+
+
+func load_save_info(room_info):
+	is_solved = room_info["is_solved"]
+	if is_solved:
+		room_solved()
 
 
 # Called when the node enters the scene tree for the first time.

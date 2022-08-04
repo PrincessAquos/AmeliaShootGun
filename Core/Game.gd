@@ -11,7 +11,7 @@ var locked_by = null
 #var speed_locked = false
 
 var physics_step_counter = 0
-var do_load_step = true
+var do_load_step = false
 
 var hud
 var player
@@ -29,12 +29,15 @@ var menu_anim_time = 0.5
 
 var game_speed = 1 setget set_game_speed
 
+var current_area_id
 var current_dungeon = null
 var inv_screen = null
 var camera = null
 
 var loaded_save = -1
 var savepath = "/filepath/goes/here/"
+
+var current_loaded_save:SaveData
 
 var current_event = null
 
@@ -51,8 +54,10 @@ func load_file_select():
 
 
 func load_save_file(save_data:SaveData):
-	var data = save_data.data
-	load_new_area(data["area_id"])
+	current_loaded_save = save_data
+	var data = current_loaded_save.data
+	current_area_id = data["area_id"]
+	load_new_area(current_area_id)
 	pass
 
 
@@ -72,9 +77,11 @@ func _load():
 		current_dungeon.prepare_room_bounds()
 		yield(get_tree(), "physics_frame")
 		current_dungeon.register_room_contents()
+		current_dungeon.load_save_info(current_loaded_save.data[current_area_id])
 		current_dungeon.load_first_room()
 	if player != null:
 		player.is_loaded = true
+	inv_screen.load_save_info(current_loaded_save.data["inventory"])
 	return
 
 
@@ -149,6 +156,12 @@ func _unhandled_input(event):
 					paused = !paused
 					menu_animation = true
 				
+	if event.is_action_pressed("debug_save"):
+		current_loaded_save.data[current_area_id] = current_dungeon.collect_save_info()
+		current_loaded_save.data["inventory"] = inv_screen.collect_save_info()
+		#print(current_loaded_save.data)
+		current_loaded_save.write_save()
+	
 	return
 
 

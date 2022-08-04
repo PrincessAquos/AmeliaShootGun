@@ -11,6 +11,20 @@ var key_item_section
 var equippable_item_section
 var slots:Array = []
 
+
+func collect_save_info():
+	var inventory_info = []
+	for i in range(slots.size()):
+		inventory_info.append(slots[i].collect_save_info())
+	return inventory_info
+
+
+func load_save_info(inventory_info):
+	print("loading inventory")
+	for i in range(slots.size()):
+		slots[i].load_save_info(inventory_info[i])
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.inv_screen = self

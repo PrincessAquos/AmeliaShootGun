@@ -20,3 +20,7 @@ static func new_item(index):
 	item_dat["use_from_menu"] = entry.menu_use
 	item_dat["have_multiple"] = entry.have_multiple
 	return item_dat
+
+static func new_item_by_id(item_id):
+	var index = Data.itemindex.index[item_id]
+	return new_item(index)

@@ -13,8 +13,20 @@ var node_trapped:Node2D
 var node_locked:Node2D
 var node_shut_collider:CollisionShape2D
 
+export var unique_id = -1
 export var is_locked = false setget set_lock_state
 export var is_trapped = false setget set_trap_state
+
+
+func collect_save_info():
+	var door_info = {}
+	door_info["is_locked"] = is_locked
+	return door_info
+
+
+func load_save_info(door_info):
+	set_lock_state(door_info["is_locked"])
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

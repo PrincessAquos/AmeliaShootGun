@@ -49,9 +49,9 @@ func collect_data():
 func write_save():
 	var savefilepath = get_save_path(file_number)
 	var save_file = File.new()
-	var this_data = collect_data()
-	data = this_data
-	var data_json = to_json(this_data)
+	#var this_data = collect_data()
+	#data = this_data
+	var data_json = to_json(data)
 	print(data_json)
 	save_file.open(savefilepath, File.WRITE)
 	save_file.store_line(data_json)
@@ -99,11 +99,9 @@ class SaveFormat:
 			"test_num":
 				value = 8
 			"file_number":
-				#value = Game.loaded_save
-				value = 0
+				value = Game.loaded_save
 			"file_name":
-				#value = Game.get_savefile_name()
-				value = "Watson"
+				value = Game.get_savefile_name()
 			"num_gears":
 				value = 3
 			"spawn_position":

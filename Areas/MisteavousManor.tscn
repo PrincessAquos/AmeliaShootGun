@@ -9,6 +9,19 @@
 [node name="Dungeon" type="Node2D"]
 script = ExtResource( 1 )
 start_room_path = NodePath("Rooms/Room")
+camera = NodePath("Camera2D")
+room_list = {
+0: NodePath("Rooms/Room")
+}
+chest_list = {
+
+}
+actor_list = {
+
+}
+door_list = {
+
+}
 
 [node name="Camera2D" parent="." instance=ExtResource( 2 )]
 
@@ -20,7 +33,7 @@ visible = false
 
 [node name="Room" parent="Rooms" instance=ExtResource( 4 )]
 active = true
-size = Vector2( 256, 208 )
+unique_id = 0
 
 [node name="RoomObjects" type="Node2D" parent="."]
 

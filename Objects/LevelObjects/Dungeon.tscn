@@ -23,13 +23,20 @@ room_list = {
 4: NodePath("Rooms/Room3")
 }
 chest_list = {
-
+0: NodePath("RoomObjects/Objects/StaticBody2D3"),
+1: NodePath("RoomObjects/Objects/StaticBody2D4"),
+2: NodePath("RoomObjects/Objects/StaticBody2D2"),
+3: NodePath("RoomObjects/Objects/StaticBody2D"),
+4: NodePath("RoomObjects/Objects/StaticBody2D5")
 }
 actor_list = {
 
 }
 door_list = {
-
+0: NodePath("RoomObjects/Door"),
+1: NodePath("RoomObjects/Door2"),
+2: NodePath("RoomObjects/Door3"),
+3: NodePath("RoomObjects/Door4")
 }
 
 [node name="Camera2D" parent="." instance=ExtResource( 9 )]
@@ -44,27 +51,27 @@ tile_data = PoolIntArray( -983043, 1, 8, -983042, 1, 10, -983041, 1, 10, -104857
 
 [node name="Room5" parent="Rooms" instance=ExtResource( 7 )]
 active = true
-room_id = 0
+unique_id = 0
 
 [node name="Room" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 0, -224 )
 trapped = true
-room_id = 1
+unique_id = 1
 
 [node name="Room2" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 0, 224 )
 size = Vector2( 384, 208 )
-room_id = 2
+unique_id = 2
 
 [node name="Room4" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 272, -224 )
 trapped = true
 size = Vector2( 512, 432 )
-room_id = 3
+unique_id = 3
 
 [node name="Room3" parent="Rooms" instance=ExtResource( 7 )]
 position = Vector2( 400, 224 )
-room_id = 4
+unique_id = 4
 
 [node name="RoomObjects" type="Node2D" parent="."]
 
@@ -151,19 +158,23 @@ position = Vector2( 344, 336 )
 
 [node name="StaticBody2D3" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
 position = Vector2( 78.1152, -159.38 )
+unique_id = 0
 contains = 4
 
 [node name="StaticBody2D4" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
 position = Vector2( 48, 40 )
+unique_id = 1
 start_active = false
 contains = 4
 
 [node name="StaticBody2D2" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
 position = Vector2( 134.182, -159.38 )
+unique_id = 2
 contains = 4
 
 [node name="StaticBody2D" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
 position = Vector2( 186.468, -161.27 )
+unique_id = 3
 contains = 4
 
 [node name="RigidBody2D" parent="RoomObjects/Objects" instance=ExtResource( 2 )]
@@ -174,20 +185,25 @@ position = Vector2( 80, 120 )
 
 [node name="StaticBody2D5" parent="RoomObjects/Objects" instance=ExtResource( 8 )]
 position = Vector2( 328, 272 )
+unique_id = 4
 contains = 4
 
 [node name="Door" parent="RoomObjects" instance=ExtResource( 4 )]
 position = Vector2( 128, 0 )
+unique_id = 0
 
 [node name="Door2" parent="RoomObjects" instance=ExtResource( 4 )]
 position = Vector2( 256, 96 )
 rotation = 1.5708
+unique_id = 1
 
 [node name="Door3" parent="RoomObjects" instance=ExtResource( 4 )]
 position = Vector2( 256, -128 )
 rotation = 1.5708
+unique_id = 2
 is_locked = true
 
 [node name="Door4" parent="RoomObjects" instance=ExtResource( 4 )]
 position = Vector2( 128, 224 )
+unique_id = 3
 is_locked = true

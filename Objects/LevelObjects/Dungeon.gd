@@ -18,6 +18,33 @@ export var door_list:Dictionary
 
 var moving = false
 
+func collect_save_info():
+	var dungeon_info = {}
+	dungeon_info["rooms"] = {}
+	dungeon_info["chests"] = {}
+	dungeon_info["doors"] = {}
+	for room_id in room_list:
+		dungeon_info["rooms"][room_id] = get_node(room_list[room_id]).collect_save_info()
+	for chest_id in chest_list:
+		dungeon_info["chests"][chest_id] = get_node(chest_list[chest_id]).collect_save_info()
+	for door_id in door_list:
+		dungeon_info["doors"][door_id] = get_node(door_list[door_id]).collect_save_info()
+	return dungeon_info
+
+
+func load_save_info(dungeon_info):
+	var temp_room_list = dungeon_info["rooms"]
+	var temp_chest_list = dungeon_info["chests"]
+	var temp_door_list = dungeon_info["doors"]
+	for room_id in temp_room_list:
+		get_node(room_list[int(room_id)]).load_save_info(temp_room_list[room_id])
+	for chest_id in temp_chest_list:
+		get_node(chest_list[int(chest_id)]).load_save_info(temp_chest_list[chest_id])
+	for door_id in temp_door_list:
+		get_node(door_list[int(door_id)]).load_save_info(temp_door_list[door_id])
+
+
+
 func prepare_room_bounds():
 	var rooms = get_node("Rooms").get_children()
 	for room in rooms:
@@ -34,59 +61,77 @@ func load_first_room():
 	current_room.load_room()
 
 
+func editor_register_element(element_dict, element_group):
+	# Clear out all expired element paths
+	for element_key in element_dict:
+		if get_node(element_dict[element_key]) == null || element_dict[element_key].is_empty():
+			element_dict.erase(element_key)
+	
+	# Update inaccurate element ids
+	for element_key in element_dict:
+		# If the element's ID doesn't match its key, we need to change its key
+		if get_node(element_dict[element_key]).unique_id != element_key:
+			var element_to_update = get_node(element_dict[element_key])
+			var requested_id = element_to_update.unique_id
+			# Make sure that the requested element key number isn't taken
+			if !(requested_id in element_dict):
+				# Store the path, erase the old key, add the new one
+				var this_element_path = element_dict[element_key]
+				element_dict.erase(element_key)
+				element_dict[requested_id] = this_element_path
+			# The current element key is already occupied
+			else:
+				print("ERROR: Can't update " + element_group + " " + get_path_to(element_to_update) + " because ID is occupied by " + element_dict[requested_id])
+			pass
+	
+	# Add new elements 
+	var all_elements = get_tree().get_nodes_in_group(element_group)
+	var i = 0
+	for element in all_elements:
+		var element_path = get_path_to(element)
+		
+		# Element's current path is not in the list
+		if !(element_path in element_dict.values()):
+			
+			# Element has no ID
+			if element.unique_id == -1:
+				while i in element_dict:
+					i += 1
+				element_dict[i] = element_path
+				element.unique_id = i
+			
+			# Element has an unoccupied ID
+			elif !(element.unique_id in element_dict):
+				element_dict[element.unique_id] = element_path
+				pass
+			
+			# Element has an occupied ID
+			else:
+				print("ERROR: New " + element_group + ": " + get_path_to(element) + " has its requested ID occupied by " + element_dict[element.unique_id])
+				pass
+
+
+func editor_register_rooms():
+	editor_register_element(room_list, "room")
+
+
+func editor_register_chests():
+	editor_register_element(chest_list, "chest")
+
+
+func editor_register_doors():
+	editor_register_element(door_list, "door")
+
+
 func _ready():
 	if Engine.editor_hint:
 		var new_camera = get_path_to(find_node("Camera2D"))
 		if camera != new_camera:
 			camera = new_camera
 		
-		# Clear out all expired room paths
-		for room_key in room_list:
-			if get_node(room_list[room_key]) == null || room_list[room_key].is_empty():
-				room_list.erase(room_key)
-		
-		# Update inaccurate room ids
-		for room_key in room_list:
-			# If the room's ID doesn't match its key, we need to change its key
-			if get_node(room_list[room_key]).room_id != room_key:
-				var room_to_update = get_node(room_list[room_key])
-				var requested_id = room_to_update.room_id
-				# Make sure that the requested room key number isn't taken
-				if !(requested_id in room_list):
-					# Store the path, erase the old key, add the new one
-					var this_room_path = room_list[room_key]
-					room_list.erase(room_key)
-					room_list[requested_id] = this_room_path
-				# The current room key is already occupied
-				else:
-					print("ERROR: Can't update room " + get_path_to(room_to_update) + " because ID is occupied by " + room_list[requested_id])
-				pass
-		
-		# Add new rooms 
-		var all_rooms = get_tree().get_nodes_in_group("room")
-		var i = 0
-		for room in all_rooms:
-			var room_path = get_path_to(room)
-			
-			# Room's current path is not in the list
-			if !(room_path in room_list.values()):
-				
-				# Room has no ID
-				if room.room_id == -1:
-					while i in room_list:
-						i += 1
-					room_list[i] = room_path
-					room.room_id = i
-				
-				# Room has an unoccupied ID
-				elif !(room.room_id in room_list):
-					room_list[room.room_id] = room_path
-					pass
-				
-				# Room has an occupied ID
-				else:
-					print("ERROR: New room: " + get_path_to(room) + " has its requested ID occupied by " + room_list[room.room_id])
-					pass
+		editor_register_rooms()
+		editor_register_chests()
+		editor_register_doors()
 			
 			
 	else:
