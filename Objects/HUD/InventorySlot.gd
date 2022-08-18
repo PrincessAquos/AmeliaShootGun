@@ -27,7 +27,7 @@ func collect_save_info():
 
 
 func load_save_info(inv_slot_info):
-	var item_id = inv_slot_info["item_id"]
+	var item_id = inv_slot_info.item_id
 	if item_id == null || int(item_id) == -1:
 		item = null
 	else:
@@ -35,7 +35,7 @@ func load_save_info(inv_slot_info):
 		var new_item = Item.new_item_by_id(item_id)
 		print(new_item)
 		set_item(new_item)
-	set_count(int(inv_slot_info["count"]))
+	set_count(int(inv_slot_info.count))
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

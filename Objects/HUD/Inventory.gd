@@ -22,7 +22,7 @@ func collect_save_info():
 func load_save_info(inventory_info):
 	print("loading inventory")
 	for i in range(slots.size()):
-		slots[i].load_save_info(inventory_info[i])
+		slots[i].load_save_info(inventory_info.slots[i])
 
 
 # Called when the node enters the scene tree for the first time.

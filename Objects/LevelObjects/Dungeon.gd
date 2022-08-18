@@ -33,9 +33,9 @@ func collect_save_info():
 
 
 func load_save_info(dungeon_info):
-	var temp_room_list = dungeon_info["rooms"]
-	var temp_chest_list = dungeon_info["chests"]
-	var temp_door_list = dungeon_info["doors"]
+	var temp_room_list = dungeon_info.rooms
+	var temp_chest_list = dungeon_info.chests
+	var temp_door_list = dungeon_info.doors
 	for room_id in temp_room_list:
 		get_node(room_list[int(room_id)]).load_save_info(temp_room_list[room_id])
 	for chest_id in temp_chest_list:

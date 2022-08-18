@@ -12,8 +12,8 @@ export var num_gears:int = 3 setget set_num_gears
 func _ready():
 	savedata = SaveData.new(file_num-1)
 	var data = savedata.data
-	set_file_name(data["file_name"])
-	set_num_gears(data["num_gears"])
+	set_file_name(savedata.file_name)
+	set_num_gears(savedata.num_gears)
 	pass # Replace with function body.
 
 

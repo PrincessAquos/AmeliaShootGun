@@ -55,9 +55,8 @@ func load_file_select():
 
 func load_save_file(save_data:SaveData):
 	current_loaded_save = save_data
-	var data = current_loaded_save.data
-	current_area_id = data["area_id"]
-	load_new_area(current_area_id)
+	current_area_id = save_data.area_id
+	load_new_area(save_data.area_id)
 	pass
 
 
@@ -77,11 +76,11 @@ func _load():
 		current_dungeon.prepare_room_bounds()
 		yield(get_tree(), "physics_frame")
 		current_dungeon.register_room_contents()
-		current_dungeon.load_save_info(current_loaded_save.data[current_area_id])
+		current_dungeon.load_save_info(current_loaded_save.areas[current_loaded_save.area_id])
 		current_dungeon.load_first_room()
 	if player != null:
 		player.is_loaded = true
-	inv_screen.load_save_info(current_loaded_save.data["inventory"])
+	inv_screen.load_save_info(current_loaded_save.inventory)
 	return
 
 
