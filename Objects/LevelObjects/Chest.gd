@@ -14,6 +14,9 @@ var closed = true setget set_closed
 var active = true setget set_active
 var model_node:AnimatedSprite
 
+var save_chest:SaveData.SaveArea.SaveChest setget load_save_info
+
+
 func collect_save_info():
 	var chest_info = {}
 	chest_info["active"] = active
@@ -21,9 +24,14 @@ func collect_save_info():
 	return chest_info
 
 
-func load_save_info(chest_info):
-	set_active(chest_info["active"])
-	set_closed(chest_info["closed"])
+func load_save_info(new_save_chest:SaveData.SaveArea.SaveChest, is_loaded = true):
+	save_chest = new_save_chest
+	if is_loaded:
+		set_active(new_save_chest.is_active)
+		set_closed(new_save_chest.is_closed)
+	else:
+		save_chest.is_active = active
+		save_chest.is_closed = closed
 
 
 # Called when the node enters the scene tree for the first time.
@@ -69,10 +77,12 @@ func set_active(new_val):
 	active = new_val
 	visible = new_val
 	shape_owner_get_owner(0).disabled = !new_val
+	save_chest.is_active = new_val
 
 
 func set_closed(new_val):
 	closed = new_val
+	save_chest.is_closed = new_val
 	if new_val:
 		model_node.animation = "Closed"
 	else:

@@ -15,7 +15,7 @@ var areas = {
 	Areas.DUNGEON_DEBUG: SaveArea.new()
 }
 
-var inventory:SaveInventory
+var inventory
 
 
 var data = null
@@ -45,7 +45,8 @@ func _init(file_num):
 		num_gears = data["num_gears"]
 		area_id = data["area_id"]
 		for area in areas:
-			SaveArea.new(data["areas"][area])
+			# WASTED MEMORY
+			areas[area] = SaveArea.new(data["areas"][area])
 		inventory = SaveInventory.new(data["inventory"])
 	else:
 		file_name = "NO DATA"
@@ -96,6 +97,7 @@ func read_save():
 
 func get_dict():
 	var save_dict = {}
+	save_dict["save_version"] = current_save_version
 	save_dict["file_name"] = file_name
 	save_dict["file_number"] = file_number
 	save_dict["num_gears"] = num_gears
@@ -104,6 +106,7 @@ func get_dict():
 	for area in areas:
 		save_dict["areas"][area] = areas[area].get_dict()
 	save_dict["inventory"] = inventory.get_dict()
+	return save_dict
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -146,6 +149,7 @@ class SaveArea:
 	
 	
 	class SaveRoom:
+		
 		var is_solved:bool
 		
 		func _init(loaded_room:Dictionary = {}):
@@ -242,9 +246,11 @@ class SaveFormat:
 			"test_num":
 				value = 8
 			"file_number":
-				value = Game.loaded_save
+				#value = Game.loaded_save
+				value = 0
 			"file_name":
-				value = Game.get_savefile_name()
+				#value = Game.get_savefile_name()
+				value = "Blah"
 			"num_gears":
 				value = 3
 			"spawn_position":

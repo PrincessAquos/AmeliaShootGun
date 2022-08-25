@@ -61,10 +61,23 @@ func load_save_file(save_data:SaveData):
 
 
 func load_new_area(area_id):
-	var instanced_dungeon = Areas.load_area(area_id)
-	get_tree().current_scene.get_node("LevelView/Viewport/nudge").add_child(instanced_dungeon)
 	# Free current dungeon scene
 	# Add a new dungeon scene
+	var instanced_dungeon = Areas.load_area(area_id)
+	get_tree().current_scene.get_node("LevelView/Viewport/nudge").add_child(instanced_dungeon)
+	
+	# Load save information
+	current_loaded_save.area_id = area_id
+	if area_id in current_loaded_save.areas:
+		instanced_dungeon.save_area = current_loaded_save.areas[area_id]
+	else:
+		# Create a save area object for this area
+		var new_save_area = SaveData.SaveArea.new()
+		current_loaded_save.areas[area_id] = new_save_area
+		instanced_dungeon.save_area = current_loaded_save.areas[area_id]
+		pass
+	
+	
 	physics_step_counter = 0
 	do_load_step = true
 	pass
@@ -156,10 +169,11 @@ func _unhandled_input(event):
 					menu_animation = true
 				
 	if event.is_action_pressed("debug_save"):
-		current_loaded_save.data[current_area_id] = current_dungeon.collect_save_info()
-		current_loaded_save.data["inventory"] = inv_screen.collect_save_info()
+		print(to_json(current_loaded_save.get_dict()))
+		#current_loaded_save.data[current_area_id] = current_dungeon.collect_save_info()
+		#current_loaded_save.data["inventory"] = inv_screen.collect_save_info()
 		#print(current_loaded_save.data)
-		current_loaded_save.write_save()
+		#current_loaded_save.write_save()
 	
 	return
 

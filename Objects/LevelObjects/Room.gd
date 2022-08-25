@@ -29,6 +29,8 @@ var buttons:Array = []
 var solve_func:FuncRef
 var is_solved = false
 
+var save_room:SaveData.SaveArea.SaveRoom
+
 
 func collect_save_info():
 	var room_info = {}
@@ -36,8 +38,12 @@ func collect_save_info():
 	return room_info
 
 
-func load_save_info(room_info):
-	is_solved = room_info["is_solved"]
+func load_save_info(new_save_room:SaveData.SaveArea.SaveRoom, is_loaded = true):
+	save_room = new_save_room
+	if is_loaded:
+		is_solved = new_save_room.is_solved
+	else:
+		new_save_room.is_solved = is_solved
 	if is_solved:
 		room_solved()
 
@@ -208,6 +214,7 @@ func change_size(new_size):
 
 
 func room_solved():
+	save_room.is_solved = true
 	trapped = false
 	for door in doorways:
 		door.is_trapped = false

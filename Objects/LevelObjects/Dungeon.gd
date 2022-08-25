@@ -10,6 +10,8 @@ var current_room_lock:Vector2
 var current_room:Room
 var previous_room:Room
 
+var save_area:SaveData.SaveArea setget load_save_info
+
 export var camera:NodePath
 export var room_list:Dictionary
 export var chest_list:Dictionary
@@ -17,6 +19,7 @@ export var actor_list:Dictionary
 export var door_list:Dictionary
 
 var moving = false
+
 
 func collect_save_info():
 	var dungeon_info = {}
@@ -32,17 +35,39 @@ func collect_save_info():
 	return dungeon_info
 
 
-func load_save_info(dungeon_info):
-	var temp_room_list = dungeon_info.rooms
-	var temp_chest_list = dungeon_info.chests
-	var temp_door_list = dungeon_info.doors
-	for room_id in temp_room_list:
-		get_node(room_list[int(room_id)]).load_save_info(temp_room_list[room_id])
-	for chest_id in temp_chest_list:
-		get_node(chest_list[int(chest_id)]).load_save_info(temp_chest_list[chest_id])
-	for door_id in temp_door_list:
-		get_node(door_list[int(door_id)]).load_save_info(temp_door_list[door_id])
-
+func load_save_info(new_save_area:SaveData.SaveArea):
+	save_area = new_save_area
+	var temp_room_list = new_save_area.rooms
+	var temp_chest_list = new_save_area.chests
+	var temp_door_list = new_save_area.doors
+	
+	for room_id in room_list:
+		var this_room = get_node(room_list[room_id])
+		if room_id in temp_room_list:
+			this_room.load_save_info(temp_room_list[room_id])
+		else:
+			var new_save_room = SaveData.SaveArea.SaveRoom.new()
+			new_save_area.rooms[room_id] = new_save_room
+			this_room.load_save_info(new_save_room, false)
+			pass
+	
+	for chest_id in chest_list:
+		var this_chest = get_node(chest_list[chest_id])
+		if chest_id in temp_chest_list:
+			this_chest.load_save_info(temp_chest_list[chest_id])
+		else:
+			var new_save_chest = SaveData.SaveArea.SaveChest.new()
+			new_save_area.chests[chest_id] = new_save_chest
+			this_chest.load_save_info(new_save_chest, false)
+	
+	for door_id in door_list:
+		var this_door = get_node(door_list[door_id])
+		if door_id in temp_door_list:
+			this_door.load_save_info(temp_door_list[door_id])
+		else:
+			var new_save_door = SaveData.SaveArea.SaveDoor.new()
+			new_save_area.doors[door_id] = new_save_door
+			this_door.load_save_info(new_save_door, false)
 
 
 func prepare_room_bounds():

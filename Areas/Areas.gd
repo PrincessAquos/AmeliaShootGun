@@ -17,8 +17,6 @@ const maps = {
 	"debug_event": "res://Areas/Debug/EventTest.tscn",
 }
 
-const MisteavousManor:PackedScene = preload("res://Areas/MisteavousManor.tscn")
-
 static func load_area(area_id:String):
 	var new_area:PackedScene = load(maps[area_id])
 	return new_area.instance()
