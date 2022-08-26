@@ -15,7 +15,7 @@ var areas = {
 	Areas.DUNGEON_DEBUG: SaveArea.new()
 }
 
-var inventory
+var inventory:SaveInventory
 
 
 var data = null
@@ -53,6 +53,10 @@ func _init(file_num):
 		num_gears = 3
 		area_id = "dungeon_manor"
 		inventory = SaveInventory.new()
+		for i in range(4):
+			var this_slot:SaveInventory.SaveInventorySlots = inventory.slots[i]
+			this_slot.item_id = Data.itemindex.get_index(i).id
+			this_slot.count = 1
 		data = parse_json("{}")
 	
 
@@ -203,6 +207,7 @@ class SaveInventory:
 		var inventory_info = []
 		for slot in slots:
 			inventory_info.append(slot.get_dict())
+		return inventory_info
 	
 	class SaveInventorySlots:
 		var item_id

@@ -28,7 +28,7 @@ func collect_save_info():
 
 func load_save_info(inv_slot_info):
 	var item_id = inv_slot_info.item_id
-	if item_id == null || int(item_id) == -1:
+	if item_id == null:
 		item = null
 	else:
 		print(Data.itemindex.index[item_id])

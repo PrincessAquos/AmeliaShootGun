@@ -62,6 +62,9 @@ func load_save_file(save_data:SaveData):
 
 func load_new_area(area_id):
 	# Free current dungeon scene
+	# FREE CURRENT DUNGEON SCENE
+	# FOR THE LOVE OF GOD YOU GOTTA CODE THAT IN EVENTUALLY
+	
 	# Add a new dungeon scene
 	var instanced_dungeon = Areas.load_area(area_id)
 	get_tree().current_scene.get_node("LevelView/Viewport/nudge").add_child(instanced_dungeon)
@@ -77,24 +80,21 @@ func load_new_area(area_id):
 		instanced_dungeon.save_area = current_loaded_save.areas[area_id]
 		pass
 	
-	
-	physics_step_counter = 0
-	do_load_step = true
-	pass
-
-
-func _load():
-	print(get_tree().get_node_count())
 	if current_dungeon != null:
+		print("Cool, the dungeon is there")
+		yield(get_tree(), "physics_frame")
 		current_dungeon.prepare_room_bounds()
 		yield(get_tree(), "physics_frame")
 		current_dungeon.register_room_contents()
 		current_dungeon.load_save_info(current_loaded_save.areas[current_loaded_save.area_id])
 		current_dungeon.load_first_room()
 	if player != null:
+		print("Cool, the player is there")
 		player.is_loaded = true
 	inv_screen.load_save_info(current_loaded_save.inventory)
-	return
+	#physics_step_counter = 0
+	#do_load_step = true
+	pass
 
 
 func play_event(event):
@@ -152,11 +152,6 @@ func _process(delta):
 	layer_list.sort_custom(DepthSorter, "high_y_low_z")
 	for i in range(layer_list.size()):
 		layer_list[i].z_index = i
-
-func _physics_process(delta):
-	if do_load_step:
-		do_load_step = false
-		_load()
 
 
 func _unhandled_input(event):
