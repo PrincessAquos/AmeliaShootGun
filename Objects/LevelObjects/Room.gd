@@ -122,7 +122,7 @@ func register_objects():
 	for object in possible_objects:
 		if object in get_tree().get_nodes_in_group("enemy"):
 			print(object)
-			actors.append(object)
+			actors.append({"actor": object, "spawn_position": object.position})
 		elif object in get_tree().get_nodes_in_group("door"):
 			doorways.append(object)
 		elif object in get_tree().get_nodes_in_group("chest"):
@@ -137,13 +137,14 @@ func register_objects():
 
 func load_actors():
 	for actor in actors:
-		actor.is_loaded = true
+		actor.actor.position = actor.spawn_position
+		actor.actor.is_loaded = true
 	return
 
 
 func unload_actors():
 	for actor in actors:
-		actor.is_loaded = false
+		actor.actor.is_loaded = false
 	return
 
 

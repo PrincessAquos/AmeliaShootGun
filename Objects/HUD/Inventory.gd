@@ -10,7 +10,7 @@ export (Array, NodePath) var slot_paths
 var key_item_section
 var equippable_item_section
 var slots:Array = []
-
+var save_inventory:SaveData.SaveInventory
 
 func collect_save_info():
 	var inventory_info = []
@@ -21,6 +21,7 @@ func collect_save_info():
 
 func load_save_info(inventory_info):
 	print("loading inventory")
+	save_inventory = inventory_info
 	for i in range(slots.size()):
 		slots[i].load_save_info(inventory_info.slots[i])
 
@@ -32,11 +33,6 @@ func _ready():
 	equippable_item_section = get_node(equip_item_path)
 	for slot_path in slot_paths:
 		slots.append(get_node(slot_path))
-	
-	for i in range(4):
-		var new_item = Item.new_item(i)
-		#print(new_item)
-		add_item(new_item)
 	return
 
 

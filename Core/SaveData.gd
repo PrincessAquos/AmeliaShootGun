@@ -80,7 +80,8 @@ func write_save():
 	var save_file = File.new()
 	#var this_data = collect_data()
 	#data = this_data
-	var data_json = to_json(data)
+	#var data_json = to_json(data)
+	var data_json = to_json(get_dict())
 	print(data_json)
 	save_file.open(savefilepath, File.WRITE)
 	save_file.store_line(data_json)

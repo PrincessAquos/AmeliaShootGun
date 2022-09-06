@@ -41,6 +41,8 @@ var current_loaded_save:SaveData
 
 var current_event = null
 
+var player_num_gears = 3 setget set_num_gears
+var player_current_health = 12 setget set_current_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,6 +59,9 @@ func load_save_file(save_data:SaveData):
 	current_loaded_save = save_data
 	current_area_id = save_data.area_id
 	load_new_area(save_data.area_id)
+	inv_screen.load_save_info(current_loaded_save.inventory)
+	set_num_gears(current_loaded_save.num_gears)
+	set_current_health(current_loaded_save.num_gears * 4)
 	pass
 
 
@@ -91,7 +96,9 @@ func load_new_area(area_id):
 	if player != null:
 		print("Cool, the player is there")
 		player.is_loaded = true
-	inv_screen.load_save_info(current_loaded_save.inventory)
+		player.max_health = player_num_gears * 4
+		player.current_health = player_current_health
+	
 	#physics_step_counter = 0
 	#do_load_step = true
 	pass
@@ -164,14 +171,22 @@ func _unhandled_input(event):
 					menu_animation = true
 				
 	if event.is_action_pressed("debug_save"):
-		print(to_json(current_loaded_save.get_dict()))
+		#print(to_json(current_loaded_save.get_dict()))
 		#current_loaded_save.data[current_area_id] = current_dungeon.collect_save_info()
 		#current_loaded_save.data["inventory"] = inv_screen.collect_save_info()
 		#print(current_loaded_save.data)
-		#current_loaded_save.write_save()
+		current_loaded_save.write_save()
 	
 	return
 
+
+func set_num_gears(new_val):
+	player_num_gears = new_val
+	hud.num_gears = new_val
+
+func set_current_health(new_val):
+	player_current_health = new_val
+	hud.current_health = new_val
 
 func update_hud_health(num_gears, current_health):
 	hud.num_gears = num_gears

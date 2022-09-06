@@ -15,6 +15,7 @@ var item = null setget set_item
 var count:int = 0 setget set_count
 var equipped
 
+var save_slot:SaveData.SaveInventory.SaveInventorySlots
 
 func collect_save_info():
 	var inv_slot_info = {}
@@ -27,6 +28,7 @@ func collect_save_info():
 
 
 func load_save_info(inv_slot_info):
+	save_slot = inv_slot_info
 	var item_id = inv_slot_info.item_id
 	if item_id == null:
 		item = null
@@ -46,6 +48,7 @@ func _ready():
 
 func set_count(new_count):
 	count = new_count
+	save_slot.count = new_count
 	item_count_label.text = String(count)
 
 
@@ -58,6 +61,7 @@ func set_item(new_item):
 			set_count(1)
 			#else:
 		item = new_item
+		save_slot.item_id = item.id
 		item_icon_node.texture = new_item.inventory_img
 		if item.have_multiple:
 			item_count_label.visible = true

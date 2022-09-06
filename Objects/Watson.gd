@@ -170,7 +170,7 @@ func _on_process(delta):
 
 func set_current_health(new_val):
 	.set_current_health(new_val)
-	Game.update_hud_health(num_gears, current_health)
+	Game.player_current_health = new_val
 	return
 
 
