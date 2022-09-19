@@ -11,3 +11,11 @@ static func all_enemies_defeated(new_room):
 		if !actor.actor.is_dead:
 			room_complete = false
 	return room_complete
+
+
+static func all_buttons_activated(new_room):
+	var room_complete = true
+	for button in new_room.buttons:
+		if !button.is_activated:
+			room_complete = false
+	return room_complete
