@@ -73,9 +73,9 @@ func _draw():
 
 func draw_gear_portion(pos, tile, front_layer=false):
 	if front_layer:
-		draw_texture_rect_region(sprite_node.frames.get_frame(sprite_node.animation, sprite_node.frame), Rect2(pos, Vector2(8, 8)), Rect2(tile, Vector2(8, 8)))
+		draw_texture_rect_region(sprite_node.sprite_frames.get_frame_texture(sprite_node.animation, sprite_node.frame), Rect2(pos, Vector2(8, 8)), Rect2(tile, Vector2(8, 8)))
 	else:
-		draw_texture_rect_region(sprite_node.frames.get_frame("rust", sprite_node.frame), Rect2(pos, Vector2(8, 8)), Rect2(tile, Vector2(8, 8)))
+		draw_texture_rect_region(sprite_node.sprite_frames.get_frame_texture("rust", sprite_node.frame), Rect2(pos, Vector2(8, 8)), Rect2(tile, Vector2(8, 8)))
 	pass
 
 func draw_top_gear(pos, first=true, last=true, front_layer=false, portions=4):
@@ -83,14 +83,26 @@ func draw_top_gear(pos, first=true, last=true, front_layer=false, portions=4):
 		4:
 			if last:
 				draw_gear_portion(pos + anim_tile_size, tiles[3], front_layer)
-			continue
-		4, 3:
 			draw_gear_portion(Vector2(pos.x + anim_tile_size.x, pos.y), tiles[2], front_layer)
-			continue
-		4, 3, 2:
 			draw_gear_portion(Vector2(pos.x, pos.y), tiles[1], front_layer)
-			continue
-		4, 3, 2, 1:
+			if first:
+				draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[0], front_layer)
+			else:
+				draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[9], front_layer)
+		3:
+			draw_gear_portion(Vector2(pos.x + anim_tile_size.x, pos.y), tiles[2], front_layer)
+			draw_gear_portion(Vector2(pos.x, pos.y), tiles[1], front_layer)
+			if first:
+				draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[0], front_layer)
+			else:
+				draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[9], front_layer)
+		2:
+			draw_gear_portion(Vector2(pos.x, pos.y), tiles[1], front_layer)
+			if first:
+				draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[0], front_layer)
+			else:
+				draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[9], front_layer)
+		1:
 			if first:
 				draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[0], front_layer)
 			else:
@@ -103,14 +115,27 @@ func draw_bottom_gear(pos, first=true, last=true, front_layer=false, portions=4)
 		4:
 			if last:
 				draw_gear_portion(pos + Vector2(anim_tile_size.x, 0), tiles[7], front_layer)
-			continue
-		4, 3:
 			draw_gear_portion(pos + anim_tile_size, tiles[6], front_layer)
-			continue
-		4, 3, 2:
 			draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[5], front_layer)
-			continue
-		4, 3, 2, 1:
+			if first:
+				draw_gear_portion(Vector2(pos.x, pos.y), tiles[4], front_layer)
+			else:
+				draw_gear_portion(Vector2(pos.x, pos.y), tiles[8], front_layer)
+		3:
+			draw_gear_portion(pos + anim_tile_size, tiles[6], front_layer)
+			draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[5], front_layer)
+			if first:
+				draw_gear_portion(Vector2(pos.x, pos.y), tiles[4], front_layer)
+			else:
+				draw_gear_portion(Vector2(pos.x, pos.y), tiles[8], front_layer)
+			
+		2:
+			draw_gear_portion(Vector2(pos.x, pos.y + anim_tile_size.y), tiles[5], front_layer)
+			if first:
+				draw_gear_portion(Vector2(pos.x, pos.y), tiles[4], front_layer)
+			else:
+				draw_gear_portion(Vector2(pos.x, pos.y), tiles[8], front_layer)
+		1:
 			if first:
 				draw_gear_portion(Vector2(pos.x, pos.y), tiles[4], front_layer)
 			else:
@@ -123,8 +148,9 @@ func draw_bottom_gear(pos, first=true, last=true, front_layer=false, portions=4)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite_node = get_node("UnderGears/AnimatedSprite2D")
+	print(typeof(sprite_node))
 	get_node("UnderGears").sprite_node = sprite_node
-	get_node("UnderGears").update()
+	get_node("UnderGears").queue_redraw()
 	pass # Replace with function body.
 
 
@@ -141,10 +167,10 @@ func _process(delta):
 
 func set_health(new_val):
 	current_health = new_val
-	update()
+	queue_redraw()
 	return
 
 
 func _on_AnimatedSprite_frame_changed():
-	update()
+	queue_redraw()
 	return

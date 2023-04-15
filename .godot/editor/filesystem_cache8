@@ -1,28 +1,30 @@
-2a60927148abd1d33b818b535e306557
-::res://::1681582881
+91381882c7e91b39e6628b870584ac00
+::res://::1681590390
 Camera.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/Camera2D.gd
 Collision Layer Notes.txt::TextFile::-1::1646160255::0::1::::<><>::
 Debug.gd::GDScript::-1::1681582027::0::1::::<>Node<>::
-default_env.tres::Environment::-1::1681582027::0::1::::<><>::
+default_env.tres::Environment::3799104197365339630::1681590383::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1660657799::0::1::::<><>::
 File Select.gd::GDScript::-1::1681582027::0::1::::<>Control<>::
 File Select.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Watson/WatsonDown.png<>res://File Select.gd<>res://Sprite2D/Fonts/GeorgiaBold20px.fnt<>res://MainMenu/SaveFile.tscn
 icon.png::CompressedTexture2D::7443333176710328403::1638318938::1681582881::1::::<><>::
 LevelView.gd::GDScript::-1::1681582027::0::1::::<>SubViewportContainer<>::
-MainGameScene.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Title Screen.tscn<>res://LevelView.gd<>res://Screen.gd<>res://Objects/HUD/HUD.tscn
-Screen.gd::GDScript::-1::1681582027::0::1::::<>Control<>::
+MainGameScene.tscn::PackedScene::1988903149646842795::1681588812::0::1::::<><>::uid://c4ajqa6rysutn<>res://LevelView.gd<>res://Screen.gd<>uid://bc25lhqeorsou
+MainGameSceneTest.tscn::PackedScene::1711744823532698917::1681589007::0::1::::<><>::res://Screen.gd<>res://LevelView.gd<>uid://c4ajqa6rysutn
+Screen.gd::GDScript::-1::1681588431::0::1::::<>Control<>::
 ScreenTest2.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/Dungeon.tscn<>res://LevelView.gd<>res://Screen.gd<>res://Objects/HUD/HUD.tscn<>res://Objects/HUD/Textbox.tscn
 ScreenTest.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://World.tscn<>res://LevelView.gd<>res://Screen.gd
-Title Screen.gd::GDScript::-1::1681582027::0::1::::<>Control<>::
-Title Screen.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://TitleDemo.png<>res://Title Screen.gd<>res://Sprite2D/Fonts/GeorgiaBold20px.fnt
+Title Screen.gd::GDScript::-1::1681588812::0::1::::<>Control<>::
+Title Screen.tscn::PackedScene::6808892907220660179::1681590383::0::1::::<><>::uid://tuf6rmoovajt<>res://Title Screen.gd<>uid://581raea86je0
 Title.png::CompressedTexture2D::1263452294764971767::1646160563::1681582881::1::::<><>::
 TitleDemo.png::CompressedTexture2D::1375235440868930701::1660657799::1681582881::1::::<><>::
 TODO.txt::TextFile::-1::1660657799::0::1::::<><>::
 World.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/Watson.tscn<>res://Objects/Enemy.tscn<>res://Objects/NPC.tscn<>res://Objects/LevelObjects/DebugLevel2.tscn<>res://Objects/LevelObjects/Room.tscn
 ::res://addons/::1681583221
-::res://addons/gdcastledb/::1681583221
+::res://addons/gdcastledb/::1681583256
 CastleDB.gd::GDScript::-1::1681583221::0::1::::CastleDB<>RefCounted<>::
 importer.gd::GDScript::-1::1681583221::0::1::::<>EditorImportPlugin<>::
+LICENSE.txt::TextFile::-1::1681583256::0::1::::<><>::
 plugin.cfg::TextFile::-1::1681583221::0::1::::<><>::
 plugin.gd::GDScript::-1::1681583221::0::1::::<>EditorPlugin<>::
 ::res://addons/thejustinwalsh.castledb/::1660657799
@@ -39,17 +41,17 @@ EventTest.gd::GDScript::-1::1681582028::0::1::::<>Dungeon<>::
 EventTest.tscn::PackedScene::-1::1681582028::0::1::::<><>::res://Areas/Debug/EventTest.gd<>res://Objects/Watson.tscn<>res://Objects/LevelObjects/Room.tscn<>res://Camera.tscn
 ::res://Constants/::1642711454
 Directions.gd::GDScript::-1::1681582028::0::1::::Directions<>RefCounted<>::
-::res://Core/::1662475897
-Game.gd::GDScript::-1::1681582028::0::1::::<>Node<>::
+::res://Core/::1681587474
+Game.gd::GDScript::-1::1681585044::0::1::::<>Node<>::
 GameData.gd::GDScript::-1::1681582028::0::1::::<>Node<>::
-SaveData.gd::GDScript::-1::1681582028::0::1::::SaveData<>RefCounted<>::
+SaveData.gd::GDScript::-1::1681585395::0::1::::SaveData<>RefCounted<>::
 SaveDataNew.gd::GDScript::-1::1681582028::0::1::::<>Node<>::
 SaveFileTest.gd::GDScript::-1::1681582028::0::1::::<>Node2D<>::
-SaveFileTest.tscn::PackedScene::-1::1681582028::0::1::::<><>::res://Core/SaveFileTest.gd
+SaveFileTest.tscn::PackedScene::8596102105134846594::1681587474::0::1::::<><>::res://Core/SaveFileTest.gd
 ::res://Data/::1646160255
-::res://Data/Items/::1660657799
-Item.gd::GDScript::-1::1681582027::0::1::::Item<>RefCounted<>::
-::res://db/::1660657799
+::res://Data/Items/::1681588310
+Item.gd::GDScript::-1::1681588310::0::1::::Item<>RefCounted<>::
+::res://db/::1681583238
 data.cdb::Script::8764429344037413989::1660657799::1681583238::1::::<><>::
 ::res://Events/::1660657799
 ChestEvent.gd::GDScript::-1::1681582027::0::1::::ChestEvent<>Event<>::
@@ -81,20 +83,20 @@ Halo.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 Halo.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/Hitbox.gd<>res://Objects/Characters/Halo.gd<>res://Sprite2D/Takodachi/Halo.tres<>res://Sprite2D/Shadow.png
 InvestiGator.gd::GDScript::-1::1681582027::0::1::::<>Character<>::
 InvestiGator.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/Characters/InvestiGator.gd<>res://Sprite2D/Enemy/InvestiGator/InvestiGator.tres<>res://Objects/Hurtbox.tscn<>res://Sprite2D/Shadow.png
-::res://Objects/HUD/::1662474283
+::res://Objects/HUD/::1681590383
 HealthBar.gd::GDScript::-1::1681582027::0::1::::<>SubViewportContainer<>::
-HealthBar.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/HUD/HealthUI.gd<>res://Objects/HUD/HealthBar.gd<>res://Objects/HUD/UnderGears.gd<>res://Objects/HUD/HealthGears.gd<>res://Sprite2D/HUD/outline.gdshader<>res://Sprite2D/HUD/clockglass1.png<>res://Sprite2D/HUD/clock.png<>res://Sprite2D/HUD/GearShine.png<>res://Sprite2D/HUD/HealthGearsGold.tres
+HealthBar.tscn::PackedScene::5030664383103931506::1681590383::0::1::::<><>::res://Objects/HUD/HealthUI.gd<>res://Sprite/HUD/outline.gdshader<>res://Objects/HUD/HealthBar.gd<>res://Objects/HUD/UnderGears.gd<>res://Objects/HUD/HealthGears.gd<>uid://kmrjl0iik3xo<>uid://bw41ejuhifffn
 HealthGears.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
-HealthUI.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
+HealthUI.gd::GDScript::-1::1681587015::0::1::::<>Node2D<>::
 HUD.gd::GDScript::-1::1681582027::0::1::::<>Control<>::
-HUD.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/HUD/HealthBar.tscn<>res://Objects/HUD/HUD.gd<>res://Objects/HUD/Inventory.tscn
-Inventory.gd::GDScript::-1::1681582027::0::1::::Inventory<>Control<>::
-Inventory.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/HUD/BriefcaseMenu.png<>res://Objects/HUD/Inventory.gd<>res://Objects/HUD/InventorySlot.tscn
-InventorySlot.gd::GDScript::-1::1681582027::0::1::::InvSlot<>CenterContainer<>::
-InventorySlot.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/HUD/EmptyInventorySlots.png<>res://Objects/HUD/InventorySlot.gd<>res://Sprite2D/Fonts/InventoryNumbers.tres
+HUD.tscn::PackedScene::2584378116426189088::1681590383::0::1::::<><>::uid://cdw5kpmckdoys<>res://Objects/HUD/HUD.gd<>uid://7ult342fwige
+Inventory.gd::GDScript::-1::1681587665::0::1::::Inventory<>Control<>::
+Inventory.tscn::PackedScene::2288033885190300304::1681590383::0::1::::<><>::res://Objects/HUD/Inventory.gd<>res://Objects/HUD/InventorySlot.tscn
+InventorySlot.gd::GDScript::-1::1681587697::0::1::::InvSlot<>CenterContainer<>::
+InventorySlot.tscn::PackedScene::1527193998894051978::1681590383::0::1::::<><>::res://Objects/HUD/InventorySlot.gd<>uid://bga50ifioopf
 Textbox.gd::GDScript::-1::1681582027::0::1::::TextBox<>Control<>::
 Textbox.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Fonts/Georgia15px.fnt
-UnderGears.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
+UnderGears.gd::GDScript::-1::1681587064::0::1::::<>Node2D<>::
 ::res://Objects/LevelObjects/::1662746487
 BaseTilemap.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/Victorian/VictorianTileset.tres
 BlockButton.gd::GDScript::-1::1681582027::0::1::::BlockButton<>Area2D<>::
@@ -166,7 +168,7 @@ InvestiGatorRunUp2.png::CompressedTexture2D::6872307994676948638::1660657799::16
 InvestiGatorRunUp3.png::CompressedTexture2D::3683403345681675730::1660657799::1681582881::1::::<><>::
 InvestiGatorRunUp4.png::CompressedTexture2D::7660357306639821234::1660657799::1681582881::1::::<><>::
 InvestiGatorUp.png::CompressedTexture2D::4658367184743131967::1660657799::1681582881::1::::<><>::
-::res://Sprite/Fonts/::1681582881
+::res://Sprite/Fonts/::1681590383
 Georgia12px.fnt::FontFile::1694745207976338745::1646160255::1681582879::1::::<><>::
 Georgia12px_0.png::CompressedTexture2D::5090725118161402456::1646160255::1681582881::1::::<><>::
 Georgia14px.fnt::FontFile::1204112404281223226::1646160255::1681582879::1::::<><>::
@@ -179,10 +181,10 @@ GeorgiaBold20px.fnt::FontFile::2175398781557801165::1646160255::1681582880::1:::
 GeorgiaBold20px_0.png::CompressedTexture2D::3771890428391211513::1646160255::1681582881::1::::<><>::
 GeorgiaItalic20px.fnt::FontFile::686443448200430155::1646160255::1681582879::1::::<><>::
 GeorgiaItalic20px_0.png::CompressedTexture2D::4436260744716739893::1646160255::1681582881::1::::<><>::
-InventoryNumbers.png::CompressedTexture2D::9071718020635360073::1646160255::1681582881::1::::<><>::
+InventoryNumbers.png::FontFile::9071718020635360073::1681590609::1681590611::1::::<><>::
 InventoryNumbers.tres::FontFile::-1::1681582027::0::1::::<><>::res://Sprite2D/Fonts/InventoryNumbers.png
 NewFont.gd::GDScript::-1::1681582027::0::1::::CreateFont<>Node<>::
-::res://Sprite/HUD/::1681582882
+::res://Sprite/HUD/::1681590384
 BriefcaseMenu.png::CompressedTexture2D::2106280770167231::1646160255::1681582881::1::::<><>::
 clock.png::CompressedTexture2D::5721304407170141748::1643951446::1681582881::1::::<><>::
 clockglass1.png::CompressedTexture2D::7686538680454044580::1643999405::1681582881::1::::<><>::
@@ -190,16 +192,16 @@ clockglass2.png::CompressedTexture2D::356234547117324134::1643999405::1681582881
 clockglass3.png::CompressedTexture2D::6940890610093736563::1643999405::1681582881::1::::<><>::
 EmptyInventorySlots.png::CompressedTexture2D::82630009660161611::1646160255::1681582882::1::::<><>::
 GearShine.png::CompressedTexture2D::3992028487520275411::1643944728::1681582882::1::::<><>::
-HealthGearsGold1.png::CompressedTexture2D::3703447152664701541::1643932146::1681582882::1::::<><>::
+HealthGearsGold1.png::CompressedTexture2D::3703447152664701541::1643932146::1681586710::1::::<><>::
 HealthGearsGold2.png::CompressedTexture2D::2925380148849184883::1643932146::1681582882::1::::<><>::
 HealthGearsGold3.png::CompressedTexture2D::3520464018434869349::1643932146::1681582882::1::::<><>::
 HealthGearsGold4.png::CompressedTexture2D::908955806573267668::1643932146::1681582882::1::::<><>::
-HealthGearsGold.tres::SpriteFrames::-1::1681582027::0::1::::<><>::res://Sprite2D/HUD/HealthGearsGold1.png<>res://Sprite2D/HUD/HealthGearsGold2.png<>res://Sprite2D/HUD/HealthGearsGold3.png<>res://Sprite2D/HUD/HealthGearsGold4.png<>res://Sprite2D/HUD/HealthGearsRust2.png<>res://Sprite2D/HUD/HealthGearsRust3.png<>res://Sprite2D/HUD/HealthGearsRust1.png<>res://Sprite2D/HUD/HealthGearsRust4.png
+HealthGearsGold.tres::SpriteFrames::727709847202777372::1681586773::0::1::::<><>::uid://bs08h67ormms8<>uid://bhxct3xybq5ud<>uid://bqflr7n8m2hrp<>uid://m7kms7kr8053<>uid://d310225p28in4<>uid://dm0hlkpwusb7k<>uid://cte3aoe3snh4l<>uid://dore7i245muyi
 HealthGearsRust1.png::CompressedTexture2D::9179791100997863439::1643943727::1681582882::1::::<><>::
 HealthGearsRust2.png::CompressedTexture2D::8053582830702088734::1643943727::1681582882::1::::<><>::
 HealthGearsRust3.png::CompressedTexture2D::6116387726125403145::1643943727::1681582882::1::::<><>::
 HealthGearsRust4.png::CompressedTexture2D::8177300760461528616::1643943727::1681582882::1::::<><>::
-outline.gdshader::Shader::-1::1681582027::0::1::::<><>::
+outline.gdshader::Shader::-1::1681590384::0::1::::<><>::
 YagooCoin.png::CompressedTexture2D::565968622645806150::1646160255::1681582882::1::::<><>::
 ::res://Sprite/Items/::1681582882
 Badge.png::CompressedTexture2D::5895019110012537751::1646160255::1681582882::1::::<><>::

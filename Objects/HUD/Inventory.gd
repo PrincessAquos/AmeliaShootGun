@@ -5,7 +5,7 @@ class_name Inventory
 @export var key_item_path:NodePath
 @export var equip_item_path:NodePath
 
-@export (Array, NodePath) var slot_paths
+@export var slot_paths:Array[NodePath]
 
 var key_item_section
 var equippable_item_section

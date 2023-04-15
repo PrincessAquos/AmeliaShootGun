@@ -8,7 +8,8 @@ class_name Item
 
 
 static func new_item(index):
-	var entry:Data.ItemIndex.ItemIndexRow = Data.itemindex.all[index]
+	var entry = Data.itemindex.all[index]
+	#var entry:Data.ItemIndex.ItemIndexRow = Data.itemindex.all[index]
 	var item_dat = {}
 	item_dat["id"] = entry.id
 	item_dat["item_name"] = entry.iname

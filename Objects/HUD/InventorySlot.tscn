@@ -1,44 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://v01wrkwqcfbe"]
 
-[ext_resource path="res://Sprite2D/HUD/EmptyInventorySlots.png" type="Texture2D" id=1]
-[ext_resource path="res://Objects/HUD/InventorySlot.gd" type="Script" id=2]
-[ext_resource path="res://Sprite2D/Fonts/InventoryNumbers.tres" type="FontFile" id=3]
+[ext_resource type="Script" path="res://Objects/HUD/InventorySlot.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bga50ifioopf" path="res://Sprite/HUD/EmptyInventorySlots.png" id="2_pa0fj"]
+[ext_resource type="FontFile" uid="uid://d2in4ugn5xmof" path="res://Sprite/Fonts/InventoryNumbers.png" id="3_taply"]
 
 [node name="Slot" type="CenterContainer"]
 offset_right = 30.0
 offset_bottom = 30.0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("2")
 item_img_path = NodePath("Item")
 item_count_path = NodePath("MarginContainer/Count")
 
 [node name="Shadow" type="TextureRect" parent="."]
-offset_right = 30.0
-offset_bottom = 30.0
-texture = ExtResource( 1 )
+layout_mode = 2
+texture = ExtResource("2_pa0fj")
 
 [node name="Item" type="TextureRect" parent="."]
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 15.0
-offset_bottom = 15.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = 15.0
-offset_top = 6.0
-offset_right = 15.0
-offset_bottom = 23.0
+layout_mode = 2
 theme_override_constants/margin_top = 17
 
 [node name="Count" type="Label" parent="MarginContainer"]
 visible = false
-offset_top = 13.0
-offset_right = 8.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource( 3 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_taply")
 text = "0"

@@ -35,9 +35,8 @@ var formats = {
 func _init(file_num):
 	file_number = file_num
 	var savefilepath = get_save_path(file_number)
-	var save_game = File.new()
-	if save_game.file_exists(savefilepath):
-		save_game.open(savefilepath, File.READ)
+	if FileAccess.file_exists(savefilepath):
+		var save_game = FileAccess.open(savefilepath, FileAccess.READ)
 		var data_json = save_game.get_line()
 		var test_json_conv = JSON.new()
 		test_json_conv.parse(data_json)
@@ -81,21 +80,19 @@ func collect_data():
 
 func write_save():
 	var savefilepath = get_save_path(file_number)
-	var save_file = File.new()
 	#var this_data = collect_data()
 	#data = this_data
 	#var data_json = to_json(data)
 	var data_json = JSON.new().stringify(get_dict())
 	print(data_json)
-	save_file.open(savefilepath, File.WRITE)
+	var save_file = FileAccess.open(savefilepath, FileAccess.WRITE)
 	save_file.store_line(data_json)
 	save_file.close()
 	pass
 
 func read_save():
 	var savefilepath = get_save_path(file_number)
-	var save_game = File.new()
-	save_game.open(savefilepath, File.READ)
+	var save_game = FileAccess.open(savefilepath, FileAccess.READ)
 	var data_json = save_game.get_line()
 	var test_json_conv = JSON.new()
 	test_json_conv.parse(data_json)

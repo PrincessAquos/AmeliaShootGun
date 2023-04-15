@@ -49,7 +49,7 @@ func _ready():
 func set_count(new_count):
 	count = new_count
 	save_slot.count = new_count
-	item_count_label.text = String(count)
+	item_count_label.text = str(count)
 
 
 func set_item(new_item):

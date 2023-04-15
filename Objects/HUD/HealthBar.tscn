@@ -1,47 +1,42 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://cdw5kpmckdoys"]
 
-[ext_resource path="res://Objects/HUD/HealthUI.gd" type="Script" id=1]
-[ext_resource path="res://Objects/HUD/HealthBar.gd" type="Script" id=2]
-[ext_resource path="res://Objects/HUD/UnderGears.gd" type="Script" id=3]
-[ext_resource path="res://Objects/HUD/HealthGears.gd" type="Script" id=4]
-[ext_resource path="res://Sprite2D/HUD/outline.gdshader" type="Shader" id=5]
-[ext_resource path="res://Sprite2D/HUD/clockglass1.png" type="Texture2D" id=6]
-[ext_resource path="res://Sprite2D/HUD/clock.png" type="Texture2D" id=7]
-[ext_resource path="res://Sprite2D/HUD/GearShine.png" type="Texture2D" id=8]
-[ext_resource path="res://Sprite2D/HUD/HealthGearsGold.tres" type="SpriteFrames" id=9]
+[ext_resource type="Script" path="res://Objects/HUD/HealthUI.gd" id="1"]
+[ext_resource type="Shader" path="res://Sprite/HUD/outline.gdshader" id="1_n5n1k"]
+[ext_resource type="Script" path="res://Objects/HUD/HealthBar.gd" id="2"]
+[ext_resource type="Script" path="res://Objects/HUD/UnderGears.gd" id="3"]
+[ext_resource type="Script" path="res://Objects/HUD/HealthGears.gd" id="4"]
+[ext_resource type="SpriteFrames" uid="uid://kmrjl0iik3xo" path="res://Sprite/HUD/HealthGearsGold.tres" id="6_k7xwo"]
+[ext_resource type="Texture2D" uid="uid://bw41ejuhifffn" path="res://Sprite/HUD/GearShine.png" id="7_4yc22"]
+[ext_resource type="Texture2D" uid="uid://cnrpbver7jjx1" path="res://Sprite/HUD/clock.png" id="8_i4jbr"]
+[ext_resource type="Texture2D" uid="uid://dhrof0olh2t21" path="res://Sprite/HUD/clockglass1.png" id="9_4e471"]
 
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 5 )
-shader_param/draw_outline = true
-shader_param/outline_color = Color( 1, 1, 1, 1 )
+[sub_resource type="ShaderMaterial" id="1"]
+shader = ExtResource("1_n5n1k")
+shader_parameter/draw_outline = true
+shader_parameter/outline_color = Color(1, 1, 1, 1)
 
 [node name="HealthBar" type="SubViewportContainer"]
-material = SubResource( 1 )
+material = SubResource("1")
 offset_right = 256.0
 offset_bottom = 216.0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("2")
 
 [node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2( 128, 30 )
 transparent_bg = true
 handle_input_locally = false
-hdr = false
-usage = 1
-render_target_update_mode = 3
 gui_disable_input = true
+size = Vector2i(128, 30)
+render_target_update_mode = 4
 
 [node name="HealthBar" type="Node2D" parent="SubViewport"]
-position = Vector2( 0, 1 )
 z_index = 1000
-script = ExtResource( 4 )
+position = Vector2(0, 1)
+script = ExtResource("4")
 
 [node name="OverGears" type="Node2D" parent="SubViewport/HealthBar"]
 light_mask = 524288
-position = Vector2( 16, 0 )
-script = ExtResource( 1 )
+position = Vector2(16, 0)
+script = ExtResource("1")
 current_health = 12
 shine_interval = 2.5
 shine_speed = 150.0
@@ -49,45 +44,44 @@ shine_speed = 150.0
 [node name="UnderGears" type="Node2D" parent="SubViewport/HealthBar/OverGears"]
 show_behind_parent = true
 light_mask = 262144
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewport/HealthBar/OverGears/UnderGears"]
 visible = false
 light_mask = 524288
-position = Vector2( 8, 20 )
-frames = ExtResource( 9 )
-frame = 1
-playing = true
+position = Vector2(8, 20)
+sprite_frames = ExtResource("6_k7xwo")
+autoplay = "default"
 
 [node name="PointLight2D" type="PointLight2D" parent="SubViewport/HealthBar/OverGears"]
-texture = ExtResource( 8 )
-offset = Vector2( -20.5, 12 )
 range_item_cull_mask = 524288
+texture = ExtResource("7_4yc22")
+offset = Vector2(-20.5, 12)
 
 [node name="Line2D" type="Line2D" parent="SubViewport/HealthBar/OverGears"]
 visible = false
-points = PackedVector2Array( -36, 36, 4, -4 )
+points = PackedVector2Array(-36, 36, 4, -4)
 width = 4.0
-default_color = Color( 1, 1, 1, 1 )
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/HealthBar"]
 light_mask = 524288
-texture = ExtResource( 7 )
+texture = ExtResource("8_i4jbr")
 centered = false
 
 [node name="Line2D" type="Line2D" parent="SubViewport/HealthBar"]
 light_mask = 524288
-position = Vector2( 1, 0 )
-points = PackedVector2Array( 11, 14, 11, 7 )
+position = Vector2(1, 0)
+points = PackedVector2Array(11, 14, 11, 7)
 width = 1.5
-default_color = Color( 0.105882, 0.105882, 0.105882, 1 )
+default_color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="Sprite2" type="Sprite2D" parent="SubViewport/HealthBar"]
 light_mask = 524288
-position = Vector2( 1, 0 )
-texture = ExtResource( 6 )
+position = Vector2(1, 0)
+texture = ExtResource("9_4e471")
 centered = false
-offset = Vector2( -1, 0 )
+offset = Vector2(-1, 0)
+
 [connection signal="frame_changed" from="SubViewport/HealthBar/OverGears/UnderGears/AnimatedSprite2D" to="SubViewport/HealthBar" method="_on_AnimatedSprite_frame_changed"]
 [connection signal="frame_changed" from="SubViewport/HealthBar/OverGears/UnderGears/AnimatedSprite2D" to="SubViewport/HealthBar/OverGears" method="_on_AnimatedSprite_frame_changed"]
 [connection signal="frame_changed" from="SubViewport/HealthBar/OverGears/UnderGears/AnimatedSprite2D" to="SubViewport/HealthBar/OverGears/UnderGears" method="_on_AnimatedSprite_frame_changed"]

@@ -1,0 +1,8 @@
+res://default_env.tres
+res://Objects/HUD/InventorySlot.tscn
+res://Objects/HUD/Inventory.tscn
+res://Objects/HUD/HealthBar.tscn
+res://Objects/HUD/HUD.tscn
+res://Title Screen.tscn
+res://Sprite/HUD/HealthGearsGold.tres
+res://Sprite/HUD/outline.gdshader

@@ -1,23 +1,47 @@
-[gd_resource type="SpriteFrames" load_steps=9 format=2]
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://kmrjl0iik3xo"]
 
-[ext_resource path="res://Sprite2D/HUD/HealthGearsGold1.png" type="Texture2D" id=1]
-[ext_resource path="res://Sprite2D/HUD/HealthGearsGold2.png" type="Texture2D" id=2]
-[ext_resource path="res://Sprite2D/HUD/HealthGearsGold3.png" type="Texture2D" id=3]
-[ext_resource path="res://Sprite2D/HUD/HealthGearsGold4.png" type="Texture2D" id=4]
-[ext_resource path="res://Sprite2D/HUD/HealthGearsRust2.png" type="Texture2D" id=5]
-[ext_resource path="res://Sprite2D/HUD/HealthGearsRust3.png" type="Texture2D" id=6]
-[ext_resource path="res://Sprite2D/HUD/HealthGearsRust1.png" type="Texture2D" id=7]
-[ext_resource path="res://Sprite2D/HUD/HealthGearsRust4.png" type="Texture2D" id=8]
+[ext_resource type="Texture2D" uid="uid://bs08h67ormms8" path="res://Sprite/HUD/HealthGearsGold1.png" id="1_4box6"]
+[ext_resource type="Texture2D" uid="uid://bhxct3xybq5ud" path="res://Sprite/HUD/HealthGearsGold2.png" id="2_jc6qw"]
+[ext_resource type="Texture2D" uid="uid://bqflr7n8m2hrp" path="res://Sprite/HUD/HealthGearsGold3.png" id="3_vdb1l"]
+[ext_resource type="Texture2D" uid="uid://m7kms7kr8053" path="res://Sprite/HUD/HealthGearsGold4.png" id="4_tawu6"]
+[ext_resource type="Texture2D" uid="uid://d310225p28in4" path="res://Sprite/HUD/HealthGearsRust1.png" id="5_1jepr"]
+[ext_resource type="Texture2D" uid="uid://dm0hlkpwusb7k" path="res://Sprite/HUD/HealthGearsRust2.png" id="6_35blg"]
+[ext_resource type="Texture2D" uid="uid://cte3aoe3snh4l" path="res://Sprite/HUD/HealthGearsRust3.png" id="7_hfmoe"]
+[ext_resource type="Texture2D" uid="uid://dore7i245muyi" path="res://Sprite/HUD/HealthGearsRust4.png" id="8_pg405"]
 
 [resource]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4box6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jc6qw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vdb1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tawu6")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1jepr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_35blg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hfmoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pg405")
+}],
 "loop": true,
-"name": "rust",
+"name": &"rust",
 "speed": 5.0
-} ]
+}]

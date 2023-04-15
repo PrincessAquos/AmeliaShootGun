@@ -6,13 +6,14 @@ extends Control
 # var b = "text"
 
 var auto_scale = true
-var scale = 1
+var screen_scale = 1
 var level_view:SubViewportContainer
 var world:Node2D
 var viewport:SubViewport
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	level_view = get_node("LevelView")
 	viewport = get_node("LevelView/SubViewport")
 

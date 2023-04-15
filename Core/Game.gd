@@ -196,7 +196,7 @@ func update_hud_health(num_gears, current_health):
 
 func get_savefile_name():
 	if loaded_save != -1:
-		var savefilepath = savepath + "savefile" + String(loaded_save) + ".sav"
+		var savefilepath = savepath + "savefile" + str(loaded_save) + ".sav"
 		# Open the save file
 		# Read the filename field
 		# return the filename field
@@ -204,7 +204,7 @@ func get_savefile_name():
 
 
 func save():
-	var savefilepath = savepath + "savefile" + String(loaded_save) + ".sav"
+	var savefilepath = savepath + "savefile" + str(loaded_save) + ".sav"
 	var save_dict = {
 		# What to name the file on the file select screen
 		"filename": get_savefile_name(),
