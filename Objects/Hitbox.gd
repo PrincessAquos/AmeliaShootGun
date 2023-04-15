@@ -5,8 +5,8 @@ class_name Hitbox
 # var a = 2
 # var b = "text"
 
-export var height = 6
-export var damage:int = 1
+@export var height = 6
+@export var damage:int = 1
 var altitude = 0
 
 # Called when the node enters the scene tree for the first time.

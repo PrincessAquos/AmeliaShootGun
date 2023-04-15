@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 class_name Areas
 
@@ -19,7 +19,7 @@ const maps = {
 
 static func load_area(area_id:String):
 	var new_area:PackedScene = load(maps[area_id])
-	return new_area.instance()
+	return new_area.instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

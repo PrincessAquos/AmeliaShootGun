@@ -5,9 +5,9 @@ var savedata
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var file_num:int = 1 setget set_file_number
-export var file_name:String = "NO DATA" setget set_file_name 
-export var num_gears:int = 3 setget set_num_gears
+@export var file_num:int = 1: set = set_file_number
+@export var file_name:String = "NO DATA": set = set_file_name
+@export var num_gears:int = 3: set = set_num_gears
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	savedata = SaveData.new(file_num-1)

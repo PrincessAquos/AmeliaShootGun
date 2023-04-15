@@ -7,7 +7,7 @@ class_name BlockButton
 
 var default_state
 
-var is_activated = false setget set_activation_state
+var is_activated = false: set = set_activation_state
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,7 +24,7 @@ func load_object():
 
 func set_activation_state(new_state):
 	is_activated = new_state
-	var model = get_node("AnimatedSprite")
+	var model = get_node("AnimatedSprite2D")
 	if is_activated:
 		model.animation = "Full"
 	else:

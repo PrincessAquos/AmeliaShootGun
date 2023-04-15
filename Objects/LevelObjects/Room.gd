@@ -1,16 +1,16 @@
-tool
+@tool
 extends StaticBody2D
 
 class_name Room
 
-export var active:bool
-export var trapped:bool
+@export var active:bool
+@export var trapped:bool
 #export (Array, NodePath) var doorways
-export var node_room_bounds_path:NodePath
-export var node_enemy_bounds_path:NodePath
+@export var node_room_bounds_path:NodePath
+@export var node_enemy_bounds_path:NodePath
 
-export var size:Vector2 setget change_size
-export var unique_id:int = -1
+@export var size:Vector2: set = change_size
+@export var unique_id:int = -1
 
 var finished_registering = false
 var node_room_bounds:Area2D = null
@@ -58,14 +58,14 @@ func _ready():
 	solve_func = funcref(RoomSolutions, "all_enemies_defeated")
 	node_room_bounds = get_node(node_room_bounds_path)
 	node_enemy_bounds = get_node(node_enemy_bounds_path)
-	if Engine.editor_hint:
+	if Engine.is_editor_hint():
 		update_collider_rect()
 		update_collider_concave()
 		if active:
 			disable_player_collision()
 		else:
 			enable_player_collision()
-	if not Engine.editor_hint:
+	if not Engine.is_editor_hint():
 		visible = false
 	pass
 
@@ -154,7 +154,7 @@ func update_collider_rect():
 		collider = shape_owner_get_owner(0)
 		shape = RectangleShape2D.new()
 		collider.position = size/2
-		shape.extents = size/2
+		shape.size = size/2
 		collider.shape = shape
 	
 		area_collider.position = size/2
@@ -208,7 +208,7 @@ func _unhandled_input(event):
 
 func change_size(new_size):
 	size = new_size
-	if Engine.editor_hint:
+	if Engine.is_editor_hint():
 		update_collider_rect()
 		update_collider_concave()
 	pass
@@ -226,14 +226,14 @@ func room_solved():
 
 
 func _process(delta):
-	if not Engine.editor_hint:
+	if not Engine.is_editor_hint():
 		if finished_registering:
 			if !is_solved:
 				if solve_func.call_func(self):
 					room_solved()
 					is_solved = true
 	
-	if Engine.editor_hint:
+	if Engine.is_editor_hint():
 		#if wall_top == null:
 		#	wall_top = get_node(wall_top_path)
 		#	wall_bot = get_node(wall_bot_path)

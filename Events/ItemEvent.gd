@@ -5,7 +5,8 @@ class_name ItemEvent
 var item = null
 
 
-func _init(source, in_item).(source):
+func _init(source, in_item):
+	super(source)
 	item = in_item
 
 

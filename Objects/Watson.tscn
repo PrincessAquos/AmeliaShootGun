@@ -1,23 +1,23 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Sprite/Watson/WatsonDown.png" type="Texture" id=1]
+[ext_resource path="res://Sprite2D/Watson/WatsonDown.png" type="Texture2D" id=1]
 [ext_resource path="res://Objects/Hurtbox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprite/Shadow.png" type="Texture" id=3]
+[ext_resource path="res://Sprite2D/Shadow.png" type="Texture2D" id=3]
 [ext_resource path="res://Objects/Watson.gd" type="Script" id=4]
 [ext_resource path="res://Sound/GunFire.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sound/Jump.wav" type="AudioStream" id=6]
-[ext_resource path="res://Sprite/Watson/WatsonAnimations.tres" type="SpriteFrames" id=20]
+[ext_resource path="res://Sprite2D/Watson/WatsonAnimations.tres" type="SpriteFrames" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6, 4 )
+size = Vector2( 6, 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 7, 5 )
+size = Vector2( 7, 5 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 3, 3 )
+size = Vector2( 3, 3 )
 
-[node name="Watson" type="KinematicBody2D" groups=[
+[node name="Watson" type="CharacterBody2D" groups=[
 "layered",
 "player",
 ]]
@@ -31,18 +31,18 @@ node_sound_gunfire = NodePath("Sounds/Gunshot")
 node_sound_jump = NodePath("Sounds/Jump")
 node_interact_area = NodePath("Interact")
 
-[node name="Shadow" type="Sprite" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color( 1, 1, 1, 0.501961 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -7 )
 
-[node name="Model" type="AnimatedSprite" parent="."]
+[node name="Model" type="AnimatedSprite2D" parent="."]
 frames = ExtResource( 20 )
 animation = "LookDown"
 playing = true
 offset = Vector2( 0, -8 )
 
-[node name="ModelOld" type="Sprite" parent="."]
+[node name="ModelOld" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource( 1 )
 offset = Vector2( 0, -8 )
@@ -63,13 +63,13 @@ shape = SubResource( 2 )
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
-points = PoolVector2Array( 0, 0, 50, 0 )
+points = PackedVector2Array( 0, 0, 50, 0 )
 width = 1.5
 default_color = Color( 0.396078, 0.396078, 0.396078, 0.517647 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
-cast_to = Vector2( 0, 650 )
+target_position = Vector2( 0, 650 )
 collision_mask = 524297
 collide_with_areas = true
 

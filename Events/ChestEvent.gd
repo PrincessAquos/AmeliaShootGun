@@ -9,7 +9,8 @@ var item_id
 var event
 var step = 0
 
-func _init(source, in_item_id).(source):
+func _init(source, in_item_id):
+	super(source)
 	complete = false
 	item_id = in_item_id
 	pass

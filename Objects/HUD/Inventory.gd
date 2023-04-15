@@ -2,10 +2,10 @@ extends Control
 
 class_name Inventory
 
-export var key_item_path:NodePath
-export var equip_item_path:NodePath
+@export var key_item_path:NodePath
+@export var equip_item_path:NodePath
 
-export (Array, NodePath) var slot_paths
+@export (Array, NodePath) var slot_paths
 
 var key_item_section
 var equippable_item_section

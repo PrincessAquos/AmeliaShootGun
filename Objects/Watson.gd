@@ -1,9 +1,9 @@
 extends Character
 
-export var node_run_model:NodePath
-export var node_sound_gunfire:NodePath
-export var node_sound_jump:NodePath
-export var node_interact_area:NodePath
+@export var node_run_model:NodePath
+@export var node_sound_gunfire:NodePath
+@export var node_sound_jump:NodePath
+@export var node_interact_area:NodePath
 #export (int, 0, 200) var push = 10
 
 var num_gears = 3
@@ -39,7 +39,7 @@ func _on_ready():
 	var raycast:RayCast2D = get_node("RayCast2D")
 	raycast.add_exception(self)
 	raycast.add_exception(get_node("Hurtbox"))
-	._on_ready()
+	super._on_ready()
 	pass
 
 func _unhandled_input(event):
@@ -122,7 +122,7 @@ func _on_physics_process(delta):
 			lock_lateral_velocity = false
 
 	# Execute the general Character physics process
-	._on_physics_process(delta)
+	super._on_physics_process(delta)
 
 	# Check for any special collisions triggered in the general physics process
 	if is_loaded:
@@ -132,7 +132,7 @@ func _on_physics_process(delta):
 
 
 func handle_special_collisions():
-	var num_slides = get_slide_count()
+	var num_slides = get_slide_collision_count()
 	for i in num_slides:
 		var collision = get_slide_collision(i)
 		var collider = collision.collider
@@ -165,11 +165,11 @@ func _on_process(delta):
 			debug_gunbox_frame_done = false
 		if get_node("Line2D").visible == true:
 			debug_gunbox_frame_done = true
-	._on_process(delta)
+	super._on_process(delta)
 
 
 func set_current_health(new_val):
-	.set_current_health(new_val)
+	super.set_current_health(new_val)
 	Game.player_current_health = new_val
 	return
 
@@ -214,7 +214,7 @@ func fire_shot():
 	var line:Line2D = get_node("Line2D")
 	var target = Vector2.ZERO
 	target = Directions.dir_vectors[facing] * gun_range
-	raycast.cast_to = target
+	raycast.target_position = target
 	line.points[1] = target
 	raycast.force_raycast_update()
 	
@@ -236,7 +236,7 @@ func _update_sprite():
 		if !is_grounded() and Input.is_action_pressed("shoot"):
 			model.play("ShootBuffer" + dir_strings[facing])
 		else:
-			._update_sprite()
+			super._update_sprite()
 
 
 func update_interact_position():

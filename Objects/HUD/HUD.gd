@@ -1,8 +1,8 @@
 extends Control
 
 
-var num_gears setget set_num_gears
-var current_health setget set_current_health
+var num_gears : set = set_num_gears
+var current_health : set = set_current_health
 
 
 func _ready():

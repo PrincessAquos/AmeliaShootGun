@@ -5,14 +5,14 @@ class_name InvSlot
 # var a = 2
 # var b = "text"
 
-export var item_img_path:NodePath
-export var item_count_path:NodePath
+@export var item_img_path:NodePath
+@export var item_count_path:NodePath
 
 var item_icon_node:TextureRect
 var item_count_label:Label
 
-var item = null setget set_item
-var count:int = 0 setget set_count
+var item = null: set = set_item
+var count:int = 0: set = set_count
 var equipped
 
 var save_slot:SaveData.SaveInventory.SaveInventorySlots

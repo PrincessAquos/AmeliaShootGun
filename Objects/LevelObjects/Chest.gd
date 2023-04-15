@@ -4,17 +4,17 @@ extends StaticBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var unique_id = -1
-export var start_active = true
-export var model_path:NodePath
-export var contains:int = -1
-export var item_model_path:NodePath
-var closed = true setget set_closed
+@export var unique_id = -1
+@export var start_active = true
+@export var model_path:NodePath
+@export var contains:int = -1
+@export var item_model_path:NodePath
+var closed = true: set = set_closed
 
-var active = true setget set_active
-var model_node:AnimatedSprite
+var active = true: set = set_active
+var model_node:AnimatedSprite2D
 
-var save_chest:SaveData.SaveArea.SaveChest setget load_save_info
+var save_chest:SaveData.SaveArea.SaveChest: set = load_save_info
 
 
 func collect_save_info():

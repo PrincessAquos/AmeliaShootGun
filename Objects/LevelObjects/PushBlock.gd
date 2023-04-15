@@ -1,7 +1,7 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var static_friction = 0.25
-export var push_speed = 25
+@export var static_friction = 0.25
+@export var push_speed = 25
 
 var spawn_position
 
@@ -52,5 +52,6 @@ func _physics_process(delta):
 		#print(linear_velocity)
 		#Vector2
 		is_push = false
-		move_and_slide(velocity * Game.game_speed)
+		set_velocity(velocity * Game.game_speed)
+		move_and_slide()
 	pass

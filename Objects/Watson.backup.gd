@@ -1,6 +1,6 @@
 extends Character
 
-export var node_run_model:NodePath
+@export var node_run_model:NodePath
 
 # Movement Stats
 
@@ -44,7 +44,7 @@ func _on_ready():
 	raycast.add_exception(get_node("GPHitbox"))
 	raycast.add_exception(get_node("Hurtbox"))
 	gp_hitbox = get_node("GPHitbox")
-	._on_ready()
+	super._on_ready()
 	pass
 
 func _unhandled_input(event):
@@ -121,7 +121,7 @@ func _on_physics_process(delta):
 			var line:Line2D = get_node("Line2D")
 			var target = Vector2.ZERO
 			target = Directions.dir_vectors[facing] * gun_range
-			raycast.cast_to = target
+			raycast.target_position = target
 			line.points[1] = target
 			raycast.force_raycast_update()
 			print(raycast.is_colliding())
@@ -132,7 +132,7 @@ func _on_physics_process(delta):
 					obj_hit.hitstun_timer = obj_hit.dmg_hitstun
 			get_node("Line2D").visible = true
 			gun_timer = gun_endlag
-	._on_physics_process(delta)
+	super._on_physics_process(delta)
 	
 	if altitude <= 0 || (shoot_buffer_timer <= 0 && gun_timer <= 0 && !shoot_pressed):
 		Game.do_time_warp = false
@@ -193,12 +193,12 @@ func _on_process(delta):
 			gp_hitbox.monitoring = false
 		if gp_timer < 0:
 			ground_pound_state = 0
-	._on_process(delta)
+	super._on_process(delta)
 
 
 func _update_sprite():
 	if gun_timer <= 0:
-		._update_sprite()
+		super._update_sprite()
 	if shoot_buffer_timer > 0:
 		model.play("ShootBuffer" + dir_strings[facing])
 

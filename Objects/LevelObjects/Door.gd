@@ -5,19 +5,19 @@ class_name Door
 # var a = 2
 # var b = "text"
 
-export var node_trapped_path:NodePath
-export var node_locked_path:NodePath
-export var node_shut_collider_path:NodePath
+@export var node_trapped_path:NodePath
+@export var node_locked_path:NodePath
+@export var node_shut_collider_path:NodePath
 
 var node_trapped:Node2D
 var node_locked:Node2D
 var node_shut_collider:CollisionShape2D
 
-export var unique_id = -1
-export var is_locked = false setget set_lock_state
-export var is_trapped = false setget set_trap_state
+@export var unique_id = -1
+@export var is_locked = false: set = set_lock_state
+@export var is_trapped = false: set = set_trap_state
 
-var save_door:SaveData.SaveArea.SaveDoor setget load_save_info
+var save_door:SaveData.SaveArea.SaveDoor: set = load_save_info
 
 
 

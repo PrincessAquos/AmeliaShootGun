@@ -4,7 +4,7 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
-export var num_gears:int = 3 setget set_num_gears
+@export var num_gears:int = 3: set = set_num_gears
 
 var anim_tile_size = Vector2(8,8)
 
@@ -21,7 +21,7 @@ var tiles = {
 	9: Vector2(8, 32)
 }
 
-onready var sprite_node:AnimatedSprite = null
+@onready var sprite_node:AnimatedSprite2D = null
 
 func _draw():
 	if sprite_node != null:
@@ -92,7 +92,7 @@ func draw_bottom_gear(pos, first=true, last=true, front_layer=false, portions=4)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite_node = get_node("AnimatedSprite")
+	sprite_node = get_node("AnimatedSprite2D")
 	pass # Replace with function body.
 
 

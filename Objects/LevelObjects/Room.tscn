@@ -3,10 +3,10 @@
 [ext_resource path="res://Objects/LevelObjects/Room.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 128, 104 )
+size = Vector2( 128, 104 )
 
 [sub_resource type="ConcavePolygonShape2D" id=2]
-segments = PoolVector2Array( 18, 18, 18, 190, 18, 190, 238, 190, 238, 190, 238, 18, 238, 18, 18, 18 )
+segments = PackedVector2Array( 18, 18, 18, 190, 18, 190, 238, 190, 238, 190, 238, 18, 238, 18, 18, 18 )
 
 [node name="Room" type="StaticBody2D" groups=[
 "room",

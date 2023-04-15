@@ -1,36 +1,36 @@
-tool
+@tool
 extends EditorImportPlugin
 
 const Utils = preload("res://addons/thejustinwalsh.castledb/castledb_utils.gd")
 
 enum Presets { PRESET_DEFAULT }
 
-func get_importer_name():
+func _get_importer_name():
 	return "castledb.importer"
 
-func get_visible_name():
+func _get_visible_name():
 	return "CastleDB"
 
-func get_recognized_extensions():
+func _get_recognized_extensions():
 	return ["cdb"]
 
-func get_save_extension():
+func _get_save_extension():
 	return "gd"
 
-func get_resource_type():
+func _get_resource_type():
 	return "Script"
 
-func get_preset_count():
+func _get_preset_count():
 	return Presets.size()
 
-func get_preset_name(preset):
+func _get_preset_name(preset):
 	match preset:
 		Presets.PRESET_DEFAULT:
 			return "Default"
 		_:
 			return "Unknown"
 
-func get_import_options(preset):
+func _get_import_options(preset):
 	match preset:
 		Presets.PRESET_DEFAULT:
 			return [{
@@ -40,7 +40,7 @@ func get_import_options(preset):
 		_:
 			return []
 
-func get_option_visibility(option, options):
+func _get_option_visibility(option, options):
 	return true
 
 func import(source_file, save_path, options, r_platform_variants, r_gen_files):
@@ -51,7 +51,9 @@ func import(source_file, save_path, options, r_platform_variants, r_gen_files):
 
 	var json = file.get_as_text()
 	file.close();
-	var json_result = JSON.parse(json)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(json)
+	var json_result = test_json_conv.get_data()
 	if json_result.error != OK:
 		return json_result.error
 
@@ -88,7 +90,7 @@ func import(source_file, save_path, options, r_platform_variants, r_gen_files):
 	var main_script = GDScript.new();
 	main_script.set_source_code(code)
 
-	return ResourceSaver.save("%s.%s" % [save_path, get_save_extension()], main_script)
+	return ResourceSaver.save("%s.%s" % [save_path, _get_save_extension()], main_script)
 
 
 

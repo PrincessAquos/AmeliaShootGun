@@ -1,4 +1,4 @@
-extends Reference
+extends RefCounted
 
 class_name SaveData
 
@@ -39,7 +39,9 @@ func _init(file_num):
 	if save_game.file_exists(savefilepath):
 		save_game.open(savefilepath, File.READ)
 		var data_json = save_game.get_line()
-		data = parse_json(data_json)
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(data_json)
+		data = test_json_conv.get_data()
 		print(data)
 		file_name = data["file_name"]
 		num_gears = data["num_gears"]
@@ -57,7 +59,9 @@ func _init(file_num):
 			var this_slot:SaveInventory.SaveInventorySlots = inventory.slots[i]
 			this_slot.item_id = Data.itemindex.get_index(i).id
 			this_slot.count = 1
-		data = parse_json("{}")
+		var test_json_conv = JSON.new()
+		test_json_conv.parse("{}")
+		data = test_json_conv.get_data()
 	
 
 
@@ -81,7 +85,7 @@ func write_save():
 	#var this_data = collect_data()
 	#data = this_data
 	#var data_json = to_json(data)
-	var data_json = to_json(get_dict())
+	var data_json = JSON.new().stringify(get_dict())
 	print(data_json)
 	save_file.open(savefilepath, File.WRITE)
 	save_file.store_line(data_json)
@@ -93,7 +97,9 @@ func read_save():
 	var save_game = File.new()
 	save_game.open(savefilepath, File.READ)
 	var data_json = save_game.get_line()
-	var data = parse_json(data_json)
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(data_json)
+	var data = test_json_conv.get_data()
 	print(data)
 	print(data.version)
 	print(typeof(data.version) == TYPE_STRING)
@@ -128,7 +134,7 @@ class SaveArea:
 		rooms = {}
 		chests = {}
 		doors = {}
-		if !loaded_area.empty():
+		if !loaded_area.is_empty():
 			for room_id in loaded_area["rooms"]:
 				rooms[room_id] = SaveRoom.new(loaded_area["rooms"][room_id])
 				
@@ -158,7 +164,7 @@ class SaveArea:
 		var is_solved:bool
 		
 		func _init(loaded_room:Dictionary = {}):
-			if !loaded_room.empty():
+			if !loaded_room.is_empty():
 				is_solved = loaded_room["is_solved"]
 			else:
 				is_solved = false
@@ -170,7 +176,7 @@ class SaveArea:
 		var is_closed:bool
 		var is_active:bool
 		func _init(loaded_chest:Dictionary = {}):
-			if !loaded_chest.empty():
+			if !loaded_chest.is_empty():
 				is_closed = loaded_chest["closed"]
 				is_active = loaded_chest["active"]
 			else:
@@ -186,7 +192,7 @@ class SaveArea:
 	class SaveDoor:
 		var is_locked:bool
 		func _init(loaded_door:Dictionary = {}):
-			if !loaded_door.empty():
+			if !loaded_door.is_empty():
 				is_locked = loaded_door["is_locked"]
 		
 		func get_dict():
@@ -197,7 +203,7 @@ class SaveInventory:
 	
 	func _init(loaded_inventory:Array = []):
 		slots = []
-		if loaded_inventory.empty():
+		if loaded_inventory.is_empty():
 			for i in range(24):
 				slots.append(SaveInventorySlots.new())
 		else:

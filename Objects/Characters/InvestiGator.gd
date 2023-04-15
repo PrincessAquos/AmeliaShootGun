@@ -23,7 +23,7 @@ const lunge_height = 8
 
 # Called when the node enters the scene tree for the first time.
 func _on_ready():
-	._on_ready()
+	super._on_ready()
 	speed = 32
 	is_loaded = true
 	pass # Replace with function body.
@@ -45,7 +45,7 @@ func _update_sprite():
 	if new_anim == null:
 		#print("'" + model.animation + "' is not '" + new_anim + "'")
 		#print("New Animation!")
-		._update_sprite()
+		super._update_sprite()
 	elif new_anim != model.animation:
 		model.play(new_anim)
 	return
@@ -55,7 +55,8 @@ func _on_physics_process(delta):
 	var dir_vector = Directions.dir_vectors[facing]
 	if attack_timer > 0:
 		altitude = ((attack_delay - attack_timer)/attack_delay)*lunge_height
-		move_and_slide(dir_vector * lunge_speed * ((attack_delay - attack_timer)/attack_delay))
+		set_velocity(dir_vector * lunge_speed * ((attack_delay - attack_timer)/attack_delay))
+		move_and_slide()
 		attack_timer -= delta
 		if attack_timer <= 0:
 			attack_slide_timer = attack_slide_delay + attack_slide_skid
@@ -69,11 +70,13 @@ func _on_physics_process(delta):
 		altitude = progress_altitude*lunge_height
 		print(altitude)
 		if attack_slide_timer > attack_slide_skid:
-			move_and_slide(dir_vector * lunge_speed * progress)
+			set_velocity(dir_vector * lunge_speed * progress)
+			move_and_slide()
 		else:
 			print(skid_bumps)
 			altitude = 1 * skid_bumps
-			move_and_slide(dir_vector * slide_speed * progress)
+			set_velocity(dir_vector * slide_speed * progress)
+			move_and_slide()
 	elif do_attack:
 		#model.play("BiteOpenDown")
 		attack_timer = attack_delay
@@ -86,7 +89,7 @@ func _on_physics_process(delta):
 			var testlist = [Direction.UP, Direction.DOWN, Direction.LEFT, Direction.RIGHT]
 			move_dirs[testlist[randi() % 4]] = true
 		change_dir_timer -= delta
-		._on_physics_process(delta)
+		super._on_physics_process(delta)
 	pass
 
 

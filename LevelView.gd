@@ -1,4 +1,4 @@
-extends ViewportContainer
+extends SubViewportContainer
 
 
 # Declare member variables here. Examples:

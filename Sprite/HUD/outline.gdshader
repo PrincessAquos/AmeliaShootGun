@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform bool draw_outline;
-uniform vec4 outline_color : hint_color;
+uniform vec4 outline_color : source_color;
 
 void fragment() {
 	float width_x = 1.0*TEXTURE_PIXEL_SIZE.x;

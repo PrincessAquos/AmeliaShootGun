@@ -27,7 +27,7 @@ var world_brightness = 255
 var menu_anim_timer = 0.0
 var menu_anim_time = 0.5
 
-var game_speed = 1 setget set_game_speed
+var game_speed = 1: set = set_game_speed
 
 var current_area_id
 var current_dungeon = null
@@ -41,8 +41,8 @@ var current_loaded_save:SaveData
 
 var current_event = null
 
-var player_num_gears = 3 setget set_num_gears
-var player_current_health = 12 setget set_current_health
+var player_num_gears = 3: set = set_num_gears
+var player_current_health = 12: set = set_current_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,7 +50,7 @@ func _ready():
 
 
 func load_file_select():
-	var file_select = load("res://File Select.tscn").instance()
+	var file_select = load("res://File Select.tscn").instantiate()
 	get_tree().current_scene.add_child(file_select)
 	pass
 
@@ -72,7 +72,7 @@ func load_new_area(area_id):
 	
 	# Add a new dungeon scene
 	var instanced_dungeon = Areas.load_area(area_id)
-	get_tree().current_scene.get_node("LevelView/Viewport/nudge").add_child(instanced_dungeon)
+	get_tree().current_scene.get_node("LevelView/SubViewport/nudge").add_child(instanced_dungeon)
 	
 	# Load save information
 	current_loaded_save.area_id = area_id
@@ -87,9 +87,9 @@ func load_new_area(area_id):
 	
 	if current_dungeon != null:
 		print("Cool, the dungeon is there")
-		yield(get_tree(), "physics_frame")
+		await get_tree().physics_frame
 		current_dungeon.prepare_room_bounds()
-		yield(get_tree(), "physics_frame")
+		await get_tree().physics_frame
 		current_dungeon.register_room_contents()
 		current_dungeon.load_save_info(current_loaded_save.areas[current_loaded_save.area_id])
 		current_dungeon.load_first_room()
@@ -154,9 +154,9 @@ func _process(delta):
 		menu_alpha = menu_anim_timer/menu_anim_time
 		current_dungeon.modulate = Color(world_brightness, world_brightness, world_brightness, 1)
 		#inv_screen.modulate = Color(1, 1, 1, menu_alpha)
-		inv_screen.rect_position = Vector2(0, -216 * world_brightness)
+		inv_screen.position = Vector2(0, -216 * world_brightness)
 	var layer_list = get_tree().get_nodes_in_group("layered")
-	layer_list.sort_custom(DepthSorter, "high_y_low_z")
+	layer_list.sort_custom(Callable(DepthSorter, "high_y_low_z"))
 	for i in range(layer_list.size()):
 		layer_list[i].z_index = i
 

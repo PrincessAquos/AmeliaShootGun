@@ -10,7 +10,8 @@ var printed = false
 var textbox
 
 
-func _init(source, in_title, in_text).(source):
+func _init(source, in_title, in_text):
+	super(source)
 	title = in_title
 	text = in_text
 

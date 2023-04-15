@@ -9,14 +9,14 @@ const nodepath_title = "Textbox/Control3/MarginContainer2/MarginContainer/Name"
 const nodepath_dialogue = "Textbox/Control/MarginContainer/Control/Dialogue"
 
 
-var title setget set_title
+var title : set = set_title
 var dialogue
 var lines
 var dismiss_text = false
 
 func _init(in_title, in_dialogue):
 	set_anchors_preset(Control.PRESET_WIDE)
-	add_child(textbox_scene.instance())
+	add_child(textbox_scene.instantiate())
 	set_title(in_title)
 	set_dialogue(in_dialogue)
 	pass

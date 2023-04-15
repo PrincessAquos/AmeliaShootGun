@@ -1,22 +1,22 @@
-tool
+@tool
 extends Node2D
 
 class_name Dungeon
 
-export var start_room_path:NodePath
-export var start_room_coord:Vector2
+@export var start_room_path:NodePath
+@export var start_room_coord:Vector2
 
 var current_room_lock:Vector2
 var current_room:Room
 var previous_room:Room
 
-var save_area:SaveData.SaveArea setget load_save_info
+var save_area:SaveData.SaveArea: set = load_save_info
 
-export var camera:NodePath
-export var room_list:Dictionary
-export var chest_list:Dictionary
-export var actor_list:Dictionary
-export var door_list:Dictionary
+@export var camera:NodePath
+@export var room_list:Dictionary
+@export var chest_list:Dictionary
+@export var actor_list:Dictionary
+@export var door_list:Dictionary
 
 var moving = false
 
@@ -149,8 +149,8 @@ func editor_register_doors():
 
 
 func _ready():
-	if Engine.editor_hint:
-		var new_camera = get_path_to(find_node("Camera2D"))
+	if Engine.is_editor_hint():
+		var new_camera = get_path_to(find_child("Camera2D"))
 		if camera != new_camera:
 			camera = new_camera
 		
@@ -226,7 +226,7 @@ func change_rooms(new_room):
 
 
 func _process(delta):
-	if Engine.editor_hint:
+	if Engine.is_editor_hint():
 		pass
 	else:
 		if moving:

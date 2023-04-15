@@ -7,14 +7,14 @@ extends Control
 
 var auto_scale = true
 var scale = 1
-var level_view:ViewportContainer
+var level_view:SubViewportContainer
 var world:Node2D
-var viewport:Viewport
+var viewport:SubViewport
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	level_view = get_node("LevelView")
-	viewport = get_node("LevelView/Viewport")
+	viewport = get_node("LevelView/SubViewport")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

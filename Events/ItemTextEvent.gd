@@ -7,7 +7,8 @@ var item_event:ItemEvent
 
 var step = 0
 
-func _init(source, in_item, in_text).(source):
+func _init(source, in_item, in_text):
+	super(source)
 	item_event = ItemEvent.new(self, in_item)
 	text_event = TextEvent.new(self, null, in_text)
 	add_child(item_event)

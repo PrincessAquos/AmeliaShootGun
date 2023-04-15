@@ -1,9 +1,9 @@
 extends Node2D
 
-export var current_health:int = 9 setget set_health
+@export var current_health:int = 9: set = set_health
 
-export var shine_interval:float = 2
-export var shine_speed:float = 200
+@export var shine_interval:float = 2
+@export var shine_speed:float = 200
 var shine_timer = 0
 
 
@@ -22,7 +22,7 @@ var tiles = {
 	9: Vector2(8, 32)
 }
 
-onready var sprite_node:AnimatedSprite = null
+@onready var sprite_node:AnimatedSprite2D = null
 
 
 func _draw():
@@ -122,7 +122,7 @@ func draw_bottom_gear(pos, first=true, last=true, front_layer=false, portions=4)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	sprite_node = get_node("UnderGears/AnimatedSprite")
+	sprite_node = get_node("UnderGears/AnimatedSprite2D")
 	get_node("UnderGears").sprite_node = sprite_node
 	get_node("UnderGears").update()
 	pass # Replace with function body.
@@ -134,8 +134,8 @@ func _process(delta):
 	shine_timer += delta
 	if shine_timer > shine_interval:
 		shine_timer -= shine_interval
-		get_node("Light2D").position = Vector2.ZERO
-	get_node("Light2D").position += Vector2(shine_speed * delta, 0)
+		get_node("PointLight2D").position = Vector2.ZERO
+	get_node("PointLight2D").position += Vector2(shine_speed * delta, 0)
 	return
 
 

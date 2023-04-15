@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
 class_name Character
 
@@ -9,15 +9,15 @@ var Direction = Directions.Direction
 const dir_strings = Directions.dir_strings
 
 # Required Node Paths
-export var node_hurtbox:NodePath
-export var node_model:NodePath
+@export var node_hurtbox:NodePath
+@export var node_model:NodePath
 
 # Required Nodes
 var hurtbox:Area2D
-var model:AnimatedSprite
+var model:AnimatedSprite2D
 
 # Identification
-export var uid:int = -1
+@export var uid:int = -1
 
 # State
 var is_dead = false
@@ -25,7 +25,7 @@ var is_loaded = false
 var facing = Direction.DOWN
 var altitude = 0
 var prev_vertical_velocity = 0
-var vertical_velocity = 0 setget set_vertical_velocity
+var vertical_velocity = 0: set = set_vertical_velocity
 
 # Movement
 var speed = 96
@@ -43,7 +43,7 @@ var move_dirs = {
 
 # Health
 var max_health = 2
-var current_health = 2 setget set_current_health
+var current_health = 2: set = set_current_health
 
 # Hitstun Stats
 var dmg_knockback = 120
@@ -66,13 +66,13 @@ var terminal_velocity = jump_speed * 1.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if not Engine.editor_hint:
+	if not Engine.is_editor_hint():
 		_on_ready()
 	else:
 		_editor_on_ready()
 
 func _physics_process(delta):
-	if not Engine.editor_hint:
+	if not Engine.is_editor_hint():
 		if !Game.paused && !is_dead:
 			delta = delta * Game.game_speed
 			_on_physics_process(delta)
@@ -80,7 +80,7 @@ func _physics_process(delta):
 		_editor_on_physics_process(delta)
 
 func _process(delta):
-	if not Engine.editor_hint:
+	if not Engine.is_editor_hint():
 		if !Game.paused && !is_dead:
 			delta = delta * Game.game_speed
 			model.speed_scale = Game.game_speed
@@ -129,13 +129,28 @@ func _on_physics_process(delta):
 			move_vector = Vector2.ZERO
 			var knockback = (global_position - hurtbox.hit_source).normalized() * dmg_knockback
 			move_vector = knockback
-		move_and_slide(move_vector)
+		set_velocity(move_vector)
+		move_and_slide()
 		#if move_vector != Vector2.ZERO:
 			#print(velocity)
 
 
-func move_and_slide(linear_velocity: Vector2, up_direction: Vector2 = Vector2( 0, 0 ), stop_on_slope: bool = false, max_slides: int = 4, floor_max_angle: float = 0.785398, infinite_inertia: bool = true):
-	.move_and_slide(linear_velocity * Game.game_speed, up_direction, stop_on_slope, max_slides, floor_max_angle, infinite_inertia)
+set_velocity(linear_velocity: Vector2)
+set_up_direction(up_direction: Vector2 = Vector2( 0, 0 ))
+set_floor_stop_on_slope_enabled(stop_on_slope: bool = false)
+set_max_slides(max_slides: int = 4)
+set_floor_max_angle(floor_max_angle: float = 0.785398)
+# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `infinite_inertia: bool = true`
+move_and_slide()
+func velocity:
+	super.set_velocity(linear_velocity * Game.game_speed)
+	super.set_up_direction(up_direction)
+	super.set_floor_stop_on_slope_enabled(stop_on_slope)
+	super.set_max_slides(max_slides)
+	super.set_floor_max_angle(floor_max_angle)
+	# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `infinite_inertia`
+	super.move_and_slide()
+	super.velocity
 	pass
 
 
@@ -148,7 +163,7 @@ func _on_process(delta):
 			if move_dirs[direction] && !move_dirs[-direction]:
 				# Add it to the list of possible facings
 				facing_dirs.append(direction)
-		if !facing_dirs.empty():
+		if !facing_dirs.is_empty():
 			if facing in facing_dirs:
 				pass
 			else:
