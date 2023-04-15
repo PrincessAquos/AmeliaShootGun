@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://c1eoxwby2u1l5"
+path="res://.godot/imported/Georgia14pxOutline.fnt-bb71068221493dd564d0700389b94ff7.fontdata"
+
+[deps]
+
+source_file="res://Sprite/Fonts/Georgia14pxOutline.fnt"
+dest_files=["res://.godot/imported/Georgia14pxOutline.fnt-bb71068221493dd564d0700389b94ff7.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

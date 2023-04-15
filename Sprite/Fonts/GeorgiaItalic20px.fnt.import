@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://j1rvgsh4ek32"
+path="res://.godot/imported/GeorgiaItalic20px.fnt-e74b3a4b2bdaef7376c015229fc2e477.fontdata"
+
+[deps]
+
+source_file="res://Sprite/Fonts/GeorgiaItalic20px.fnt"
+dest_files=["res://.godot/imported/GeorgiaItalic20px.fnt-e74b3a4b2bdaef7376c015229fc2e477.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

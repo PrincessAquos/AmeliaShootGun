@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://581raea86je0"
+path="res://.godot/imported/GeorgiaBold20px.fnt-1c03d19c8472137b5e7be2a447d5bfee.fontdata"
+
+[deps]
+
+source_file="res://Sprite/Fonts/GeorgiaBold20px.fnt"
+dest_files=["res://.godot/imported/GeorgiaBold20px.fnt-1c03d19c8472137b5e7be2a447d5bfee.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

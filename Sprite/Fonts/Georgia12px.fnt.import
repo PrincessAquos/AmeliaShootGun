@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://ye7hadpeemh2"
+path="res://.godot/imported/Georgia12px.fnt-243b50aa08430793a2066097864b7c6a.fontdata"
+
+[deps]
+
+source_file="res://Sprite/Fonts/Georgia12px.fnt"
+dest_files=["res://.godot/imported/Georgia12px.fnt-243b50aa08430793a2066097864b7c6a.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true

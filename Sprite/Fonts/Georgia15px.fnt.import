@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://dohlu3xkxtpv5"
+path="res://.godot/imported/Georgia15px.fnt-86ad08ceb586fcec7e2bf6d6d9a9357e.fontdata"
+
+[deps]
+
+source_file="res://Sprite/Fonts/Georgia15px.fnt"
+dest_files=["res://.godot/imported/Georgia15px.fnt-86ad08ceb586fcec7e2bf6d6d9a9357e.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
