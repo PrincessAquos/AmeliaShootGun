@@ -1,21 +1,21 @@
 91381882c7e91b39e6628b870584ac00
-::res://::1681590390
+::res://::1681762718
 Camera.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/Camera2D.gd
 Collision Layer Notes.txt::TextFile::-1::1646160255::0::1::::<><>::
 Debug.gd::GDScript::-1::1681582027::0::1::::<>Node<>::
-default_env.tres::Environment::3799104197365339630::1681590383::0::1::::<><>::
+default_env.tres::Environment::3799104197365339630::1681762338::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1660657799::0::1::::<><>::
 File Select.gd::GDScript::-1::1681582027::0::1::::<>Control<>::
-File Select.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Watson/WatsonDown.png<>res://File Select.gd<>res://Sprite2D/Fonts/GeorgiaBold20px.fnt<>res://MainMenu/SaveFile.tscn
+File Select.tscn::PackedScene::5519986647711033218::1681761993::0::1::::<><>::uid://bn1lalxsh73v0<>res://File Select.gd<>uid://581raea86je0<>res://MainMenu/SaveFile.tscn
 icon.png::CompressedTexture2D::7443333176710328403::1638318938::1681582881::1::::<><>::
 LevelView.gd::GDScript::-1::1681582027::0::1::::<>SubViewportContainer<>::
-MainGameScene.tscn::PackedScene::1988903149646842795::1681588812::0::1::::<><>::uid://c4ajqa6rysutn<>res://LevelView.gd<>res://Screen.gd<>uid://bc25lhqeorsou
+MainGameScene.tscn::PackedScene::1988903149646842795::1681760647::0::1::::<><>::uid://c4ajqa6rysutn<>res://LevelView.gd<>res://Screen.gd<>uid://bc25lhqeorsou
 MainGameSceneTest.tscn::PackedScene::1711744823532698917::1681589007::0::1::::<><>::res://Screen.gd<>res://LevelView.gd<>uid://c4ajqa6rysutn
 Screen.gd::GDScript::-1::1681588431::0::1::::<>Control<>::
 ScreenTest2.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/Dungeon.tscn<>res://LevelView.gd<>res://Screen.gd<>res://Objects/HUD/HUD.tscn<>res://Objects/HUD/Textbox.tscn
 ScreenTest.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://World.tscn<>res://LevelView.gd<>res://Screen.gd
 Title Screen.gd::GDScript::-1::1681588812::0::1::::<>Control<>::
-Title Screen.tscn::PackedScene::6808892907220660179::1681590383::0::1::::<><>::uid://tuf6rmoovajt<>res://Title Screen.gd<>uid://581raea86je0
+Title Screen.tscn::PackedScene::6808892907220660179::1681760647::0::1::::<><>::uid://tuf6rmoovajt<>res://Title Screen.gd<>uid://581raea86je0
 Title.png::CompressedTexture2D::1263452294764971767::1646160563::1681582881::1::::<><>::
 TitleDemo.png::CompressedTexture2D::1375235440868930701::1660657799::1681582881::1::::<><>::
 TODO.txt::TextFile::-1::1660657799::0::1::::<><>::
@@ -59,9 +59,9 @@ Event.gd::GDScript::-1::1681582027::0::1::::Event<>Node<>::
 ItemEvent.gd::GDScript::-1::1681582027::0::1::::ItemEvent<>Event<>::
 ItemTextEvent.gd::GDScript::-1::1681582027::0::1::::ItemTextEvent<>Event<>::
 TextEvent.gd::GDScript::-1::1681582027::0::1::::TextEvent<>Event<>::
-::res://MainMenu/::1660841223
+::res://MainMenu/::1681761403
 SaveFile.gd::GDScript::-1::1681582027::0::1::::<>MarginContainer<>::
-SaveFile.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://MainMenu/SaveFile.gd<>res://Objects/HUD/HealthBar.tscn<>res://Sprite2D/HUD/outline.gdshader<>res://Sprite2D/Fonts/Georgia15px.fnt
+SaveFile.tscn::PackedScene::-1::1681761403::0::1::::<><>::res://MainMenu/SaveFile.gd<>uid://cdw5kpmckdoys<>res://Sprite/HUD/outline.gdshader<>uid://dohlu3xkxtpv5
 ::res://Music/::1681582882
 Mind Your Manors.wav::AudioStreamWAV::4260961080388487462::1644791009::1681582882::1::::<><>::
 ::res://Objects/::1681581815
@@ -83,37 +83,37 @@ Halo.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 Halo.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/Hitbox.gd<>res://Objects/Characters/Halo.gd<>res://Sprite2D/Takodachi/Halo.tres<>res://Sprite2D/Shadow.png
 InvestiGator.gd::GDScript::-1::1681582027::0::1::::<>Character<>::
 InvestiGator.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/Characters/InvestiGator.gd<>res://Sprite2D/Enemy/InvestiGator/InvestiGator.tres<>res://Objects/Hurtbox.tscn<>res://Sprite2D/Shadow.png
-::res://Objects/HUD/::1681590383
+::res://Objects/HUD/::1681761530
 HealthBar.gd::GDScript::-1::1681582027::0::1::::<>SubViewportContainer<>::
-HealthBar.tscn::PackedScene::5030664383103931506::1681590383::0::1::::<><>::res://Objects/HUD/HealthUI.gd<>res://Sprite/HUD/outline.gdshader<>res://Objects/HUD/HealthBar.gd<>res://Objects/HUD/UnderGears.gd<>res://Objects/HUD/HealthGears.gd<>uid://kmrjl0iik3xo<>uid://bw41ejuhifffn
+HealthBar.tscn::PackedScene::5030664383103931506::1681760647::0::1::::<><>::res://Objects/HUD/HealthUI.gd<>res://Sprite/HUD/outline.gdshader<>res://Objects/HUD/HealthBar.gd<>res://Objects/HUD/UnderGears.gd<>res://Objects/HUD/HealthGears.gd<>uid://kmrjl0iik3xo<>uid://bw41ejuhifffn<>uid://cnrpbver7jjx1<>uid://dhrof0olh2t21
 HealthGears.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 HealthUI.gd::GDScript::-1::1681587015::0::1::::<>Node2D<>::
 HUD.gd::GDScript::-1::1681582027::0::1::::<>Control<>::
-HUD.tscn::PackedScene::2584378116426189088::1681590383::0::1::::<><>::uid://cdw5kpmckdoys<>res://Objects/HUD/HUD.gd<>uid://7ult342fwige
+HUD.tscn::PackedScene::2584378116426189088::1681760647::0::1::::<><>::uid://cdw5kpmckdoys<>res://Objects/HUD/HUD.gd<>uid://7ult342fwige
 Inventory.gd::GDScript::-1::1681587665::0::1::::Inventory<>Control<>::
-Inventory.tscn::PackedScene::2288033885190300304::1681590383::0::1::::<><>::res://Objects/HUD/Inventory.gd<>res://Objects/HUD/InventorySlot.tscn
+Inventory.tscn::PackedScene::2288033885190300304::1681760647::0::1::::<><>::res://Objects/HUD/Inventory.gd<>uid://baxp2ek588j<>uid://v01wrkwqcfbe
 InventorySlot.gd::GDScript::-1::1681587697::0::1::::InvSlot<>CenterContainer<>::
-InventorySlot.tscn::PackedScene::1527193998894051978::1681590383::0::1::::<><>::res://Objects/HUD/InventorySlot.gd<>uid://bga50ifioopf
+InventorySlot.tscn::PackedScene::1527193998894051978::1681590686::0::1::::<><>::res://Objects/HUD/InventorySlot.gd<>uid://bga50ifioopf<>uid://d2in4ugn5xmof
 Textbox.gd::GDScript::-1::1681582027::0::1::::TextBox<>Control<>::
-Textbox.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Fonts/Georgia15px.fnt
+Textbox.tscn::PackedScene::-1::1681761530::0::1::::<><>::uid://dohlu3xkxtpv5
 UnderGears.gd::GDScript::-1::1681587064::0::1::::<>Node2D<>::
-::res://Objects/LevelObjects/::1662746487
-BaseTilemap.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/Victorian/VictorianTileset.tres
+::res://Objects/LevelObjects/::1681762339
+BaseTilemap.tscn::PackedScene::4812676971606667883::1681761278::0::1::::<><>::uid://bxo5t7h6vhqgv
 BlockButton.gd::GDScript::-1::1681582027::0::1::::BlockButton<>Area2D<>::
-BlockButton.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/BlockButton.gd<>res://Sprite2D/Tilesets/BlockButton.tres
+BlockButton.tscn::PackedScene::4045542512939584836::1681762233::0::1::::<><>::res://Objects/LevelObjects/BlockButton.gd<>uid://brx3jp6wrbkuq
 Camera2D.gd::GDScript::-1::1681582027::0::1::::<>Camera2D<>::
 Chest.gd::GDScript::-1::1681582027::0::1::::<>StaticBody2D<>::
-Chest.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/ChestSprite.tres<>res://Objects/LevelObjects/Chest.gd
+Chest.tscn::PackedScene::447217411508126129::1681762339::0::1::::<><>::res://Objects/LevelObjects/Chest.gd<>uid://c4mchpru2w6hx<>uid://duttsgr6pvtox
 DebugDungeon.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/Watson.tscn<>res://Objects/Enemy.tscn<>res://Objects/LevelObjects/Door.tscn
-DebugLevel2.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/TestTiles.tres
-DebugLevel.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/TestTiles.tres
+DebugLevel2.tscn::PackedScene::-1::1681761631::0::1::::<><>::res://Sprite/Tilesets/TestTiles.tres
+DebugLevel.tscn::PackedScene::-1::1681761684::0::1::::<><>::res://Sprite/Tilesets/TestTiles.tres
 Door.gd::GDScript::-1::1681582027::0::1::::Door<>StaticBody2D<>::
 Door.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/Victorian/Doorv2Down.png<>res://Sprite2D/Tilesets/Victorian/Doorv2UpDownUnder.png<>res://Sprite2D/Tilesets/Victorian/DoorUpShadow.png<>res://Sprite2D/Tilesets/Victorian/Doorv2UpDownOver.png<>res://Objects/LevelObjects/Door.gd<>res://Sprite2D/Tilesets/Victorian/DoorLock.png<>res://Sprite2D/Tilesets/Victorian/DoorTrap.png
 DownDoor.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/Victorian/Doorv2Down.png<>res://Sprite2D/Tilesets/Victorian/DoorUpUnder.png<>res://Sprite2D/Tilesets/Victorian/DoorUpShadow.png
 Dungeon.gd::GDScript::-1::1681582027::0::1::::Dungeon<>Node2D<>::
 Dungeon.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/BaseTilemap.tscn<>res://Objects/LevelObjects/PushBlock.tscn<>res://Objects/LevelObjects/Dungeon.gd<>res://Objects/LevelObjects/Door.tscn<>res://Objects/Watson.tscn<>res://Objects/Enemy.tscn<>res://Objects/LevelObjects/Room.tscn<>res://Objects/LevelObjects/Chest.tscn<>res://Camera.tscn<>res://Objects/LevelObjects/BlockButton.tscn
 PushBlock.gd::GDScript::-1::1681582027::0::1::::<>CharacterBody2D<>::
-PushBlock.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/PushBlock.tres<>res://Objects/LevelObjects/PushBlock.gd
+PushBlock.tscn::PackedScene::3899283995793966644::1681761990::0::1::::<><>::res://Objects/LevelObjects/PushBlock.gd<>uid://clfydobu03obm
 Room.gd::GDScript::-1::1681582027::0::1::::Room<>StaticBody2D<>::
 Room.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/Room.gd
 RoomSolutions.gd::GDScript::-1::1681582027::0::1::::RoomSolutions<>RefCounted<>::
@@ -168,7 +168,7 @@ InvestiGatorRunUp2.png::CompressedTexture2D::6872307994676948638::1660657799::16
 InvestiGatorRunUp3.png::CompressedTexture2D::3683403345681675730::1660657799::1681582881::1::::<><>::
 InvestiGatorRunUp4.png::CompressedTexture2D::7660357306639821234::1660657799::1681582881::1::::<><>::
 InvestiGatorUp.png::CompressedTexture2D::4658367184743131967::1660657799::1681582881::1::::<><>::
-::res://Sprite/Fonts/::1681590383
+::res://Sprite/Fonts/::1681590611
 Georgia12px.fnt::FontFile::1694745207976338745::1646160255::1681582879::1::::<><>::
 Georgia12px_0.png::CompressedTexture2D::5090725118161402456::1646160255::1681582881::1::::<><>::
 Georgia14px.fnt::FontFile::1204112404281223226::1646160255::1681582879::1::::<><>::
@@ -184,7 +184,7 @@ GeorgiaItalic20px_0.png::CompressedTexture2D::4436260744716739893::1646160255::1
 InventoryNumbers.png::FontFile::9071718020635360073::1681590609::1681590611::1::::<><>::
 InventoryNumbers.tres::FontFile::-1::1681582027::0::1::::<><>::res://Sprite2D/Fonts/InventoryNumbers.png
 NewFont.gd::GDScript::-1::1681582027::0::1::::CreateFont<>Node<>::
-::res://Sprite/HUD/::1681590384
+::res://Sprite/HUD/::1681592018
 BriefcaseMenu.png::CompressedTexture2D::2106280770167231::1646160255::1681582881::1::::<><>::
 clock.png::CompressedTexture2D::5721304407170141748::1643951446::1681582881::1::::<><>::
 clockglass1.png::CompressedTexture2D::7686538680454044580::1643999405::1681582881::1::::<><>::
@@ -196,12 +196,12 @@ HealthGearsGold1.png::CompressedTexture2D::3703447152664701541::1643932146::1681
 HealthGearsGold2.png::CompressedTexture2D::2925380148849184883::1643932146::1681582882::1::::<><>::
 HealthGearsGold3.png::CompressedTexture2D::3520464018434869349::1643932146::1681582882::1::::<><>::
 HealthGearsGold4.png::CompressedTexture2D::908955806573267668::1643932146::1681582882::1::::<><>::
-HealthGearsGold.tres::SpriteFrames::727709847202777372::1681586773::0::1::::<><>::uid://bs08h67ormms8<>uid://bhxct3xybq5ud<>uid://bqflr7n8m2hrp<>uid://m7kms7kr8053<>uid://d310225p28in4<>uid://dm0hlkpwusb7k<>uid://cte3aoe3snh4l<>uid://dore7i245muyi
+HealthGearsGold.tres::SpriteFrames::727709847202777372::1681591829::0::1::::<><>::uid://bs08h67ormms8<>uid://bhxct3xybq5ud<>uid://bqflr7n8m2hrp<>uid://m7kms7kr8053<>uid://d310225p28in4<>uid://dm0hlkpwusb7k<>uid://cte3aoe3snh4l<>uid://dore7i245muyi
 HealthGearsRust1.png::CompressedTexture2D::9179791100997863439::1643943727::1681582882::1::::<><>::
 HealthGearsRust2.png::CompressedTexture2D::8053582830702088734::1643943727::1681582882::1::::<><>::
 HealthGearsRust3.png::CompressedTexture2D::6116387726125403145::1643943727::1681582882::1::::<><>::
 HealthGearsRust4.png::CompressedTexture2D::8177300760461528616::1643943727::1681582882::1::::<><>::
-outline.gdshader::Shader::-1::1681590384::0::1::::<><>::
+outline.gdshader::Shader::-1::1681592018::0::1::::<><>::
 YagooCoin.png::CompressedTexture2D::565968622645806150::1646160255::1681582882::1::::<><>::
 ::res://Sprite/Items/::1681582882
 Badge.png::CompressedTexture2D::5895019110012537751::1646160255::1681582882::1::::<><>::
@@ -264,23 +264,23 @@ TALKodachiLeft3.png::CompressedTexture2D::4981430484065645166::1642701825::16815
 TALKodachiRight1.png::CompressedTexture2D::8885018552415303956::1642701840::1681582880::1::::<><>::
 TALKodachiRight2.png::CompressedTexture2D::3451131333204192265::1642701840::1681582880::1::::<><>::
 TALKodachiRight3.png::CompressedTexture2D::112946942371597173::1642701840::1681582880::1::::<><>::
-::res://Sprite/Tilesets/::1681582880
+::res://Sprite/Tilesets/::1681762233
 autotile_template_3x3_full.png::CompressedTexture2D::7535679532849684955::1644829766::1681582880::1::::<><>::
 autotile_template_3x3_minimal.png::CompressedTexture2D::1118589185672017648::1644815548::1681582880::1::::<><>::
 BlockButton.png::CompressedTexture2D::8353748584682547099::1646160255::1681582880::1::::<><>::
-BlockButton.tres::SpriteFrames::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/BlockButtonSolved.png<>res://Sprite2D/Tilesets/BlockButton.png
+BlockButton.tres::SpriteFrames::3628828698587169144::1681762233::0::1::::<><>::uid://dravavuwq5ojb<>uid://cyy7ku2h8ssea
 BlockButtonSolved.png::CompressedTexture2D::6508880575043587344::1646160255::1681582880::1::::<><>::
 ChestClosed.png::CompressedTexture2D::6833225115538343329::1646160255::1681582880::1::::<><>::
 ChestOpen.png::CompressedTexture2D::8603448211151104503::1646160255::1681582880::1::::<><>::
 ChestSprite.tres::SpriteFrames::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/ChestClosed.png<>res://Sprite2D/Tilesets/ChestOpen.png
 DebugTileset.png::CompressedTexture2D::721824938629479822::1643234192::1681582880::1::::<><>::
 PushBlock.png::CompressedTexture2D::5556703839197907094::1646160255::1681582880::1::::<><>::
-PushBlock.tres::SpriteFrames::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/PushBlock.png
+PushBlock.tres::SpriteFrames::7915082909440104709::1681762049::0::1::::<><>::uid://clfydobu03obm
 pushblocktest.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 pushblocktest.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/PushBlock.tscn<>res://Objects/Watson.tscn<>res://Objects/LevelObjects/BaseTilemap.tscn
 RoomLayoutTiles.png::CompressedTexture2D::6960032636581279490::1643252186::1681582880::1::::<><>::
 TestTiles.tres::TileSet::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/DebugTileset.png
-::res://Sprite/Tilesets/Victorian/::1681582880
+::res://Sprite/Tilesets/Victorian/::1681761247
 autotile_template_3x3_full.png::CompressedTexture2D::6777335987088479237::1644829766::1681582880::1::::<><>::
 DoorDownOver.png::CompressedTexture2D::9135675474927111013::1643667816::1681582880::1::::<><>::
 DoorDownShadow.png::CompressedTexture2D::2568734784431939533::1643667830::1681582880::1::::<><>::
@@ -301,7 +301,7 @@ Doorv2UpDown.png::CompressedTexture2D::4380566890662224082::1643748871::16815828
 Doorv2UpDownOver.png::CompressedTexture2D::777335055128701711::1643749859::1681582880::1::::<><>::
 Doorv2UpDownUnder.png::CompressedTexture2D::7249909734849787911::1643749842::1681582880::1::::<><>::
 VictorianTileset.png::CompressedTexture2D::2501576789973883129::1643665359::1681582880::1::::<><>::
-VictorianTileset.tres::TileSet::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/Victorian/VictorianTilesetv5.png<>res://Sprite2D/Tilesets/Victorian/VictorianTilesetv6.png
+VictorianTileset.tres::TileSet::4031522508789560265::1681761247::0::1::::<><>::uid://dyvui1pd7l3xm<>uid://dwqc6pqxn1rxl
 VictorianTilesetv5.png::CompressedTexture2D::8736624262408109021::1643671812::1681582880::1::::<><>::
 VictorianTilesetv6.png::CompressedTexture2D::8888376246392608642::1644870623::1681582880::1::::<><>::
 VictorianTileset_old.tres::TileSet::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/Victorian/VictorianTilesetv5.png

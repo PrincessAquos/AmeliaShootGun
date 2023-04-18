@@ -101,6 +101,11 @@ func _editor_on_process(delta):
 
 
 func _on_ready():
+	# Override properties
+	up_direction = Vector2(0,0)
+	floor_stop_on_slope = false
+	
+	# GetNode Properties
 	hurtbox = get_node(node_hurtbox)
 	model = get_node(node_model)
 	#print("Character Ready!")
@@ -129,29 +134,13 @@ func _on_physics_process(delta):
 			move_vector = Vector2.ZERO
 			var knockback = (global_position - hurtbox.hit_source).normalized() * dmg_knockback
 			move_vector = knockback
-		set_velocity(move_vector)
+		_set_velocity(move_vector)
 		move_and_slide()
 		#if move_vector != Vector2.ZERO:
 			#print(velocity)
 
-
-set_velocity(linear_velocity: Vector2)
-set_up_direction(up_direction: Vector2 = Vector2( 0, 0 ))
-set_floor_stop_on_slope_enabled(stop_on_slope: bool = false)
-set_max_slides(max_slides: int = 4)
-set_floor_max_angle(floor_max_angle: float = 0.785398)
-# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `infinite_inertia: bool = true`
-move_and_slide()
-func velocity:
-	super.set_velocity(linear_velocity * Game.game_speed)
-	super.set_up_direction(up_direction)
-	super.set_floor_stop_on_slope_enabled(stop_on_slope)
-	super.set_max_slides(max_slides)
-	super.set_floor_max_angle(floor_max_angle)
-	# TODOConverter40 infinite_inertia were removed in Godot 4.0 - previous value `infinite_inertia`
-	super.move_and_slide()
-	super.velocity
-	pass
+func _set_velocity(value:Vector2):
+	set_velocity(value * Game.game_speed)
 
 
 func _on_process(delta):

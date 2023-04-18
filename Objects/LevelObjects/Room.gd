@@ -26,7 +26,7 @@ var actors:Array = []
 var blocks:Array = []
 var buttons:Array = []
 
-var solve_func:FuncRef
+var solve_func:Callable
 var is_solved = false
 
 var save_room:SaveData.SaveArea.SaveRoom
@@ -55,7 +55,7 @@ func _ready():
 	#wall_left = get_node(wall_left_path)
 	#wall_right = get_node(wall_right_path)
 	#walls = [wall_top, wall_bot, wall_left, wall_right]
-	solve_func = funcref(RoomSolutions, "all_enemies_defeated")
+	solve_func = Callable(RoomSolutions, "all_enemies_defeated")
 	node_room_bounds = get_node(node_room_bounds_path)
 	node_enemy_bounds = get_node(node_enemy_bounds_path)
 	if Engine.is_editor_hint():
@@ -154,7 +154,7 @@ func update_collider_rect():
 		collider = shape_owner_get_owner(0)
 		shape = RectangleShape2D.new()
 		collider.position = size/2
-		shape.size = size/2
+		shape.size = size
 		collider.shape = shape
 	
 		area_collider.position = size/2
@@ -164,20 +164,19 @@ func update_collider_concave():
 	if node_enemy_bounds != null:
 		var points = [Vector2(0,0), Vector2(0, size.y), size, Vector2(size.x, 0)]
 		var this_collider = node_enemy_bounds.shape_owner_get_owner(0)
-		var this_shape = ConcavePolygonShape2D.new()
 		
-		this_shape.segments = [
+		this_collider.polygon = [
 			points[0] + Vector2(18, 18),
 			points[1] + Vector2(18, -18),
-			points[1] + Vector2(18, -18),
-			points[2] + Vector2(-18, -18),
 			points[2] + Vector2(-18, -18),
 			points[3] + Vector2(-18, 18),
-			points[3] + Vector2(-18, 18),
-			points[0] + Vector2(18, 18)
+			points[0] + Vector2(18, 18),
+			points[0] + Vector2(20, 20),
+			points[3] + Vector2(-20, 20),
+			points[2] + Vector2(-20, -20),
+			points[1] + Vector2(20, -20),
+			points[0] + Vector2(20,20)
 		]
-		
-		this_collider.shape = this_shape
 		#var top_shape = wall_top.shape_owner_get_shape(0, 0)
 		#var bot_shape = wall_bot.shape_owner_get_shape(0, 0)
 		#var left_shape = wall_left.shape_owner_get_shape(0, 0)
@@ -229,7 +228,7 @@ func _process(delta):
 	if not Engine.is_editor_hint():
 		if finished_registering:
 			if !is_solved:
-				if solve_func.call_func(self):
+				if solve_func.call(self):
 					room_solved()
 					is_solved = true
 	

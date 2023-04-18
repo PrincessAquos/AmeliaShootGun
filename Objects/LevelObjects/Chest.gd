@@ -24,15 +24,10 @@ func collect_save_info():
 	return chest_info
 
 
-func load_save_info(new_save_chest:SaveData.SaveArea.SaveChest, is_loaded = true):
+func load_save_info(new_save_chest:SaveData.SaveArea.SaveChest):
 	save_chest = new_save_chest
-	if is_loaded:
-		set_active(new_save_chest.is_active)
-		set_closed(new_save_chest.is_closed)
-	else:
-		save_chest.is_active = active
-		save_chest.is_closed = closed
-
+	set_active(new_save_chest.is_active)
+	set_closed(new_save_chest.is_closed)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

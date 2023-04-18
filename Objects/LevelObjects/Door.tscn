@@ -1,101 +1,90 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://cs4iw32oi6oyw"]
 
-[ext_resource path="res://Sprite2D/Tilesets/Victorian/Doorv2Down.png" type="Texture2D" id=1]
-[ext_resource path="res://Sprite2D/Tilesets/Victorian/Doorv2UpDownUnder.png" type="Texture2D" id=2]
-[ext_resource path="res://Sprite2D/Tilesets/Victorian/DoorUpShadow.png" type="Texture2D" id=3]
-[ext_resource path="res://Sprite2D/Tilesets/Victorian/Doorv2UpDownOver.png" type="Texture2D" id=4]
-[ext_resource path="res://Objects/LevelObjects/Door.gd" type="Script" id=5]
-[ext_resource path="res://Sprite2D/Tilesets/Victorian/DoorLock.png" type="Texture2D" id=6]
-[ext_resource path="res://Sprite2D/Tilesets/Victorian/DoorTrap.png" type="Texture2D" id=7]
+[ext_resource type="Texture2D" uid="uid://dbj57o7i0k520" path="res://Sprite/Tilesets/Victorian/Doorv2UpDownUnder.png" id="2_kormk"]
+[ext_resource type="Texture2D" uid="uid://rt1b72difva2" path="res://Sprite/Tilesets/Victorian/DoorTrap.png" id="3_wj3to"]
+[ext_resource type="Texture2D" uid="uid://mr0h14antsji" path="res://Sprite/Tilesets/Victorian/DoorLock.png" id="4_2y7y1"]
+[ext_resource type="Script" path="res://Objects/LevelObjects/Door.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://d36vuy7fd1d4a" path="res://Sprite/Tilesets/Victorian/DoorUpShadow.png" id="5_tr6dp"]
+[ext_resource type="Texture2D" uid="uid://brcunxewp0cge" path="res://Sprite/Tilesets/Victorian/Doorv2Down.png" id="6_vq7k4"]
+[ext_resource type="Texture2D" uid="uid://b3n8kc7ywurao" path="res://Sprite/Tilesets/Victorian/Doorv2UpDown.png" id="7_bbtpg"]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PackedVector2Array( -4, -32, -4, 16, 4, 11, 4, -27 )
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(16, 24)
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
-points = PackedVector2Array( 4, -32, 4, 16, -4, 11, -4, -27 )
-
-[sub_resource type="RectangleShape2D" id=3]
-size = Vector2( 16, 24 )
-
-[node name="Door" type="StaticBody2D" groups=[
-"door",
-]]
+[node name="Door" type="StaticBody2D" groups=["door"]]
 collision_layer = 35
 collision_mask = 35
-script = ExtResource( 5 )
+script = ExtResource("5")
 node_trapped_path = NodePath("Trapped")
 node_locked_path = NodePath("Locked")
 node_shut_collider_path = NodePath("Shut")
 
 [node name="Under" type="Sprite2D" parent="."]
 z_index = -4095
-texture = ExtResource( 2 )
-offset = Vector2( 0, -8 )
+texture = ExtResource("2_kormk")
+offset = Vector2(0, -8)
 
 [node name="Trapped" type="Node2D" parent="."]
 visible = false
 
 [node name="Trapped1" type="Sprite2D" parent="Trapped"]
-texture = ExtResource( 7 )
-offset = Vector2( 0, 10 )
+texture = ExtResource("3_wj3to")
+offset = Vector2(0, 10)
 
 [node name="Trapped2" type="Sprite2D" parent="Trapped"]
-texture = ExtResource( 7 )
-offset = Vector2( 0, -26 )
+texture = ExtResource("3_wj3to")
+offset = Vector2(0, -26)
 flip_v = true
 
 [node name="Locked" type="Node2D" parent="."]
 visible = false
 
 [node name="Locked1" type="Sprite2D" parent="Locked"]
-texture = ExtResource( 6 )
-offset = Vector2( 0, 10 )
+texture = ExtResource("4_2y7y1")
+offset = Vector2(0, 10)
 
 [node name="Locked2" type="Sprite2D" parent="Locked"]
-texture = ExtResource( 6 )
-offset = Vector2( 0, -26 )
+texture = ExtResource("4_2y7y1")
+offset = Vector2(0, -26)
 flip_v = true
 
-[node name="Over" type="Node2D" parent="." groups=[
-"layered",
-]]
-position = Vector2( 16, 16 )
+[node name="Over" type="Node2D" parent="." groups=["layered"]]
+position = Vector2(16, 16)
 
 [node name="Shadow" type="Sprite2D" parent="Over"]
 visible = false
-position = Vector2( -16, 0 )
 z_index = -4096
-texture = ExtResource( 3 )
+position = Vector2(-16, 0)
+texture = ExtResource("5_tr6dp")
 
 [node name="Up" type="Sprite2D" parent="Over"]
 visible = false
-position = Vector2( -16, 0 )
-texture = ExtResource( 1 )
-offset = Vector2( 0, -28 )
+position = Vector2(-16, 0)
+texture = ExtResource("6_vq7k4")
+offset = Vector2(0, -28)
 flip_v = true
 
 [node name="Down" type="Sprite2D" parent="Over"]
 visible = false
-position = Vector2( -16, 0 )
-texture = ExtResource( 1 )
-offset = Vector2( 0, -4 )
+position = Vector2(-16, 0)
+offset = Vector2(0, -4)
 
 [node name="Updown" type="Sprite2D" parent="Over"]
-position = Vector2( -16, 0 )
-texture = ExtResource( 4 )
-offset = Vector2( 0, -24 )
+position = Vector2(-16, 0)
+texture = ExtResource("7_bbtpg")
+offset = Vector2(0, -24)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -12, 0 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 z_index = 4096
-shape = SubResource( 1 )
+position = Vector2(-12, 0)
+polygon = PackedVector2Array(-4, 16, -4, -32, 4, -27, 4, 11)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 12, 0 )
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 z_index = 4096
-shape = SubResource( 2 )
+position = Vector2(12, 0)
+polygon = PackedVector2Array(4, -32, -4, -27, -4, 11, 4, 16)
 
 [node name="Shut" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -8 )
-shape = SubResource( 3 )
+position = Vector2(0, -8)
+shape = SubResource("3")
 disabled = true

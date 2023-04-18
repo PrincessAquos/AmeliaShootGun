@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource path="res://Sprite2D/Fonts/Georgia15px.fnt" type="FontFile" id=1]
+[ext_resource type="FontFile" uid="uid://dohlu3xkxtpv5" path="res://Sprite/Fonts/Georgia15px.fnt" id="1"]
 
 [node name="Textbox" type="Control"]
 anchor_left = 0.5

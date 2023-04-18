@@ -1,11 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://catkc7c86gjpj"]
 
-[ext_resource path="res://Sprite2D/Tilesets/Victorian/VictorianTileset.tres" type="TileSet" id=1]
+[ext_resource type="TileSet" uid="uid://bxo5t7h6vhqgv" path="res://Sprite/Tilesets/Victorian/VictorianTileset.tres" id="1_q37yl"]
 
 [node name="TileMap" type="TileMap"]
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 16, 16 )
-collision_friction = 0.0
-collision_layer = 3
-collision_mask = 3
-format = 1
+tile_set = ExtResource("1_q37yl")
+format = 2

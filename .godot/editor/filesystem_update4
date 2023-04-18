@@ -1,8 +1,20 @@
 res://default_env.tres
-res://Objects/HUD/InventorySlot.tscn
-res://Objects/HUD/Inventory.tscn
-res://Objects/HUD/HealthBar.tscn
-res://Objects/HUD/HUD.tscn
-res://Title Screen.tscn
-res://Sprite/HUD/HealthGearsGold.tres
+res://Objects/LevelObjects/Chest.tscn
+res://Sprite/Tilesets/Victorian/VictorianTileset.tres
+res://Objects/LevelObjects/Chest.gd
+res://MainGameScene.tscn
+res://File Select.gd
+res://MainMenu/SaveFile.gd
 res://Sprite/HUD/outline.gdshader
+res://MainMenu/SaveFile.tscn
+res://Objects/HUD/HealthBar.tscn
+res://Objects/Character.gd
+res://Objects/Watson.tscn
+res://Sprite/Watson/WatsonAnimations.tres
+res://Objects/LevelObjects/Room.gd
+res://Objects/LevelObjects/Room.tscn
+res://Objects/LevelObjects/DownDoor.tscn
+res://Objects/LevelObjects/Door.tscn
+res://Objects/HUD/HUD.tscn
+res://Objects/HUD/Inventory.tscn
+res://Title Screen.tscn

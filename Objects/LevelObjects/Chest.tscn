@@ -1,28 +1,46 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://gmvut40tto7r"]
 
-[ext_resource path="res://Sprite2D/Tilesets/ChestSprite.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://Objects/LevelObjects/Chest.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://Objects/LevelObjects/Chest.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://c4mchpru2w6hx" path="res://Sprite/Tilesets/ChestClosed.png" id="2_6lfwt"]
+[ext_resource type="Texture2D" uid="uid://duttsgr6pvtox" path="res://Sprite/Tilesets/ChestOpen.png" id="3_jemq5"]
 
-[sub_resource type="RectangleShape2D" id=1]
-size = Vector2( 8, 8 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 8)
 
-[node name="StaticBody2D" type="StaticBody2D" groups=[
-"chest",
-"layered",
-]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_18jn5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6lfwt")
+}],
+"loop": true,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jemq5")
+}],
+"loop": true,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["chest", "layered"]]
 collision_layer = 2147483697
 collision_mask = 49
-script = ExtResource( 2 )
+script = ExtResource("2")
 model_path = NodePath("Model")
 item_model_path = NodePath("Item")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("1")
 
 [node name="Model" type="AnimatedSprite2D" parent="."]
-frames = ExtResource( 1 )
-animation = "Closed"
-offset = Vector2( 0, -8 )
+sprite_frames = SubResource("SpriteFrames_18jn5")
+animation = &"Closed"
+autoplay = "Closed"
+offset = Vector2(0, -8)
 
 [node name="Item" type="Sprite2D" parent="."]
-position = Vector2( 0, -16 )
+position = Vector2(0, -16)

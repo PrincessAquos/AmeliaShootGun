@@ -1,17 +1,23 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=2]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://brx3jp6wrbkuq"]
 
-[ext_resource path="res://Sprite2D/Tilesets/BlockButtonSolved.png" type="Texture2D" id=1]
-[ext_resource path="res://Sprite2D/Tilesets/BlockButton.png" type="Texture2D" id=2]
+[ext_resource type="Texture2D" uid="uid://dravavuwq5ojb" path="res://Sprite/Tilesets/BlockButton.png" id="1_k4xhe"]
+[ext_resource type="Texture2D" uid="uid://cyy7ku2h8ssea" path="res://Sprite/Tilesets/BlockButtonSolved.png" id="2_lj0xe"]
 
 [resource]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": false,
-"name": "Empty",
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k4xhe")
+}],
+"loop": true,
+"name": &"Empty",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
-"loop": false,
-"name": "Full",
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lj0xe")
+}],
+"loop": true,
+"name": &"Full",
 "speed": 5.0
-} ]
+}]

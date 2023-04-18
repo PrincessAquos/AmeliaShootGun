@@ -1,21 +1,29 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://bvs3vxg42bp2k"]
 
-[ext_resource path="res://Sprite2D/Tilesets/PushBlock.tres" type="SpriteFrames" id=1]
-[ext_resource path="res://Objects/LevelObjects/PushBlock.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://Objects/LevelObjects/PushBlock.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://clfydobu03obm" path="res://Sprite/Tilesets/PushBlock.png" id="2_xls3d"]
 
-[sub_resource type="RectangleShape2D" id=2]
-size = Vector2( 8, 8 )
+[sub_resource type="SpriteFrames" id="SpriteFrames_4prpe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xls3d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="PushBlock" type="CharacterBody2D" groups=[
-"layered",
-"pushblock",
-]]
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(8, 8)
+
+[node name="PushBlock" type="CharacterBody2D" groups=["layered", "pushblock"]]
 collision_layer = 2147483683
 collision_mask = 35
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = ExtResource( 1 )
+sprite_frames = SubResource("SpriteFrames_4prpe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource("2")

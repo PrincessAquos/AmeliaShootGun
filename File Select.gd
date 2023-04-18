@@ -37,7 +37,7 @@ func _unhandled_input(event):
 
 
 func choose_current_file():
-	var chosen_file = get_node(file_rows[currently_selected] + "/File " + String(currently_selected + 1))
+	var chosen_file = get_node(file_rows[currently_selected] + "/File " + str(currently_selected + 1))
 	chosen_file.choose()
 	queue_free()
 	return

@@ -1,22 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://ckv6mx5jmmr1k"]
 
-[ext_resource path="res://Sprite2D/Watson/WatsonDown.png" type="Texture2D" id=1]
-[ext_resource path="res://File Select.gd" type="Script" id=2]
-[ext_resource path="res://Sprite2D/Fonts/GeorgiaBold20px.fnt" type="FontFile" id=3]
-[ext_resource path="res://MainMenu/SaveFile.tscn" type="PackedScene" id=4]
+[ext_resource type="Texture2D" uid="uid://bn1lalxsh73v0" path="res://Sprite/Watson/WatsonDown.png" id="1"]
+[ext_resource type="Script" path="res://File Select.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://581raea86je0" path="res://Sprite/Fonts/GeorgiaBold20px.fnt" id="3"]
+[ext_resource type="PackedScene" path="res://MainMenu/SaveFile.tscn" id="4"]
 
 [node name="File Select" type="Control"]
+layout_mode = 3
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -128.0
 offset_right = 128.0
 offset_bottom = 216.0
-script = ExtResource( 2 )
+grow_horizontal = 2
+script = ExtResource("2")
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(256, 216)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -25,101 +30,66 @@ offset_left = -128.0
 offset_top = -108.0
 offset_right = 128.0
 offset_bottom = 108.0
-custom_minimum_size = Vector2( 256, 216 )
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+color = Color(0, 0, 0, 1)
 
 [node name="Margins" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_top = -0.471935
 offset_right = 217.0
 offset_bottom = 196.528
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_top = 14
 theme_override_constants/margin_left = 24
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 24
 
 [node name="File List" type="VBoxContainer" parent="Margins"]
-offset_left = 24.0
-offset_top = 14.0
-offset_right = 193.0
-offset_bottom = 197.0
+layout_mode = 2
 theme_override_constants/separation = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="Margins/File List"]
-offset_right = 169.0
-offset_bottom = 20.0
+layout_mode = 2
 theme_override_constants/margin_bottom = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Instruction" type="Label" parent="Margins/File List/MarginContainer"]
-offset_right = 169.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource( 3 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "Choose your file"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HSeparator" type="HSeparator" parent="Margins/File List"]
-offset_top = 23.0
-offset_right = 169.0
-offset_bottom = 27.0
+layout_mode = 2
 
 [node name="File 1 Row" type="HBoxContainer" parent="Margins/File List"]
-offset_top = 30.0
-offset_right = 169.0
-offset_bottom = 79.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
 
 [node name="WatsonCursor" type="TextureRect" parent="Margins/File List/File 1 Row"]
-offset_right = 18.0
-offset_bottom = 49.0
-texture = ExtResource( 1 )
+layout_mode = 2
+texture = ExtResource("1")
+stretch_mode = 2
 
-[node name="File 1" parent="Margins/File List/File 1 Row" instance=ExtResource( 4 )]
-offset_left = 22.0
-offset_right = 156.0
-offset_bottom = 49.0
+[node name="File 1" parent="Margins/File List/File 1 Row" instance=ExtResource("4")]
+layout_mode = 2
 
 [node name="File 2 Row" type="HBoxContainer" parent="Margins/File List"]
-offset_top = 82.0
-offset_right = 169.0
-offset_bottom = 131.0
+layout_mode = 2
 
 [node name="WatsonCursor" type="TextureRect" parent="Margins/File List/File 2 Row"]
 visible = false
-offset_right = 18.0
-offset_bottom = 49.0
-texture = ExtResource( 1 )
+layout_mode = 2
+texture = ExtResource("1")
+stretch_mode = 2
 
-[node name="File 2" parent="Margins/File List/File 2 Row" instance=ExtResource( 4 )]
-offset_right = 134.0
-offset_bottom = 49.0
+[node name="File 2" parent="Margins/File List/File 2 Row" instance=ExtResource("4")]
+layout_mode = 2
 file_num = 2
 
 [node name="File 3 Row" type="HBoxContainer" parent="Margins/File List"]
-offset_top = 134.0
-offset_right = 169.0
-offset_bottom = 183.0
+layout_mode = 2
 
 [node name="WatsonCursor" type="TextureRect" parent="Margins/File List/File 3 Row"]
 visible = false
-offset_right = 18.0
-offset_bottom = 49.0
-texture = ExtResource( 1 )
+layout_mode = 2
+texture = ExtResource("1")
+stretch_mode = 2
 
-[node name="File 3" parent="Margins/File List/File 3 Row" instance=ExtResource( 4 )]
-offset_right = 134.0
-offset_bottom = 49.0
+[node name="File 3" parent="Margins/File List/File 3 Row" instance=ExtResource("4")]
+layout_mode = 2
 file_num = 3

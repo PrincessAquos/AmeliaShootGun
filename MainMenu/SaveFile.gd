@@ -19,7 +19,7 @@ func _ready():
 
 func set_file_number(new_num):
 	file_num = new_num
-	get_node("VBoxContainer/HBoxContainer/File").text = "File " + String(file_num) + ":"
+	get_node("VBoxContainer/HBoxContainer/File").text = "File " + str(file_num) + ":"
 
 
 func set_file_name(new_name):

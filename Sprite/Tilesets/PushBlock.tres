@@ -1,11 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=2]
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dk1ei2scstlvx"]
 
-[ext_resource path="res://Sprite2D/Tilesets/PushBlock.png" type="Texture2D" id=1]
+[ext_resource type="Texture2D" uid="uid://clfydobu03obm" path="res://Sprite/Tilesets/PushBlock.png" id="1_jxwvb"]
 
 [resource]
-animations = [ {
-"frames": [ ExtResource( 1 ) ],
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jxwvb")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 5.0
-} ]
+}]
