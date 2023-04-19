@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgv560d12aaw0"]
+[gd_scene load_steps=10 format=3 uid="uid://cgv560d12aaw0"]
 
 [ext_resource type="PackedScene" path="res://Objects/Hurtbox.tscn" id="2"]
 [ext_resource type="SpriteFrames" uid="uid://de178i6pqi5a4" path="res://Sprite/Watson/WatsonAnimations.tres" id="2_fd5xq"]
+[ext_resource type="Texture2D" uid="uid://c3pmnce48cmbp" path="res://Sprite/Shadow.png" id="2_rfee8"]
 [ext_resource type="Script" path="res://Objects/Watson.gd" id="4"]
 [ext_resource type="AudioStream" uid="uid://bmron0kf5vyed" path="res://Sound/GunFire.wav" id="5"]
 [ext_resource type="AudioStream" uid="uid://xnferk1wv3m6" path="res://Sound/Jump.wav" id="6"]
@@ -19,25 +20,22 @@ size = Vector2(3, 3)
 collision_layer = 524289
 collision_mask = 524289
 script = ExtResource("4")
-node_hurtbox = NodePath("Hurtbox")
-node_model = NodePath("Model")
 node_run_model = NodePath("Model")
 node_sound_gunfire = NodePath("Sounds/Gunshot")
 node_sound_jump = NodePath("Sounds/Jump")
 node_interact_area = NodePath("Interact")
+node_hurtbox = NodePath("Hurtbox")
+node_model = NodePath("Model")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("2_rfee8")
 offset = Vector2(0, -7)
 
 [node name="Model" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_fd5xq")
-animation = &"LookDown"
+animation = &"ShootUp"
 autoplay = "LookDown"
-offset = Vector2(0, -8)
-
-[node name="ModelOld" type="Sprite2D" parent="."]
-visible = false
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

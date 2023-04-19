@@ -8,7 +8,7 @@ class_name Item
 
 
 static func new_item(index):
-	var entry = Data.itemindex.all[index]
+	var entry = Data.table_item_index.all[index]
 	#var entry:Data.ItemIndex.ItemIndexRow = Data.itemindex.all[index]
 	var item_dat = {}
 	item_dat["id"] = entry.id
@@ -23,5 +23,5 @@ static func new_item(index):
 	return item_dat
 
 static func new_item_by_id(item_id):
-	var index = Data.itemindex.index[item_id]
+	var index = Data.table_item_index.get_index(item_id)
 	return new_item(index)

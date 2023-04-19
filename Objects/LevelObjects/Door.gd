@@ -27,12 +27,9 @@ func collect_save_info():
 	return door_info
 
 
-func load_save_info(new_save_door:SaveData.SaveArea.SaveDoor, is_loaded = true):
+func load_save_info(new_save_door:SaveData.SaveArea.SaveDoor):
 	save_door = new_save_door
-	if is_loaded:
-		set_lock_state(save_door.is_locked)
-	else:
-		save_door.is_locked = is_locked
+	set_lock_state(save_door.is_locked)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,17 +37,21 @@ func _ready():
 	node_trapped = get_node(node_trapped_path)
 	node_locked = get_node(node_locked_path)
 	node_shut_collider = get_node(node_shut_collider_path)
-	
-	node_locked.visible = is_locked
-	node_trapped.visible = is_trapped
-	update_shut_collision()
 	pass # Replace with function body.
+
+func load_defaults():
+	set_lock_state(is_locked)
+	set_trap_state(is_trapped)
+	update_shut_collision()
+	pass
+
 
 func set_lock_state(new_state):
 	if node_locked == null:
 		node_locked = get_node(node_locked_path)
 	is_locked = new_state
-	save_door.is_locked = new_state
+	if save_door != null:
+		save_door.is_locked = new_state
 	node_locked.visible = is_locked
 	update_shut_collision()
 	

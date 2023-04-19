@@ -69,6 +69,9 @@ func _ready():
 		visible = false
 	pass
 
+func load_defaults():
+	pass
+
 
 func update_bounds():
 	update_collider_rect()

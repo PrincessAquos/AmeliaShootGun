@@ -74,6 +74,9 @@ func load_new_area(area_id):
 	var instanced_dungeon = Areas.load_area(area_id)
 	get_tree().current_scene.get_node("LevelView/SubViewport/nudge").add_child(instanced_dungeon)
 	
+	# Load default dungeon state
+	instanced_dungeon.load_defaults()
+	
 	# Load save information
 	current_loaded_save.area_id = area_id
 	if area_id in current_loaded_save.areas:

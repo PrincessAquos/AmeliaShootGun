@@ -31,14 +31,15 @@ func load_save_info(new_save_chest:SaveData.SaveArea.SaveChest):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	active = start_active
-	visible = start_active
 	# Don't disable the collision box yet.
 	# If the chest is not active, the room will 
 	# disable its collision box after it is registered.
 	
 	model_node = get_node(model_path)
 	pass # Replace with function body.
+
+func load_defaults():
+	set_active(start_active)
 
 
 func deactivate():
@@ -72,7 +73,8 @@ func set_active(new_val):
 	active = new_val
 	visible = new_val
 	shape_owner_get_owner(0).disabled = !new_val
-	save_chest.is_active = new_val
+	if save_chest != null:
+		save_chest.is_active = new_val
 
 
 func set_closed(new_val):

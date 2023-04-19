@@ -33,7 +33,7 @@ func load_save_info(inv_slot_info):
 	if item_id == null:
 		item = null
 	else:
-		print(Data.itemindex.index[item_id])
+		print(Data.table_item_index.get_index(item_id))
 		var new_item = Item.new_item_by_id(item_id)
 		print(new_item)
 		set_item(new_item)

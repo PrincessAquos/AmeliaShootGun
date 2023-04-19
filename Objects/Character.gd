@@ -21,7 +21,7 @@ var model:AnimatedSprite2D
 
 # State
 var is_dead = false
-var is_loaded = false
+var is_loaded = false: set = set_loaded
 var facing = Direction.DOWN
 var altitude = 0
 var prev_vertical_velocity = 0
@@ -84,7 +84,6 @@ func _process(delta):
 		if !Game.paused && !is_dead:
 			delta = delta * Game.game_speed
 			model.speed_scale = Game.game_speed
-			model.playing = is_loaded
 			_on_process(delta)
 	else:
 		_editor_on_process(delta)
@@ -102,7 +101,7 @@ func _editor_on_process(delta):
 
 func _on_ready():
 	# Override properties
-	up_direction = Vector2(0,0)
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	floor_stop_on_slope = false
 	
 	# GetNode Properties
@@ -202,6 +201,14 @@ func _update_sprite():
 		#print("'" + model.animation + "' is not '" + new_anim + "'")
 		#print("New Animation!")
 		model.play(new_anim)
+
+
+func set_loaded(new_val):
+	is_loaded = new_val
+	if is_loaded:
+		model.play()
+	else:
+		model.pause()
 
 
 func set_current_health(new_val):

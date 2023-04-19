@@ -1,20 +1,16 @@
 res://default_env.tres
-res://Objects/LevelObjects/Chest.tscn
-res://Sprite/Tilesets/Victorian/VictorianTileset.tres
-res://Objects/LevelObjects/Chest.gd
-res://MainGameScene.tscn
-res://File Select.gd
-res://MainMenu/SaveFile.gd
-res://Sprite/HUD/outline.gdshader
-res://MainMenu/SaveFile.tscn
-res://Objects/HUD/HealthBar.tscn
-res://Objects/Character.gd
-res://Objects/Watson.tscn
-res://Sprite/Watson/WatsonAnimations.tres
-res://Objects/LevelObjects/Room.gd
-res://Objects/LevelObjects/Room.tscn
-res://Objects/LevelObjects/DownDoor.tscn
-res://Objects/LevelObjects/Door.tscn
 res://Objects/HUD/HUD.tscn
+res://Sprite/Tilesets/Victorian/VictorianTileset.tres
 res://Objects/HUD/Inventory.tscn
 res://Title Screen.tscn
+res://MainGameScene.tscn
+res://Objects/Watson.tscn
+res://Objects/Characters/Halo.tscn
+res://Objects/Characters/InvestiGator.tscn
+res://Objects/HUD/Textbox.tscn
+res://Objects/HUD/InventorySlot.tscn
+res://Areas/MisteavousManor.tscn
+res://Sprite/Watson/WatsonAnimations.tres
+res://Objects/Watson.gd
+res://Objects/Character.gd
+res://Sprite/Takodachi/Takodachi.tres

@@ -263,7 +263,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("29_iv2xk")
 }],
-"loop": true,
+"loop": false,
 "name": &"ShootDown",
 "speed": 20.0
 }, {
@@ -283,7 +283,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("30_8ndim")
 }],
-"loop": true,
+"loop": false,
 "name": &"ShootLeft",
 "speed": 20.0
 }, {
@@ -303,7 +303,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("31_5dv25")
 }],
-"loop": true,
+"loop": false,
 "name": &"ShootRight",
 "speed": 20.0
 }, {
@@ -323,7 +323,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("32_6jkad")
 }],
-"loop": true,
+"loop": false,
 "name": &"ShootUp",
 "speed": 20.0
 }]

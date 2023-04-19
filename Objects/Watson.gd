@@ -135,9 +135,9 @@ func handle_special_collisions():
 	var num_slides = get_slide_collision_count()
 	for i in num_slides:
 		var collision = get_slide_collision(i)
-		var collider = collision.collider
+		var collider = collision.get_collider()
 		#print(collider.name)
-		if collision.collider.is_in_group("pushblock"):
+		if collider.is_in_group("pushblock"):
 			if is_grounded():
 				print("It's a pushblock!")
 				#print(collision.normal)
@@ -206,7 +206,6 @@ func fire_shot():
 	
 	# Play the shooting animation
 	var model = get_node(node_model)
-	model.frame = 0
 	model.play("Shoot" + dir_strings[facing])
 	
 	# Cast the ray

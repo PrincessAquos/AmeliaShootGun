@@ -1,39 +1,33 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://bbvysem3x0rim"]
 
-[ext_resource path="res://Objects/Hitbox.gd" type="Script" id=1]
-[ext_resource path="res://Objects/Characters/Halo.gd" type="Script" id=2]
-[ext_resource path="res://Sprite2D/Takodachi/Halo.tres" type="SpriteFrames" id=3]
-[ext_resource path="res://Sprite2D/Shadow.png" type="Texture2D" id=6]
+[ext_resource type="Script" path="res://Objects/Hitbox.gd" id="1"]
+[ext_resource type="Script" path="res://Objects/Characters/Halo.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://c3pmnce48cmbp" path="res://Sprite/Shadow.png" id="3_qetl2"]
+[ext_resource type="SpriteFrames" uid="uid://cqlwmx25ppt40" path="res://Sprite/Takodachi/Halo.tres" id="4_jwihh"]
 
-[sub_resource type="RectangleShape2D" id=1]
-size = Vector2( 8, 3.5 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 3.5)
 
-[node name="Halo" type="Node2D" groups=[
-"layered",
-]]
-script = ExtResource( 2 )
+[node name="Halo" type="Node2D" groups=["layered"]]
+script = ExtResource("2")
 
-[node name="Hitbox" type="Area2D" parent="." groups=[
-"enemy_hitbox",
-"hitbox",
-]]
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy_hitbox", "hitbox"]]
 collision_layer = 4
 collision_mask = 4
-script = ExtResource( 1 )
+script = ExtResource("1")
 height = 7
 damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 0, 0.5 )
-shape = SubResource( 1 )
+position = Vector2(0, 0.5)
+shape = SubResource("1")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color( 1, 1, 1, 0.501961 )
-texture = ExtResource( 6 )
-offset = Vector2( 0, -12 )
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("3_qetl2")
+offset = Vector2(0, -12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = ExtResource( 3 )
-frame = 2
-playing = true
-offset = Vector2( 0, -7 )
+sprite_frames = ExtResource("4_jwihh")
+autoplay = "default"
+offset = Vector2(0, -7)

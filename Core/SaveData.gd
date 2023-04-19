@@ -56,7 +56,8 @@ func _init(file_num):
 		inventory = SaveInventory.new()
 		for i in range(4):
 			var this_slot:SaveInventory.SaveInventorySlots = inventory.slots[i]
-			this_slot.item_id = Data.itemindex.get_index(i).id
+			this_slot.item_id = Data.table_item_index.all[i]
+			#this_slot.item_id = Data.table_item_index.get_indexed(i).id
 			this_slot.count = 1
 		var test_json_conv = JSON.new()
 		test_json_conv.parse("{}")
@@ -70,7 +71,7 @@ func _ready():
 
 
 func get_save_path(file_num):
-	var savefilepath = savepath + "savefile" + String(file_num) + ".sav"
+	var savefilepath = savepath + "savefile" + str(file_num) + ".sav"
 	return savefilepath
 
 

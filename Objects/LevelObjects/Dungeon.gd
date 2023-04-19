@@ -48,7 +48,7 @@ func load_save_info(new_save_area:SaveData.SaveArea):
 		else:
 			var new_save_room = SaveData.SaveArea.SaveRoom.new()
 			new_save_area.rooms[room_id] = new_save_room
-			this_room.load_save_info(new_save_room, false)
+			this_room.load_save_info(new_save_room)
 			pass
 	
 	for chest_id in chest_list:
@@ -58,7 +58,7 @@ func load_save_info(new_save_area:SaveData.SaveArea):
 		else:
 			var new_save_chest = SaveData.SaveArea.SaveChest.new()
 			new_save_area.chests[chest_id] = new_save_chest
-			this_chest.load_save_info(new_save_chest, false)
+			this_chest.load_save_info(new_save_chest)
 	
 	for door_id in door_list:
 		var this_door = get_node(door_list[door_id])
@@ -67,7 +67,22 @@ func load_save_info(new_save_area:SaveData.SaveArea):
 		else:
 			var new_save_door = SaveData.SaveArea.SaveDoor.new()
 			new_save_area.doors[door_id] = new_save_door
-			this_door.load_save_info(new_save_door, false)
+			this_door.load_save_info(new_save_door)
+
+
+func load_defaults():
+	for room_id in room_list:
+		var this_room = get_node(room_list[room_id])
+		this_room.load_defaults()
+	
+	for chest_id in chest_list:
+		var this_chest = get_node(chest_list[chest_id])
+		this_chest.load_defaults()
+	
+	for door_id in door_list:
+		var this_door = get_node(door_list[door_id])
+		this_door.load_defaults()
+	pass
 
 
 func prepare_room_bounds():
@@ -186,16 +201,16 @@ func _unhandled_input(event):
 func figure_out_entry_direction(new_room:Room):
 	var watson = Game.player
 	var move_edge = 18
-	print("Watson is at: " + String(watson.global_position))
+	print("Watson is at: " + str(watson.global_position))
 	print("Room Bounds:") 
 	var topy = new_room.global_position.y + move_edge
 	var boty = new_room.global_position.y + new_room.size.y - move_edge
 	var leftx = new_room.global_position.x + move_edge
 	var rightx = new_room.global_position.x + new_room.size.x - move_edge
-	print("Top Y=" + String(topy))
-	print("Bot Y=" + String(boty))
-	print("Left X=" + String(leftx))
-	print("Right X=" + String(rightx))
+	print("Top Y=" + str(topy))
+	print("Bot Y=" + str(boty))
+	print("Left X=" + str(leftx))
+	print("Right X=" + str(rightx))
 	if watson.global_position.x < leftx:
 		watson.global_position.x = leftx
 	if watson.global_position.x > rightx:

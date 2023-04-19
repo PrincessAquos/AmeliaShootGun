@@ -15,7 +15,6 @@ var lines
 var dismiss_text = false
 
 func _init(in_title, in_dialogue):
-	set_anchors_preset(Control.PRESET_WIDE)
 	add_child(textbox_scene.instantiate())
 	set_title(in_title)
 	set_dialogue(in_dialogue)
