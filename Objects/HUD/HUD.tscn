@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc25lhqeorsou"]
+[gd_scene load_steps=5 format=3 uid="uid://bc25lhqeorsou"]
 
 [ext_resource type="PackedScene" uid="uid://cdw5kpmckdoys" path="res://Objects/HUD/HealthBar.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://3ry2qfgysue8" path="res://Objects/HUD/Textbox.tscn" id="4_6bkyo"]
 [ext_resource type="Script" path="res://Objects/HUD/HUD.gd" id="9"]
 [ext_resource type="PackedScene" uid="uid://7ult342fwige" path="res://Objects/HUD/Inventory.tscn" id="10"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_right = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9")
+healthbar_node_path = NodePath("MarginContainer/HealthBar")
+textbox_node_path = NodePath("Textbox")
 
 [node name="Inventory" parent="." instance=ExtResource("10")]
 custom_minimum_size = Vector2(256, 216)
@@ -28,11 +28,15 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
+layout_mode = 2
+offset_right = 137.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 9
 theme_override_constants/margin_top = 10
 
 [node name="HealthBar" parent="MarginContainer" instance=ExtResource("1")]
 layout_mode = 2
+
+[node name="Textbox" parent="." instance=ExtResource("4_6bkyo")]
+visible = false
+layout_mode = 1

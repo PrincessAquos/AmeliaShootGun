@@ -1,11 +1,12 @@
 extends StaticBody2D
 
-
+class_name Chest
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 @export var unique_id = -1
 @export var start_active = true
+@export var start_closed = true
 @export var model_path:NodePath
 @export var contains:int = -1
 @export var item_model_path:NodePath
@@ -22,6 +23,14 @@ func collect_save_info():
 	chest_info["active"] = active
 	chest_info["closed"] = closed
 	return chest_info
+
+
+func new_save_info():
+	var new_save_chest = SaveData.SaveArea.SaveChest.new()
+	new_save_chest.is_active = start_active
+	new_save_chest.is_closed = start_closed
+	load_save_info(new_save_chest)
+	return new_save_chest
 
 
 func load_save_info(new_save_chest:SaveData.SaveArea.SaveChest):

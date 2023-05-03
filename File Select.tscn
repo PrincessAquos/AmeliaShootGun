@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bn1lalxsh73v0" path="res://Sprite/Watson/WatsonDown.png" id="1"]
 [ext_resource type="Script" path="res://File Select.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://581raea86je0" path="res://Sprite/Fonts/GeorgiaBold20px.fnt" id="3"]
-[ext_resource type="PackedScene" path="res://MainMenu/SaveFile.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://5vythngvkdc3" path="res://MainMenu/SaveFile.tscn" id="4"]
 
 [node name="File Select" type="Control"]
 layout_mode = 3
@@ -15,9 +15,6 @@ offset_right = 128.0
 offset_bottom = 216.0
 grow_horizontal = 2
 script = ExtResource("2")
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(256, 216)

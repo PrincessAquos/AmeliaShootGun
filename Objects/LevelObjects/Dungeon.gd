@@ -42,32 +42,25 @@ func load_save_info(new_save_area:SaveData.SaveArea):
 	var temp_door_list = new_save_area.doors
 	
 	for room_id in room_list:
-		var this_room = get_node(room_list[room_id])
+		var this_room:Room = get_node(room_list[room_id])
 		if room_id in temp_room_list:
 			this_room.load_save_info(temp_room_list[room_id])
 		else:
-			var new_save_room = SaveData.SaveArea.SaveRoom.new()
-			new_save_area.rooms[room_id] = new_save_room
-			this_room.load_save_info(new_save_room)
-			pass
+			new_save_area.rooms[room_id] = this_room.new_save_info()
 	
 	for chest_id in chest_list:
-		var this_chest = get_node(chest_list[chest_id])
+		var this_chest:Chest = get_node(chest_list[chest_id])
 		if chest_id in temp_chest_list:
 			this_chest.load_save_info(temp_chest_list[chest_id])
 		else:
-			var new_save_chest = SaveData.SaveArea.SaveChest.new()
-			new_save_area.chests[chest_id] = new_save_chest
-			this_chest.load_save_info(new_save_chest)
+			new_save_area.chests[chest_id] = this_chest.new_save_info()
 	
 	for door_id in door_list:
-		var this_door = get_node(door_list[door_id])
+		var this_door:Door = get_node(door_list[door_id])
 		if door_id in temp_door_list:
 			this_door.load_save_info(temp_door_list[door_id])
 		else:
-			var new_save_door = SaveData.SaveArea.SaveDoor.new()
-			new_save_area.doors[door_id] = new_save_door
-			this_door.load_save_info(new_save_door)
+			new_save_area.doors[door_id] = this_door.new_save_info()
 
 
 func load_defaults():
@@ -86,14 +79,16 @@ func load_defaults():
 
 
 func prepare_room_bounds():
-	var rooms = get_node("Rooms").get_children()
-	for room in rooms:
+	#var rooms = get_node("Rooms").get_children()
+	for room_id in room_list:
+		var room = get_node(room_list[room_id])
 		room.update_bounds()
 
 
 func register_room_contents():
-	var rooms = get_node("Rooms").get_children()
-	for room in rooms:
+	#var rooms = get_node("Rooms").get_children()
+	for room_id in room_list:
+		var room = get_node(room_list[room_id])
 		room.register_contents()
 	print("Yo I have registered stuff")
 

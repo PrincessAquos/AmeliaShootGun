@@ -12,8 +12,8 @@
 size = Vector2(16, 24)
 
 [node name="Door" type="StaticBody2D" groups=["door"]]
-collision_layer = 35
-collision_mask = 35
+collision_layer = 288
+collision_mask = 0
 script = ExtResource("5")
 node_trapped_path = NodePath("Trapped")
 node_locked_path = NodePath("Locked")

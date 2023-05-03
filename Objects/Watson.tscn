@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgv560d12aaw0"]
+[gd_scene load_steps=11 format=3 uid="uid://cgv560d12aaw0"]
 
 [ext_resource type="PackedScene" path="res://Objects/Hurtbox.tscn" id="2"]
 [ext_resource type="SpriteFrames" uid="uid://de178i6pqi5a4" path="res://Sprite/Watson/WatsonAnimations.tres" id="2_fd5xq"]
@@ -8,17 +8,19 @@
 [ext_resource type="AudioStream" uid="uid://xnferk1wv3m6" path="res://Sound/Jump.wav" id="6"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(6, 4)
+size = Vector2(6, 3)
 
 [sub_resource type="RectangleShape2D" id="2"]
-size = Vector2(7, 5)
+size = Vector2(8, 6)
 
 [sub_resource type="RectangleShape2D" id="3"]
-size = Vector2(3, 3)
+size = Vector2(4, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bm65y"]
+size = Vector2(6, 3)
 
 [node name="Watson" type="CharacterBody2D" groups=["layered", "player"]]
-collision_layer = 524289
-collision_mask = 524289
+collision_mask = 524546
 script = ExtResource("4")
 node_run_model = NodePath("Model")
 node_sound_gunfire = NodePath("Sounds/Gunshot")
@@ -26,6 +28,7 @@ node_sound_jump = NodePath("Sounds/Jump")
 node_interact_area = NodePath("Interact")
 node_hurtbox = NodePath("Hurtbox")
 node_model = NodePath("Model")
+node_shadow = NodePath("Shadow")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
@@ -34,18 +37,18 @@ offset = Vector2(0, -7)
 
 [node name="Model" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_fd5xq")
-animation = &"ShootUp"
+animation = &"LookDown"
 autoplay = "LookDown"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(0, 6.5)
 shape = SubResource("1")
 
 [node name="Hurtbox" parent="." groups=["player_hurtbox"] instance=ExtResource("2")]
 position = Vector2(0, 3)
 collision_layer = 4
-collision_mask = 4
+collision_mask = 128
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("2")
@@ -58,7 +61,7 @@ default_color = Color(0.396078, 0.396078, 0.396078, 0.517647)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 650)
-collision_mask = 524297
+collision_mask = 524552
 collide_with_areas = true
 
 [node name="Sounds" type="Node2D" parent="."]
@@ -71,10 +74,21 @@ stream = ExtResource("6")
 
 [node name="Interact" type="Area2D" parent="."]
 position = Vector2(-9, 3)
-collision_layer = 16
+collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
 shape = SubResource("3")
+
+[node name="FloorDetection" type="Area2D" parent="."]
+position = Vector2(0, 6.5)
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorDetection"]
+shape = SubResource("RectangleShape2D_bm65y")
+
+[connection signal="body_shape_entered" from="FloorDetection" to="." method="_on_floor_detection_body_shape_entered"]
+[connection signal="body_shape_exited" from="FloorDetection" to="." method="_on_floor_detection_body_shape_exited"]
 
 [editable path="Hurtbox"]

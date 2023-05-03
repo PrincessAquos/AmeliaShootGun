@@ -20,11 +20,17 @@ var node_shut_collider:CollisionShape2D
 var save_door:SaveData.SaveArea.SaveDoor: set = load_save_info
 
 
-
 func collect_save_info():
 	var door_info = {}
 	door_info["is_locked"] = is_locked
 	return door_info
+
+
+func new_save_info():
+	var new_save_door:SaveData.SaveArea.SaveDoor = SaveData.SaveArea.SaveDoor.new()
+	new_save_door.is_locked = is_locked
+	load_save_info(new_save_door)
+	return new_save_door
 
 
 func load_save_info(new_save_door:SaveData.SaveArea.SaveDoor):

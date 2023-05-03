@@ -15,6 +15,7 @@ const maps = {
 	"debug_old": "res://Objects/LevelObjects/DebugDungeon.tscn",
 	DUNGEON_DEBUG: "res://Objects/LevelObjects/Dungeon.tscn",
 	"debug_event": "res://Areas/Debug/EventTest.tscn",
+	"debug_stairs": "res://Areas/Debug/StairTest.tscn"
 }
 
 static func load_area(area_id:String):

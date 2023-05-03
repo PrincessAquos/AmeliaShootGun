@@ -38,6 +38,13 @@ func collect_save_info():
 	return room_info
 
 
+func new_save_info():
+	var new_save_room = SaveData.SaveArea.SaveRoom.new()
+	new_save_room.is_solved = is_solved
+	load_save_info(new_save_room)
+	return new_save_room
+
+
 func load_save_info(new_save_room:SaveData.SaveArea.SaveRoom, is_loaded = true):
 	save_room = new_save_room
 	if is_loaded:

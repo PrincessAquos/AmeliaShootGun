@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://b6dqklpd88lqp"]
 
 [ext_resource type="PackedScene" path="res://Objects/Hurtbox.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://Objects/Hitbox.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cuuaqbl7powsq" path="res://Objects/Hitbox.tscn" id="2"]
 [ext_resource type="Texture2D" uid="uid://c3pmnce48cmbp" path="res://Sprite/Shadow.png" id="3_bs126"]
 [ext_resource type="Script" path="res://Objects/Enemy.gd" id="4"]
 [ext_resource type="SpriteFrames" uid="uid://c1ebrma51dgrw" path="res://Sprite/Takodachi/Takodachi.tres" id="4_kfobs"]
-[ext_resource type="PackedScene" path="res://Objects/Characters/Halo.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bbvysem3x0rim" path="res://Objects/Characters/Halo.tscn" id="6"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(6, 2.5)
@@ -17,12 +17,13 @@ size = Vector2(7, 3.5)
 size = Vector2(9, 9)
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy", "layered"]]
-collision_layer = 2147483682
-collision_mask = 34
+collision_layer = 34
+collision_mask = 262403
 script = ExtResource("4")
 halo_scene = ExtResource("6")
 node_hurtbox = NodePath("Hurtbox")
 node_model = NodePath("AnimatedSprite2D")
+node_shadow = NodePath("Shadow")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
@@ -41,13 +42,15 @@ shape = SubResource("1")
 
 [node name="Hitbox" parent="." groups=["enemy_hitbox"] instance=ExtResource("2")]
 position = Vector2(0, 3.5)
-collision_layer = 4
+collision_layer = 128
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("2")
 
 [node name="Hurtbox" parent="." groups=["enemy_hurtbox"] instance=ExtResource("1")]
+collision_layer = 8
+collision_mask = 64
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("3")

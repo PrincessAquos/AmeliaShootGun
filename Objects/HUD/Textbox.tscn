@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://3ry2qfgysue8"]
+[gd_scene load_steps=3 format=3 uid="uid://3ry2qfgysue8"]
 
 [ext_resource type="FontFile" uid="uid://dohlu3xkxtpv5" path="res://Sprite/Fonts/Georgia15px.fnt" id="1"]
+[ext_resource type="Script" path="res://Objects/HUD/Textbox.gd" id="1_4p02b"]
 
 [node name="Textbox" type="Control"]
 layout_mode = 3
@@ -11,6 +12,10 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("1_4p02b")
+title_tab_nodepath = NodePath("Control3")
+title_nodepath = NodePath("Control3/MarginContainer2/MarginContainer/Name")
+dialogue_nodepath = NodePath("Control/MarginContainer/Control/Dialogue")
 
 [node name="Control3" type="Control" parent="."]
 custom_minimum_size = Vector2(0, 18)

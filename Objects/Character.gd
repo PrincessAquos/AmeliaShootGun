@@ -11,10 +11,12 @@ const dir_strings = Directions.dir_strings
 # Required Node Paths
 @export var node_hurtbox:NodePath
 @export var node_model:NodePath
+@export var node_shadow:NodePath
 
 # Required Nodes
 var hurtbox:Area2D
 var model:AnimatedSprite2D
+var shadow:Sprite2D
 
 # Identification
 @export var uid:int = -1
@@ -26,6 +28,9 @@ var facing = Direction.DOWN
 var altitude = 0
 var prev_vertical_velocity = 0
 var vertical_velocity = 0: set = set_vertical_velocity
+
+var floor_shapes = []
+var floor_height = 0
 
 # Movement
 var speed = 96
@@ -107,13 +112,32 @@ func _on_ready():
 	# GetNode Properties
 	hurtbox = get_node(node_hurtbox)
 	model = get_node(node_model)
+	shadow = get_node(node_shadow)
 	#print("Character Ready!")
 
 func _on_physics_process(delta):
 	if is_loaded:
+		# Find the floor height
+		update_floor_height()
+		
+		# Vertical Movement and Gravity
+		if altitude > floor_height || (altitude <= floor_height && vertical_velocity > 0):
+			set_vertical_velocity(vertical_velocity - gravity*delta)
+		else:
+			altitude = floor_height
+			vertical_velocity = 0
+			prev_vertical_velocity = 0
+		altitude += (prev_vertical_velocity + vertical_velocity)/2*delta
+		
 		# Altitude Hit Detection
 		hurtbox.altitude = altitude
 		
+		# Altitude Visual Location
+		if model:
+			model.position = Vector2(0, -altitude)
+		if shadow:
+			shadow.position = Vector2(0, -floor_height)
+			
 		# Determine Movement Amount
 		if !lock_lateral_velocity:
 			move_vector = Vector2.ZERO
@@ -164,17 +188,6 @@ func _on_process(delta):
 		if hurtbox.damage_taken > 0:
 			set_current_health(current_health - hurtbox.damage_taken)
 			hurtbox.damage_taken = 0
-		
-		# Vertical Movement and Gravity
-		if altitude > 0 || (altitude <= 0 && vertical_velocity > 0):
-			set_vertical_velocity(vertical_velocity - gravity*delta)
-		else:
-			altitude = 0
-			vertical_velocity = 0
-			prev_vertical_velocity = 0
-		altitude += (prev_vertical_velocity + vertical_velocity)/2*delta
-		if model:
-			model.position = Vector2(0, -altitude)
 		# Update Sprite
 		_update_sprite()
 	return
@@ -224,6 +237,59 @@ func die():
 	shape_owner_get_owner(0).disabled = true
 	hurtbox.shape_owner_get_owner(0).disabled = true
 	pass
+
+func update_floor_height():
+	var max_height = -16
+	for bundle in floor_shapes:
+		# if body is a tilemap
+		if bundle.body.is_class("TileMap"):
+			var tilemap:TileMap = bundle.body
+			var body_rid:RID = bundle.body_rid
+			#print("This rid: " + str(body_rid))
+			#print("This rid's id: " + str(body_rid.get_id()))
+			var coordinate: Vector2i = tilemap.get_coords_for_body_rid(body_rid)
+			var data:TileData
+			for i in tilemap.get_layers_count():
+				data = tilemap.get_cell_tile_data(i, coordinate)
+				#collides_with_tile(data, coordinate, tilemap)
+				if data:
+					var height = data.get_custom_data("height")
+					if consider_height(height) and height > max_height:
+						max_height = height
+		elif bundle.body.is_class("StaticBody2D"):
+			var body:StaticBody2D = bundle.body
+			if consider_height(body.height) and body.height > max_height:
+				max_height = body.height
+			
+	floor_height = max_height
 	
+
+func consider_height(height):
+	if height > (altitude + 2):
+		return false
+	return true
+
+
+func collides_with_tile(data:TileData, coordinate:Vector2i, tilemap:TileMap):
+	var floor_detector:Area2D = get_node("FloorDetection")
+	if floor_detector:
+		var tile_collision_polygon_points:PackedVector2Array = PackedVector2Array(data.get_collision_polygon_points(1, 0))
+		var local_coordinates:Vector2 = tilemap.map_to_local(coordinate)
+		var global_coordinates:Vector2 = tilemap.to_global(local_coordinates)
+		for i in tile_collision_polygon_points.size():
+			tile_collision_polygon_points[i] += global_coordinates
+			pass
+		print(tile_collision_polygon_points)
+		var test:Area2D = Area2D.new()
+		
+		var feet_rect = floor_detector.shape_owner_get_shape(0, 0).size
+		print(floor_detector.global_position)
+		print(feet_rect)
+		pass
+	else:
+		return false
+	pass
+
+
 func is_grounded():
-	return altitude <= 0
+	return altitude <= floor_height

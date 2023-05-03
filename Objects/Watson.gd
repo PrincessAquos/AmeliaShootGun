@@ -250,3 +250,27 @@ func update_interact_position():
 		Direction.RIGHT:
 			interact_pos = Vector2(9, 3)
 	get_node(node_interact_area).position = interact_pos
+
+
+func _on_floor_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	var bundle = {
+		"body": body,
+		"body_rid": body_rid,
+		"body_shape_index": body_shape_index,
+		"local_shape_index": local_shape_index,
+	}
+	if bundle not in floor_shapes:
+		floor_shapes.append(bundle)
+	pass # Replace with function body.
+
+
+func _on_floor_detection_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	var bundle = {
+		"body": body,
+		"body_rid": body_rid,
+		"body_shape_index": body_shape_index,
+		"local_shape_index": local_shape_index,
+	}
+	if bundle in floor_shapes:
+		floor_shapes.erase(bundle)
+	pass # Replace with function body.

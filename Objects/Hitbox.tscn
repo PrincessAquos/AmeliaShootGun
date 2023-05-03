@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://cuuaqbl7powsq"]
 
-[ext_resource path="res://Objects/Hitbox.gd" type="Script" id=2]
+[ext_resource type="Script" path="res://Objects/Hitbox.gd" id="2"]
 
-[sub_resource type="RectangleShape2D" id=1]
-size = Vector2( 8, 8 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 8)
 
-[node name="Hitbox" type="Area2D" groups=[
-"hitbox",
-]]
-script = ExtResource( 2 )
+[node name="Hitbox" type="Area2D" groups=["hitbox"]]
+collision_layer = 192
+collision_mask = 12
+script = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("1")

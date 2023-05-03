@@ -13,7 +13,7 @@ var locked_by = null
 var physics_step_counter = 0
 var do_load_step = false
 
-var hud
+var hud:HUD
 var player
 
 var bullet_time = 0.35

@@ -3,36 +3,40 @@ extends Control
 class_name TextBox
 
 
-const textbox_scene = preload("res://Objects/HUD/Textbox.tscn")
-
-const nodepath_title = "Textbox/Control3/MarginContainer2/MarginContainer/Name"
-const nodepath_dialogue = "Textbox/Control/MarginContainer/Control/Dialogue"
-
+@export var title_tab_nodepath:NodePath
+@export var title_nodepath:NodePath
+@export var dialogue_nodepath:NodePath
+var title_tab_node:Control
+var title_node:Label
+var dialogue_node:Label
 
 var title : set = set_title
-var dialogue
+var dialogue : set = set_dialogue
 var lines
-var dismiss_text = false
-
-func _init(in_title, in_dialogue):
-	add_child(textbox_scene.instantiate())
-	set_title(in_title)
-	set_dialogue(in_dialogue)
-	pass
+var active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	title_tab_node = get_node(title_tab_nodepath)
+	title_node = get_node(title_nodepath)
+	dialogue_node = get_node(dialogue_nodepath)
 	pass # Replace with function body.
+
+func initialize(new_title, new_dialogue):
+	set_title(new_title)
+	set_dialogue(new_dialogue)
+	visible = true
+	active = true
 
 func set_title(new_val):
 	if new_val != null:
-		get_node(nodepath_title).text = new_val
+		title_node.text = new_val
 		title = new_val
 	else:
-		get_node("Textbox/Control3").visible = false
+		title_tab_node.visible = false
 
 func set_dialogue(new_val):
-	get_node(nodepath_dialogue).text = new_val
+	dialogue_node.text = new_val
 	dialogue = new_val
 
 func split_dialogue():
@@ -40,8 +44,8 @@ func split_dialogue():
 	pass
 
 func progress_text():
-	var dialogue_label:Label = get_node(nodepath_dialogue)
-	if (dialogue_label.get_line_count() - dialogue_label.lines_skipped) > dialogue_label.max_lines_visible:
-		dialogue_label.lines_skipped += dialogue_label.max_lines_visible
+	if (dialogue_node.get_line_count() - dialogue_node.lines_skipped) > dialogue_node.max_lines_visible:
+		dialogue_node.lines_skipped += dialogue_node.max_lines_visible
 	else:
-		dismiss_text = true
+		active = false
+		visible = false

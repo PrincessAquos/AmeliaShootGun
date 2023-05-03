@@ -4,6 +4,9 @@ class_name SaveData
 
 const current_save_version = "0.0.3"
 
+#const start_area = "dungeon_manor"
+const start_area = "debug_stairs"
+
 var file_name
 var file_number = 0
 
@@ -52,11 +55,11 @@ func _init(file_num):
 	else:
 		file_name = "NO DATA"
 		num_gears = 3
-		area_id = "dungeon_manor"
+		area_id = start_area
 		inventory = SaveInventory.new()
 		for i in range(4):
 			var this_slot:SaveInventory.SaveInventorySlots = inventory.slots[i]
-			this_slot.item_id = Data.table_item_index.all[i]
+			this_slot.item_id = Data.table_item_index.all[i].id
 			#this_slot.item_id = Data.table_item_index.get_indexed(i).id
 			this_slot.count = 1
 		var test_json_conv = JSON.new()
