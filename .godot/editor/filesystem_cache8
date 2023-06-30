@@ -1,9 +1,9 @@
 91381882c7e91b39e6628b870584ac00
-::res://::1688164919
+::res://::1688167290
 (OUTDATED) Collision Layer Notes.txt::TextFile::-1::1688164783::0::1::::<><>::
 Camera.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/Camera2D.gd
 Debug.gd::GDScript::-1::1688164787::0::1::::<>Node<>::
-default_env.tres::Environment::3799104197365339630::1688164789::0::1::::<><>::
+default_env.tres::Environment::3799104197365339630::1688166933::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1660657799::0::1::::<><>::
 File Select.gd::GDScript::-1::1688164787::0::1::::<>Control<>::
 File Select.tscn::PackedScene::5519986647711033218::1688164787::0::1::::<><>::uid://bn1lalxsh73v0<>res://File Select.gd<>uid://581raea86je0<>uid://5vythngvkdc3
@@ -71,7 +71,7 @@ SaveFile.gd::GDScript::-1::1688164787::0::1::::<>MarginContainer<>::
 SaveFile.tscn::PackedScene::2150508767933795596::1688164787::0::1::::<><>::res://MainMenu/SaveFile.gd<>uid://cdw5kpmckdoys<>res://Sprite/HUD/outline.gdshader<>uid://dohlu3xkxtpv5
 ::res://Music/::1688164787
 Mind Your Manors.wav::AudioStreamWAV::4260961080388487462::1644791009::1688164787::1::::<><>::
-::res://Objects/::1688164787
+::res://Objects/::1688166933
 Character.gd::GDScript::-1::1688164787::0::1::::Character<>CharacterBody2D<>::
 Enemy.gd::GDScript::-1::1688164787::0::1::::<>Character<>::
 Enemy.tscn::PackedScene::4569457900668230163::1688164787::0::1::::<><>::res://Objects/Hurtbox.tscn<>uid://cuuaqbl7powsq<>uid://c3pmnce48cmbp<>res://Objects/Enemy.gd<>uid://c1ebrma51dgrw<>uid://bbvysem3x0rim
@@ -84,7 +84,7 @@ NPC.tscn::PackedScene::7384123039144443252::1688164787::0::1::::<><>::res://Obje
 RoomColliderConcave.tscn::PackedScene::-1::1688164787::0::1::::<><>::
 Watson.backup.gd::GDScript::-1::1688164787::0::1::::<>Character<>::
 Watson.gd::GDScript::-1::1688164787::0::1::::<>Character<>::
-Watson.tscn::PackedScene::5239204550379267125::1688164787::0::1::::<><>::res://Objects/Hurtbox.tscn<>uid://de178i6pqi5a4<>uid://c3pmnce48cmbp<>res://Objects/Watson.gd<>uid://bmron0kf5vyed<>uid://xnferk1wv3m6
+Watson.tscn::PackedScene::5239204550379267125::1688166933::0::1::::<><>::res://Objects/Hurtbox.tscn<>uid://de178i6pqi5a4<>uid://c3pmnce48cmbp<>res://Objects/Watson.gd<>uid://bmron0kf5vyed<>uid://xnferk1wv3m6
 ::res://Objects/Characters/::1688164787
 Halo.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 Halo.tscn::PackedScene::2501451042218055704::1688164787::0::1::::<><>::res://Objects/Hitbox.gd<>res://Objects/Characters/Halo.gd<>uid://c3pmnce48cmbp<>uid://cqlwmx25ppt40
@@ -176,7 +176,7 @@ InvestiGatorRunUp2.png::CompressedTexture2D::6872307994676948638::1660657799::16
 InvestiGatorRunUp3.png::CompressedTexture2D::3683403345681675730::1660657799::1688164788::1::::<><>::
 InvestiGatorRunUp4.png::CompressedTexture2D::7660357306639821234::1660657799::1688164788::1::::<><>::
 InvestiGatorUp.png::CompressedTexture2D::4658367184743131967::1660657799::1688164788::1::::<><>::
-::res://Sprite/Fonts/::1688164788
+::res://Sprite/Fonts/::1688167268
 Georgia12px.fnt::FontFile::1694745207976338745::1646160255::1688164788::1::::<><>::
 Georgia12px_0.png::CompressedTexture2D::5090725118161402456::1646160255::1688164788::1::::<><>::
 Georgia14px.fnt::FontFile::1204112404281223226::1646160255::1688164788::1::::<><>::
@@ -190,8 +190,7 @@ GeorgiaBold20px_0.png::CompressedTexture2D::3771890428391211513::1646160255::168
 GeorgiaItalic20px.fnt::FontFile::686443448200430155::1646160255::1688164788::1::::<><>::
 GeorgiaItalic20px_0.png::CompressedTexture2D::4436260744716739893::1646160255::1688164788::1::::<><>::
 InventoryNumbers.png::FontFile::9071718020635360073::1688164788::1688164788::1::::<><>::
-InventoryNumbers.tres::FontFile::-1::1688164788::0::1::::<><>::res://Sprite2D/Fonts/InventoryNumbers.png
-NewFont.gd::GDScript::-1::1688164788::0::1::::CreateFont<>Node<>::
+NewFont.gd::GDScript::-1::1688166934::0::1::::CreateFont<>Node<>::
 ::res://Sprite/HUD/::1688164788
 BriefcaseMenu.png::CompressedTexture2D::2106280770167231::1646160255::1688164788::1::::<><>::
 clock.png::CompressedTexture2D::5721304407170141748::1643951446::1688164788::1::::<><>::
@@ -288,7 +287,7 @@ pushblocktest.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 pushblocktest.tscn::PackedScene::-1::1688164789::0::1::::<><>::res://Objects/LevelObjects/PushBlock.tscn<>res://Objects/Watson.tscn<>res://Objects/LevelObjects/BaseTilemap.tscn
 RoomLayoutTiles.png::CompressedTexture2D::6960032636581279490::1643252186::1688164788::1::::<><>::
 TestTiles.tres::TileSet::-1::1688164789::0::1::::<><>::res://Sprite2D/Tilesets/DebugTileset.png
-::res://Sprite/Tilesets/Victorian/::1688164789
+::res://Sprite/Tilesets/Victorian/::1688166933
 autotile_template_3x3_full.png::CompressedTexture2D::6777335987088479237::1644829766::1688164789::1::::<><>::
 Column.png::CompressedTexture2D::1853333860546492765::1688164789::1688164789::1::::<><>::
 DoorDownOver.png::CompressedTexture2D::9135675474927111013::1643667816::1688164789::1::::<><>::
@@ -310,7 +309,7 @@ Doorv2UpDown.png::CompressedTexture2D::4380566890662224082::1643748871::16881647
 Doorv2UpDownOver.png::CompressedTexture2D::777335055128701711::1643749859::1688164789::1::::<><>::
 Doorv2UpDownUnder.png::CompressedTexture2D::7249909734849787911::1643749842::1688164789::1::::<><>::
 VictorianTileset.png::CompressedTexture2D::2501576789973883129::1643665359::1688164789::1::::<><>::
-VictorianTileset.tres::TileSet::4031522508789560265::1688164789::0::1::::<><>::uid://dyvui1pd7l3xm<>uid://dwqc6pqxn1rxl<>uid://1n1exolcn7sr
+VictorianTileset.tres::TileSet::4031522508789560265::1688166933::0::1::::<><>::uid://dyvui1pd7l3xm<>uid://dwqc6pqxn1rxl<>uid://1n1exolcn7sr
 VictorianTilesetv5.png::CompressedTexture2D::8736624262408109021::1643671812::1688164789::1::::<><>::
 VictorianTilesetv6.png::CompressedTexture2D::8888376246392608642::1644870623::1688164789::1::::<><>::
 VictorianTileset_old.tres::TileSet::-1::1688164789::0::1::::<><>::res://Sprite2D/Tilesets/Victorian/VictorianTilesetv5.png
