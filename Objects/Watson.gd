@@ -121,6 +121,10 @@ func _on_physics_process(delta):
 			Game.deactivate_bullet_time()
 			lock_lateral_velocity = false
 
+	if get_node("FloorDetection").has_overlapping_bodies():
+		var test = get_node("FloorDetection").get_overlapping_bodies()
+		print(test)
+
 	# Execute the general Character physics process
 	super._on_physics_process(delta)
 
@@ -253,24 +257,43 @@ func update_interact_position():
 
 
 func _on_floor_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	var bundle = {
-		"body": body,
-		"body_rid": body_rid,
-		"body_shape_index": body_shape_index,
-		"local_shape_index": local_shape_index,
-	}
+	var bundle
+	if body.is_class("TileMap"):
+		bundle = {
+			"body": body,
+			"coordinates": body.get_coords_for_body_rid(body_rid),
+			"body_shape_index": body_shape_index,
+			"local_shape_index": local_shape_index,
+		}
+	else:
+		bundle = {
+			"body": body,
+			"body_rid": body_rid,
+			"body_shape_index": body_shape_index,
+			"local_shape_index": local_shape_index,
+		}
 	if bundle not in floor_shapes:
 		floor_shapes.append(bundle)
 	pass # Replace with function body.
 
 
 func _on_floor_detection_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
-	var bundle = {
-		"body": body,
-		"body_rid": body_rid,
-		"body_shape_index": body_shape_index,
-		"local_shape_index": local_shape_index,
-	}
+	return
+	var bundle
+	if body.is_class("TileMap"):
+		bundle = {
+			"body": body,
+			"coordinates": body.get_coords_for_body_rid(body_rid),
+			"body_shape_index": body_shape_index,
+			"local_shape_index": local_shape_index,
+		}
+	else:
+		bundle = {
+			"body": body,
+			"body_rid": body_rid,
+			"body_shape_index": body_shape_index,
+			"local_shape_index": local_shape_index,
+		}
 	if bundle in floor_shapes:
 		floor_shapes.erase(bundle)
 	pass # Replace with function body.

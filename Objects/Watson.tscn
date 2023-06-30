@@ -21,6 +21,7 @@ size = Vector2(6, 3)
 
 [node name="Watson" type="CharacterBody2D" groups=["layered", "player"]]
 collision_mask = 524546
+motion_mode = 1
 script = ExtResource("4")
 node_run_model = NodePath("Model")
 node_sound_gunfire = NodePath("Sounds/Gunshot")

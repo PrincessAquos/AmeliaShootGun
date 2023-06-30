@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://catkc7c86gjpj"]
+[gd_scene load_steps=3 format=3 uid="uid://catkc7c86gjpj"]
 
 [ext_resource type="TileSet" uid="uid://bxo5t7h6vhqgv" path="res://Sprite/Tilesets/Victorian/VictorianTileset.tres" id="1_q37yl"]
+[ext_resource type="Script" path="res://Objects/LevelObjects/BaseTilemap.gd" id="2_of47q"]
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource("1_q37yl")
 format = 2
+script = ExtResource("2_of47q")

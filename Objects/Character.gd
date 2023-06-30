@@ -157,6 +157,26 @@ func _on_physics_process(delta):
 			move_vector = Vector2.ZERO
 			var knockback = (global_position - hurtbox.hit_source).normalized() * dmg_knockback
 			move_vector = knockback
+		
+		# Test for collision
+		var test_collision_info = KinematicCollision2D.new()
+		if test_move(transform, move_vector * delta, test_collision_info):
+			print("omg")
+			var object = test_collision_info.get_collider()
+			if object.is_class("TileMap"):
+				for i in object.get_layers_count():
+					var tile_data = object.get_cell_tile_data(i, object.get_coords_for_body_rid(test_collision_info.get_collider_rid()))
+					if tile_data:
+						if altitude >= tile_data.get_custom_data("height"):
+							# Just ping the tile to let it know it's been touched
+							#tile_data.set_custom_data("modified", true)
+							#tile_data.remove_collision_polygon(0, 0)
+							pass
+						print(tile_data.get_custom_data("height"))
+						pass
+			print()
+		
+		# Set velocity and move
 		_set_velocity(move_vector)
 		move_and_slide()
 		#if move_vector != Vector2.ZERO:
@@ -244,10 +264,9 @@ func update_floor_height():
 		# if body is a tilemap
 		if bundle.body.is_class("TileMap"):
 			var tilemap:TileMap = bundle.body
-			var body_rid:RID = bundle.body_rid
 			#print("This rid: " + str(body_rid))
 			#print("This rid's id: " + str(body_rid.get_id()))
-			var coordinate: Vector2i = tilemap.get_coords_for_body_rid(body_rid)
+			var coordinate:Vector2i = bundle.coordinates
 			var data:TileData
 			for i in tilemap.get_layers_count():
 				data = tilemap.get_cell_tile_data(i, coordinate)

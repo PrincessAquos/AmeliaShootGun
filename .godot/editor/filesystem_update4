@@ -1,35 +1,12 @@
 res://default_env.tres
-res://Objects/HUD/HUD.tscn
-res://Sprite/Tilesets/Victorian/VictorianTileset.tres
-res://Objects/HUD/Inventory.tscn
-res://Title Screen.tscn
 res://MainGameScene.tscn
-res://Objects/Watson.tscn
-res://Objects/Characters/Halo.tscn
-res://Objects/Characters/InvestiGator.tscn
+res://Sprite/Tilesets/Victorian/VictorianTileset.tres
+res://Objects/HUD/HUD.tscn
+res://Title Screen.tscn
 res://Objects/HUD/Textbox.tscn
 res://Objects/HUD/InventorySlot.tscn
-res://Areas/MisteavousManor.tscn
-res://Sprite/HUD/outline.gdshader
-res://Objects/HUD/HUD.gd
-res://Objects/HUD/Textbox.gd
-res://Core/Game.gd
-res://Events/TextEvent.gd
-res://Objects/LevelObjects/Dungeon.gd
-res://Areas/Debug/StairTest.tscn
-res://Areas/Areas.gd
-res://Core/SaveData.gd
-res://File Select.tscn
-res://Objects/Character.gd
-res://Objects/LevelObjects/Room.tscn
-res://Objects/LevelObjects/BlockButton.tscn
-res://Objects/LevelObjects/Chest.tscn
-res://Objects/LevelObjects/Door.tscn
-res://Objects/LevelObjects/PushBlock.tscn
-res://Objects/Enemy.tscn
-res://Objects/Hitbox.tscn
-res://Objects/NPC.tscn
 res://Objects/LevelObjects/BaseTilemap.tscn
-res://Objects/FloorDetection.gd
-res://Objects/Watson.gd
-res://Areas/Debug/columntest.gd
+res://Areas/Debug/StairTest.tscn
+res://File Select.tscn
+res://Objects/Hitbox.tscn
+res://Objects/Watson.tscn

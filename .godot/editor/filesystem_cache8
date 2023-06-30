@@ -1,21 +1,21 @@
 91381882c7e91b39e6628b870584ac00
-::res://::1682552209
+::res://::1688157495
+(OUTDATED) Collision Layer Notes.txt::TextFile::-1::1646160255::0::1::::<><>::
 Camera.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/Camera2D.gd
-Collision Layer Notes.txt::TextFile::-1::1646160255::0::1::::<><>::
 Debug.gd::GDScript::-1::1681582027::0::1::::<>Node<>::
-default_env.tres::Environment::3799104197365339630::1682552209::0::1::::<><>::
+default_env.tres::Environment::3799104197365339630::1683159869::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1660657799::0::1::::<><>::
 File Select.gd::GDScript::-1::1681762872::0::1::::<>Control<>::
-File Select.tscn::PackedScene::5519986647711033218::1682552209::0::1::::<><>::uid://bn1lalxsh73v0<>res://File Select.gd<>uid://581raea86je0<>uid://5vythngvkdc3
+File Select.tscn::PackedScene::5519986647711033218::1683159867::0::1::::<><>::uid://bn1lalxsh73v0<>res://File Select.gd<>uid://581raea86je0<>uid://5vythngvkdc3
 icon.png::CompressedTexture2D::7443333176710328403::1638318938::1681582881::1::::<><>::
 LevelView.gd::GDScript::-1::1681582027::0::1::::<>SubViewportContainer<>::
-MainGameScene.tscn::PackedScene::1988903149646842795::1682552206::0::1::::<><>::uid://c4ajqa6rysutn<>res://LevelView.gd<>res://Screen.gd<>uid://bc25lhqeorsou
+MainGameScene.tscn::PackedScene::1988903149646842795::1683159866::0::1::::<><>::uid://c4ajqa6rysutn<>res://LevelView.gd<>res://Screen.gd<>uid://bc25lhqeorsou
 MainGameSceneTest.tscn::PackedScene::1711744823532698917::1681589007::0::1::::<><>::res://Screen.gd<>res://LevelView.gd<>uid://c4ajqa6rysutn
 Screen.gd::GDScript::-1::1681588431::0::1::::<>Control<>::
 ScreenTest2.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/Dungeon.tscn<>res://LevelView.gd<>res://Screen.gd<>res://Objects/HUD/HUD.tscn<>res://Objects/HUD/Textbox.tscn
 ScreenTest.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://World.tscn<>res://LevelView.gd<>res://Screen.gd
 Title Screen.gd::GDScript::-1::1681588812::0::1::::<>Control<>::
-Title Screen.tscn::PackedScene::6808892907220660179::1682552206::0::1::::<><>::uid://tuf6rmoovajt<>res://Title Screen.gd<>uid://581raea86je0
+Title Screen.tscn::PackedScene::6808892907220660179::1683159866::0::1::::<><>::uid://tuf6rmoovajt<>res://Title Screen.gd<>uid://581raea86je0
 Title.png::CompressedTexture2D::1263452294764971767::1646160563::1681582881::1::::<><>::
 TitleDemo.png::CompressedTexture2D::1375235440868930701::1660657799::1681582881::1::::<><>::
 TODO.txt::TextFile::-1::1660657799::0::1::::<><>::
@@ -30,11 +30,11 @@ plugin.gd::GDScript::-1::1681583221::0::1::::<>EditorPlugin<>::
 ::res://Areas/::1682370865
 Areas.gd::GDScript::-1::1682370865::0::1::::Areas<>RefCounted<>::
 MisteavousManor.tscn::PackedScene::8027729932849082021::1682369829::0::1::::<><>::res://Objects/LevelObjects/Dungeon.gd<>res://Camera.tscn<>uid://catkc7c86gjpj<>uid://ct8d7rqu26eyv<>uid://cgv560d12aaw0<>uid://b6dqklpd88lqp<>uid://gmvut40tto7r
-::res://Areas/Debug/::1682552207
+::res://Areas/Debug/::1683159867
+columntest.gd::GDScript::-1::1682552206::0::1::::<>StaticBody2D<>::
 EventTest.gd::GDScript::-1::1681582028::0::1::::<>Dungeon<>::
 EventTest.tscn::PackedScene::-1::1681582028::0::1::::<><>::res://Areas/Debug/EventTest.gd<>res://Objects/Watson.tscn<>res://Objects/LevelObjects/Room.tscn<>res://Camera.tscn
-columntest.gd::GDScript::-1::1682552206::0::1::::<>StaticBody2D<>::
-StairTest.tscn::PackedScene::700669362965617379::1682552207::0::1::::<><>::res://Objects/LevelObjects/Dungeon.gd<>res://Camera.tscn<>uid://catkc7c86gjpj<>uid://ct8d7rqu26eyv<>res://Areas/Debug/columntest.gd<>uid://cgv560d12aaw0
+StairTest.tscn::PackedScene::700669362965617379::1683159867::0::1::::<><>::res://Objects/LevelObjects/Dungeon.gd<>res://Camera.tscn<>uid://catkc7c86gjpj<>uid://ct8d7rqu26eyv<>res://Areas/Debug/columntest.gd<>uid://cgv560d12aaw0
 ::res://Constants/::1642711454
 Directions.gd::GDScript::-1::1681582028::0::1::::Directions<>RefCounted<>::
 ::res://Core/::1682372404
@@ -60,41 +60,42 @@ SaveFile.gd::GDScript::-1::1681762891::0::1::::<>MarginContainer<>::
 SaveFile.tscn::PackedScene::2150508767933795596::1681762977::0::1::::<><>::res://MainMenu/SaveFile.gd<>uid://cdw5kpmckdoys<>res://Sprite/HUD/outline.gdshader<>uid://dohlu3xkxtpv5
 ::res://Music/::1681582882
 Mind Your Manors.wav::AudioStreamWAV::4260961080388487462::1644791009::1681582882::1::::<><>::
-::res://Objects/::1682552209
-Character.gd::GDScript::-1::1682551123::0::1::::Character<>CharacterBody2D<>::
+::res://Objects/::1683159869
+Character.gd::GDScript::-1::1683158505::0::1::::Character<>CharacterBody2D<>::
 Enemy.gd::GDScript::-1::1681582027::0::1::::<>Character<>::
 Enemy.tscn::PackedScene::4569457900668230163::1682460554::0::1::::<><>::res://Objects/Hurtbox.tscn<>uid://cuuaqbl7powsq<>uid://c3pmnce48cmbp<>res://Objects/Enemy.gd<>uid://c1ebrma51dgrw<>uid://bbvysem3x0rim
 Hitbox.gd::GDScript::-1::1681582027::0::1::::Hitbox<>Area2D<>::
-Hitbox.tscn::PackedScene::6217934438921277292::1682552209::0::1::::<><>::res://Objects/Hitbox.gd
+Hitbox.tscn::PackedScene::6217934438921277292::1683159867::0::1::::<><>::res://Objects/Hitbox.gd
 Hurtbox.gd::GDScript::-1::1681582027::0::1::::Hurtbox<>Area2D<>::
 Hurtbox.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/Hurtbox.gd
 NPC.gd::GDScript::-1::1681582027::0::1::::<>Character<>::
 NPC.tscn::PackedScene::7384123039144443252::1682460533::0::1::::<><>::res://Objects/Hurtbox.tscn<>uid://c3pmnce48cmbp<>res://Objects/NPC.gd<>uid://dirkb2m64vqx0<>uid://b27dywrinxsmd<>uid://cgu7q88urhg0v<>uid://bhd0b844mb6mx<>uid://die6opre5quxl<>uid://ct6kawm0dgag7<>uid://fgwmg4fmsugb<>uid://cfj0ubv2178l0<>uid://blqu1a31mnu1d<>uid://n4jajm66y1tk<>uid://cu671f3jp1lf<>uid://ey77mpgareuw<>uid://bqata86xeiag<>uid://bwto5h257aywc<>uid://b777j16hkk816<>uid://b86nsqlxdu0ao<>uid://4ycmgks3p2eq<>uid://cc8boxygug6ni<>uid://dyt77s2iv1mhw<>uid://bpf0vm68h7tor<>uid://buyhp5xv47r2<>uid://cwvnuqw1i2bdd<>uid://djrky4ukipvxs<>uid://db4pe35ksivci<>uid://cqfpdkiekba7j<>uid://cdyq2v2jgm3k<>uid://b0o718pscw4jk<>uid://b88e1delxawvh<>uid://b0o40x71fb3qc<>uid://dylvs42rbadqq<>uid://bcyic12p5mnpc<>uid://cunfhtpjmsh2p<>uid://c0n28hxoyu1xm<>uid://c01yhigk4ujvm<>uid://c8cnevuydcj0l<>uid://bi21hxmlqa1s4<>uid://b7nw4iluotkxf<>uid://bu0cku3pb5bdr<>uid://cfv58ix4y0j8b<>uid://cbafnfqqyddyg<>uid://0uftigihidqu<>uid://dswtsmcj82rtw<>uid://c7d1bl1ags6hu<>uid://dl6bovevlgcjk<>uid://6xwc14b8va4r
 RoomColliderConcave.tscn::PackedScene::-1::1681582027::0::1::::<><>::
 Watson.backup.gd::GDScript::-1::1681582027::0::1::::<>Character<>::
-Watson.gd::GDScript::-1::1682550221::0::1::::<>Character<>::
-Watson.tscn::PackedScene::5239204550379267125::1682552209::0::1::::<><>::res://Objects/Hurtbox.tscn<>uid://de178i6pqi5a4<>uid://c3pmnce48cmbp<>res://Objects/Watson.gd<>uid://bmron0kf5vyed<>uid://xnferk1wv3m6
+Watson.gd::GDScript::-1::1683159866::0::1::::<>Character<>::
+Watson.tscn::PackedScene::5239204550379267125::1683159869::0::1::::<><>::res://Objects/Hurtbox.tscn<>uid://de178i6pqi5a4<>uid://c3pmnce48cmbp<>res://Objects/Watson.gd<>uid://bmron0kf5vyed<>uid://xnferk1wv3m6
 ::res://Objects/Characters/::1682460712
 Halo.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 Halo.tscn::PackedScene::2501451042218055704::1682460712::0::1::::<><>::res://Objects/Hitbox.gd<>res://Objects/Characters/Halo.gd<>uid://c3pmnce48cmbp<>uid://cqlwmx25ppt40
 InvestiGator.gd::GDScript::-1::1681582027::0::1::::<>Character<>::
 InvestiGator.tscn::PackedScene::3948143941775269486::1682460589::0::1::::<><>::res://Objects/Characters/InvestiGator.gd<>res://Objects/Hurtbox.tscn<>uid://bmhlv63ihr13k<>uid://c3pmnce48cmbp
-::res://Objects/HUD/::1682552206
+::res://Objects/HUD/::1683159866
 HealthBar.gd::GDScript::-1::1681582027::0::1::::<>SubViewportContainer<>::
 HealthBar.tscn::PackedScene::5030664383103931506::1681763007::0::1::::<><>::res://Objects/HUD/HealthUI.gd<>res://Sprite/HUD/outline.gdshader<>res://Objects/HUD/HealthBar.gd<>res://Objects/HUD/UnderGears.gd<>res://Objects/HUD/HealthGears.gd<>uid://kmrjl0iik3xo<>uid://bw41ejuhifffn<>uid://cnrpbver7jjx1<>uid://dhrof0olh2t21
 HealthGears.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 HealthUI.gd::GDScript::-1::1681587015::0::1::::<>Node2D<>::
 HUD.gd::GDScript::-1::1682367557::0::1::::HUD<>Control<>::
-HUD.tscn::PackedScene::2584378116426189088::1682552206::0::1::::<><>::uid://cdw5kpmckdoys<>uid://3ry2qfgysue8<>res://Objects/HUD/HUD.gd<>uid://7ult342fwige
+HUD.tscn::PackedScene::2584378116426189088::1683159866::0::1::::<><>::uid://cdw5kpmckdoys<>uid://3ry2qfgysue8<>res://Objects/HUD/HUD.gd<>uid://7ult342fwige
 Inventory.gd::GDScript::-1::1681587665::0::1::::Inventory<>Control<>::
 Inventory.tscn::PackedScene::2288033885190300304::1682363031::0::1::::<><>::res://Objects/HUD/Inventory.gd<>uid://baxp2ek588j<>uid://v01wrkwqcfbe
 InventorySlot.gd::GDScript::-1::1681934985::0::1::::InvSlot<>CenterContainer<>::
-InventorySlot.tscn::PackedScene::1527193998894051978::1682552206::0::1::::<><>::res://Objects/HUD/InventorySlot.gd<>uid://bga50ifioopf<>uid://d2in4ugn5xmof
+InventorySlot.tscn::PackedScene::1527193998894051978::1683159866::0::1::::<><>::res://Objects/HUD/InventorySlot.gd<>uid://bga50ifioopf<>uid://d2in4ugn5xmof
 Textbox.gd::GDScript::-1::1682367230::0::1::::TextBox<>Control<>::
-Textbox.tscn::PackedScene::2001888316348790025::1682552206::0::1::::<><>::uid://dohlu3xkxtpv5<>res://Objects/HUD/Textbox.gd
+Textbox.tscn::PackedScene::2001888316348790025::1683159866::0::1::::<><>::uid://dohlu3xkxtpv5<>res://Objects/HUD/Textbox.gd
 UnderGears.gd::GDScript::-1::1681587064::0::1::::<>Node2D<>::
-::res://Objects/LevelObjects/::1682552209
-BaseTilemap.tscn::PackedScene::4812676971606667883::1682552209::0::1::::<><>::uid://bxo5t7h6vhqgv
+::res://Objects/LevelObjects/::1683159867
+BaseTilemap.gd::GDScript::-1::1683158504::0::1::::<>TileMap<>::
+BaseTilemap.tscn::PackedScene::4812676971606667883::1683159867::0::1::::<><>::uid://bxo5t7h6vhqgv<>res://Objects/LevelObjects/BaseTilemap.gd
 BlockButton.gd::GDScript::-1::1681582027::0::1::::BlockButton<>Area2D<>::
 BlockButton.tscn::PackedScene::4045542512939584836::1682453870::0::1::::<><>::res://Objects/LevelObjects/BlockButton.gd<>uid://brx3jp6wrbkuq
 Camera2D.gd::GDScript::-1::1681582027::0::1::::<>Camera2D<>::
@@ -180,7 +181,7 @@ GeorgiaItalic20px_0.png::CompressedTexture2D::4436260744716739893::1646160255::1
 InventoryNumbers.png::FontFile::9071718020635360073::1681590609::1681590611::1::::<><>::
 InventoryNumbers.tres::FontFile::-1::1681582027::0::1::::<><>::res://Sprite2D/Fonts/InventoryNumbers.png
 NewFont.gd::GDScript::-1::1681582027::0::1::::CreateFont<>Node<>::
-::res://Sprite/HUD/::1682552209
+::res://Sprite/HUD/::1682950888
 BriefcaseMenu.png::CompressedTexture2D::2106280770167231::1646160255::1681582881::1::::<><>::
 clock.png::CompressedTexture2D::5721304407170141748::1643951446::1681582881::1::::<><>::
 clockglass1.png::CompressedTexture2D::7686538680454044580::1643999405::1681582881::1::::<><>::
@@ -197,7 +198,7 @@ HealthGearsRust1.png::CompressedTexture2D::9179791100997863439::1643943727::1681
 HealthGearsRust2.png::CompressedTexture2D::8053582830702088734::1643943727::1681582882::1::::<><>::
 HealthGearsRust3.png::CompressedTexture2D::6116387726125403145::1643943727::1681582882::1::::<><>::
 HealthGearsRust4.png::CompressedTexture2D::8177300760461528616::1643943727::1681582882::1::::<><>::
-outline.gdshader::Shader::-1::1682552209::0::1::::<><>::
+outline.gdshader::Shader::-1::1682950888::0::1::::<><>::
 YagooCoin.png::CompressedTexture2D::565968622645806150::1646160255::1681582882::1::::<><>::
 ::res://Sprite/Items/::1681582882
 Badge.png::CompressedTexture2D::5895019110012537751::1646160255::1681582882::1::::<><>::
@@ -276,7 +277,7 @@ pushblocktest.gd::GDScript::-1::1681582027::0::1::::<>Node2D<>::
 pushblocktest.tscn::PackedScene::-1::1681582027::0::1::::<><>::res://Objects/LevelObjects/PushBlock.tscn<>res://Objects/Watson.tscn<>res://Objects/LevelObjects/BaseTilemap.tscn
 RoomLayoutTiles.png::CompressedTexture2D::6960032636581279490::1643252186::1681582880::1::::<><>::
 TestTiles.tres::TileSet::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/DebugTileset.png
-::res://Sprite/Tilesets/Victorian/::1682549538
+::res://Sprite/Tilesets/Victorian/::1683156878
 autotile_template_3x3_full.png::CompressedTexture2D::6777335987088479237::1644829766::1681582880::1::::<><>::
 Column.png::CompressedTexture2D::1853333860546492765::1682552317::1682552319::1::::<><>::
 DoorDownOver.png::CompressedTexture2D::9135675474927111013::1643667816::1681582880::1::::<><>::
@@ -298,7 +299,7 @@ Doorv2UpDown.png::CompressedTexture2D::4380566890662224082::1643748871::16815828
 Doorv2UpDownOver.png::CompressedTexture2D::777335055128701711::1643749859::1681582880::1::::<><>::
 Doorv2UpDownUnder.png::CompressedTexture2D::7249909734849787911::1643749842::1681582880::1::::<><>::
 VictorianTileset.png::CompressedTexture2D::2501576789973883129::1643665359::1681582880::1::::<><>::
-VictorianTileset.tres::TileSet::4031522508789560265::1682549538::0::1::::<><>::uid://dyvui1pd7l3xm<>uid://dwqc6pqxn1rxl<>uid://1n1exolcn7sr
+VictorianTileset.tres::TileSet::4031522508789560265::1683156878::0::1::::<><>::uid://dyvui1pd7l3xm<>uid://dwqc6pqxn1rxl<>uid://1n1exolcn7sr
 VictorianTilesetv5.png::CompressedTexture2D::8736624262408109021::1643671812::1681582880::1::::<><>::
 VictorianTilesetv6.png::CompressedTexture2D::8888376246392608642::1644870623::1681582880::1::::<><>::
 VictorianTileset_old.tres::TileSet::-1::1681582027::0::1::::<><>::res://Sprite2D/Tilesets/Victorian/VictorianTilesetv5.png

@@ -50,6 +50,7 @@ height = 12
 shape = SubResource("RectangleShape2D_x3ivb")
 
 [node name="Floor 2" type="Node2D" parent="."]
+visible = false
 position = Vector2(-30, 229)
 
 [node name="TileMap" parent="Floor 2" instance=ExtResource("3_jef3i")]
