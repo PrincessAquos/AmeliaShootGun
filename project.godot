@@ -30,7 +30,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdcastledb/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdcastledb/plugin.cfg", "res://addons/sticky_scribe/plugin.cfg")
 
 [input]
 
