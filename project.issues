@@ -1,9 +1,96 @@
 {
 	"issues": {
-		"PrincessAquos": []
+		"PrincessAquos": [
+			{
+				"priority": 4,
+				"tags": [
+					"Bug",
+					"Graphics"
+				],
+				"text": "Fix layering of doorway graphics",
+				"timestamp": 1690058092.357
+			},
+			{
+				"priority": 4,
+				"tags": [
+					"Bug"
+				],
+				"text": "Fix collision of locked/trapped doors",
+				"timestamp": 1690058146.877
+			},
+			{
+				"priority": 4,
+				"tags": [
+					"Bug"
+				],
+				"text": "Fix the inventory check for a scroll when trying to dispel locked doors",
+				"timestamp": 1690058180.526
+			},
+			{
+				"priority": 2,
+				"tags": [
+					"HUD",
+					"Feature"
+				],
+				"text": "Make an audio player object to attach to the camera/hud for global sound effects that are centered in the view",
+				"timestamp": 1690058341.476
+			},
+			{
+				"priority": 3,
+				"tags": [
+					"HUD",
+					"Feature"
+				],
+				"text": "Have HUD initialized by the global game object, rather than relying on it being included in the initial scene",
+				"timestamp": 1690058505.125
+			},
+			{
+				"priority": 0,
+				"tags": [
+					"Graphics"
+				],
+				"text": "Change the bullet animation to draw the line based on the target hit",
+				"timestamp": 1690058610.348
+			},
+			{
+				"priority": 1,
+				"tags": [
+					"New Enemy",
+					"Feature"
+				],
+				"text": "Add the Eye enemy",
+				"timestamp": 1690058679.161
+			},
+			{
+				"priority": 1,
+				"tags": [
+					"Enemy AI",
+					"Feature"
+				],
+				"text": "Make aggressive Takodachi behavior",
+				"timestamp": 1690058745.513
+			},
+			{
+				"priority": 3,
+				"tags": [
+					"Editor",
+					"Debugging"
+				],
+				"text": "Make warnings to display for character-derived nodes that lack the necessary sub-components",
+				"timestamp": 1690059022.257
+			}
+		]
 	},
 	"meta": {
 		"tag_colors": {
+			"Bug": "ff6663",
+			"Debugging": "ff6663",
+			"Editor": "fdfd97",
+			"Enemy AI": "feb144",
+			"Feature": "9ee09e",
+			"Graphics": "f49ac1",
+			"HUD": "9ec1cf",
+			"New Enemy": "feb144",
 			"Test": "ffffff"
 		}
 	},

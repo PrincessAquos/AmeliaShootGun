@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://xnferk1wv3m6" path="res://Sound/Jump.wav" id="6"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(6, 3)
+size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="2"]
 size = Vector2(8, 6)
@@ -43,7 +43,7 @@ autoplay = "LookDown"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
+position = Vector2(0, 5)
 shape = SubResource("1")
 
 [node name="Hurtbox" parent="." groups=["player_hurtbox"] instance=ExtResource("2")]

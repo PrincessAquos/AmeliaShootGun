@@ -257,43 +257,8 @@ func update_interact_position():
 
 
 func _on_floor_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	var bundle
-	if body.is_class("TileMap"):
-		bundle = {
-			"body": body,
-			"coordinates": body.get_coords_for_body_rid(body_rid),
-			"body_shape_index": body_shape_index,
-			"local_shape_index": local_shape_index,
-		}
-	else:
-		bundle = {
-			"body": body,
-			"body_rid": body_rid,
-			"body_shape_index": body_shape_index,
-			"local_shape_index": local_shape_index,
-		}
-	if bundle not in floor_shapes:
-		floor_shapes.append(bundle)
-	pass # Replace with function body.
+	super._on_floor_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 
 
 func _on_floor_detection_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
-	return
-	var bundle
-	if body.is_class("TileMap"):
-		bundle = {
-			"body": body,
-			"coordinates": body.get_coords_for_body_rid(body_rid),
-			"body_shape_index": body_shape_index,
-			"local_shape_index": local_shape_index,
-		}
-	else:
-		bundle = {
-			"body": body,
-			"body_rid": body_rid,
-			"body_shape_index": body_shape_index,
-			"local_shape_index": local_shape_index,
-		}
-	if bundle in floor_shapes:
-		floor_shapes.erase(bundle)
-	pass # Replace with function body.
+	super._on_floor_detection_body_shape_exited(body_rid, body, body_shape_index, local_shape_index)

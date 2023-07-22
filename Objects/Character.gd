@@ -12,11 +12,13 @@ const dir_strings = Directions.dir_strings
 @export var node_hurtbox:NodePath
 @export var node_model:NodePath
 @export var node_shadow:NodePath
+@export var node_floor_detection:NodePath
 
 # Required Nodes
 var hurtbox:Area2D
 var model:AnimatedSprite2D
 var shadow:Sprite2D
+var floor_detection:Area2D
 
 # Identification
 @export var uid:int = -1
@@ -221,19 +223,27 @@ func moving():
 
 func _update_sprite():
 	var new_anim = ""
+	var facing_dir = dir_strings[facing]
 	if vertical_velocity > 0:
-		new_anim = "Ascend" + dir_strings[facing]
+		new_anim = "Ascend"
 	elif vertical_velocity < 0:
-		new_anim = "Descend" + dir_strings[facing]
+		new_anim = "Descend"
 	else:
 		if moving():
-			new_anim = "Run" + dir_strings[facing]
+			new_anim = "Run"
 		else:
-			new_anim = "Look" + dir_strings[facing]
+			new_anim = "Look"
 	if new_anim != model.animation:
-		#print("'" + model.animation + "' is not '" + new_anim + "'")
-		#print("New Animation!")
-		model.play(new_anim)
+		# Add facing
+		new_anim += facing_dir
+		
+		# If this animation doesn't exist, use the Look animation instead
+		if !model.sprite_frames.has_animation(new_anim):
+			print("Animation '" + new_anim + "' doesn't exist for object '" + name)
+			new_anim = "Look" + facing_dir
+		
+		if model.sprite_frames.has_animation(new_anim):
+			model.play(new_anim)
 
 
 func set_loaded(new_val):
@@ -312,3 +322,46 @@ func collides_with_tile(data:TileData, coordinate:Vector2i, tilemap:TileMap):
 
 func is_grounded():
 	return altitude <= floor_height
+	
+
+func _on_floor_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	var bundle
+	if body.is_class("TileMap"):
+		bundle = {
+			"body": body,
+			"coordinates": body.get_coords_for_body_rid(body_rid),
+			"body_shape_index": body_shape_index,
+			"local_shape_index": local_shape_index,
+		}
+	else:
+		bundle = {
+			"body": body,
+			"body_rid": body_rid,
+			"body_shape_index": body_shape_index,
+			"local_shape_index": local_shape_index,
+		}
+	if bundle not in floor_shapes:
+		floor_shapes.append(bundle)
+	pass # Replace with function body.
+
+
+func _on_floor_detection_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
+	return
+	var bundle
+	if body.is_class("TileMap"):
+		bundle = {
+			"body": body,
+			"coordinates": body.get_coords_for_body_rid(body_rid),
+			"body_shape_index": body_shape_index,
+			"local_shape_index": local_shape_index,
+		}
+	else:
+		bundle = {
+			"body": body,
+			"body_rid": body_rid,
+			"body_shape_index": body_shape_index,
+			"local_shape_index": local_shape_index,
+		}
+	if bundle in floor_shapes:
+		floor_shapes.erase(bundle)
+	pass # Replace with function body.
