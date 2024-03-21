@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn1lalxsh73v0"
-path="res://.godot/imported/WatsonDown.png-9f6cfd2c7150f19e8bb7b86179ecf45c.ctex"
+uid="uid://cmvdbje41aloy"
+path.s3tc="res://.godot/imported/Watson3DDown.png-b8bc04ea3746b23d11b09aa1cdbb0a27.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Sprite/Watson/WatsonDown.png"
-dest_files=["res://.godot/imported/WatsonDown.png-9f6cfd2c7150f19e8bb7b86179ecf45c.ctex"]
+source_file="res://Sprite/Watson3D/Watson3DDown.png"
+dest_files=["res://.godot/imported/Watson3DDown.png-b8bc04ea3746b23d11b09aa1cdbb0a27.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

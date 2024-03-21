@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://c22cnpc2x66s2"]
+
+[ext_resource type="Script" path="res://3D Test/Objects/Player.gd" id="1_aon0j"]
+[ext_resource type="Texture2D" uid="uid://bn1lalxsh73v0" path="res://Sprite/Watson/WatsonDown.png" id="1_yfh4m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c1ywk"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0iy60"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5svd"]
+size = Vector3(1.6, 1.6, 1.6)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596466, -0.928831, -0.021534)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_c1ywk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_0iy60")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -0.00149035, 10.3531, 14.6448)
+projection = 1
+size = 21.6
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.289349, 3.83367, -8.74837)
+pixel_size = 0.1
+text = "Hi"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 26, 0)
+shadow_enabled = true
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("1_aon0j")
+
+[node name="Node3D" type="Node3D" parent="Player"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_n5svd")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.3, 0)
+cast_shadow = 0
+gi_mode = 0
+pixel_size = 0.1
+texture_filter = 0
+texture = ExtResource("1_yfh4m")
