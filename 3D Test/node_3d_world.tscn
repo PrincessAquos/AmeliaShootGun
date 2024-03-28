@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://dsnjp2v5gh2s6"]
+
+[ext_resource type="Texture2D" uid="uid://dwm8sv2ykfsik" path="res://3D Test/Graphics/Textures/FloorTileTest.png" id="1_gjdth"]
+[ext_resource type="Script" path="res://3D Test/Objects/Player.gd" id="2_5ddu5"]
+[ext_resource type="Texture2D" uid="uid://bn1lalxsh73v0" path="res://Sprite/Watson/WatsonDown.png" id="3_3sfel"]
+[ext_resource type="MeshLibrary" uid="uid://c7ajx5xunb4lj" path="res://3D Test/MeshTiles/MeshLibraryTest/MeshLibrary.tres" id="4_2q3vn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c1ywk"]
+size = Vector3(16, 1, 13.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0iy60"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njayd"]
+albedo_texture = ExtResource("1_gjdth")
+uv1_scale = Vector3(16, 13.5, 16)
+uv1_offset = Vector3(0, 0.25, 0)
+texture_filter = 0
+point_size = 55.8
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1svn4"]
+material = SubResource("StandardMaterial3D_njayd")
+size = Vector2(16, 13.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5svd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjrbw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0fbjt"]
+material = SubResource("StandardMaterial3D_wjrbw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h4iqs"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.500076, 0.500076, 0, -0.500076, 0.500076, 0, 14.868, 17.132)
+shadow_enabled = true
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_c1ywk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+visible = false
+mesh = SubResource("BoxMesh_0iy60")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_1svn4")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.289349, 3.83367, -8.74837)
+visible = false
+pixel_size = 0.1
+text = "Hi"
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("2_5ddu5")
+
+[node name="Node3D" type="Node3D" parent="Player"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_n5svd")
+
+[node name="Sprite3D" type="Sprite3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.5)
+cast_shadow = 0
+gi_mode = 0
+pixel_size = 0.0625
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("3_3sfel")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_0fbjt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_h4iqs")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_2q3vn")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65528, 65530, 655360, 65529, 65530, 655360, 65530, 65530, 655360, 65531, 65530, 655360, 65532, 65530, 655360, 65533, 65530, 655360, 65534, 65530, 655360, 65535, 65530, 655360, 0, 65530, 655360, 1, 65530, 655360, 2, 65530, 655360, 3, 65530, 655360, 4, 65530, 655360, 5, 65530, 655360, 6, 65530, 655360, 7, 65530, 655360, 7, 65531, 655360, 7, 65532, 655360, 7, 65533, 655360, 7, 65535, 655360, 7, 0, 655360, 7, 65534, 655360, 7, 1, 655360, 7, 2, 655360, 7, 3, 655360, 7, 4, 655360, 7, 5, 655360, 7, 6, 655360, 65528, 65531, 655360, 65528, 65532, 655360, 65528, 65535, 655360, 65528, 0, 655360, 65528, 1, 655360, 65528, 2, 655360, 65528, 3, 655360, 65528, 4, 655360, 65528, 5, 655360, 65528, 6, 655360, 65528, 65533, 655360, 65528, 65534, 655360, 65529, 6, 655360, 65530, 6, 655360, 65531, 6, 655360, 65532, 6, 655360, 65533, 6, 655360, 65534, 6, 655360, 65535, 6, 655360, 0, 6, 655360, 1, 6, 655360, 2, 6, 655360, 3, 6, 655360, 4, 6, 655360, 5, 6, 655360, 6, 6, 655360)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
