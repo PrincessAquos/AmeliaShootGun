@@ -14,3 +14,4 @@ dest_files=["res://.godot/imported/GeorgiaItalic20px.fnt-e74b3a4b2bdaef7376c0152
 
 fallbacks=[]
 compress=true
+scaling_mode=2
